@@ -2,9 +2,9 @@
 title: API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
+  - php : PHP
+  - handlebars : Twig
+  - html : HTML
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -12,6 +12,11 @@ toc_footers:
 
 includes:
   - errors
+  - TimberMenuItem
+  - TimberPost
+  - TimberSite
+  - TimberTerm
+  - TimberTheme
 
 search: true
 ---
@@ -50,7 +55,7 @@ curl "api_endpoint_here"
 
 Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following: [[Thing]]
 
 `Authorization: meowmeowmeow`
 

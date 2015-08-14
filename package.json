@@ -1,0 +1,9 @@
+{
+  "name": "timber-slate",
+  "version": "0.21.8",
+  "repository": "http://github.com/jarednova/slate",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-text-replace": "^0.4.0"
+  }
+}
