@@ -6,8 +6,14 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+charset | string | 
+[link](#link) | string | 
+multisite | bool | 
+theme | [TimberTheme](#TimberTheme) | 
+title | string | 
+[url](#url) | string | 
 ## __construct
-`__construct( mixed/string/int $site_name_or_id=null)`
+`__construct( mixed/string/int $site_name_or_id=null )`
 
 **returns:** `void`
 
@@ -19,7 +25,7 @@ $site_name_or_id | mixed/string/int |
 
 
 ## __get
-`__get( mixed $field)`
+`__get( mixed $field )`
 
 **returns:** `mixed`
 
@@ -30,24 +36,8 @@ Name | Type | Description
 $field | mixed | 
 
 
-## get_link
-`get_link()`
-
-**returns:** `string`
-
-
-
-
-## get_url
-`get_url()`
-
-**returns:** `string`
-
-
-
-
 ## link
-`link()`
+`link( )`
 
 **returns:** `string`
 
@@ -55,7 +45,7 @@ $field | mixed |
 
 
 ## meta
-`meta( mixed $field)`
+`meta( mixed $field )`
 
 **returns:** `void`
 
@@ -67,7 +57,7 @@ $field | mixed |
 
 
 ## update
-`update( mixed $key, mixed $value)`
+`update( mixed $key, mixed $value )`
 
 **returns:** `void`
 
@@ -80,31 +70,11 @@ $value | mixed |
 
 
 ## url
-`url()`
+`url( )`
 
 **returns:** `string`
 
 
-
-
-## init
-`init()`
-
-**returns:** `void`
-
-
-
-
-## init_with_multisite
-`init_with_multisite( string/int $site_name_or_id)`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$site_name_or_id | string/int | 
 
 
 

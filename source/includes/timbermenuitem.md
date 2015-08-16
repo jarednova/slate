@@ -7,12 +7,12 @@
 Name | Type | Description
 ---- | ---- | -----------
 [children](#children) | array/bool | Get the child [TimberMenuItems](#TimberMenuItem)s of a [TimberMenuItem](#TimberMenuItem)
-[is_external](#is_external) | bool | Checks to see if a link is external, helpful when creating rules for the target of a link
+[is_external](#is_external) | bool | Checks to see if the menu item is an external link so if my site is `example.org`, `google.com/whatever` is an external link. Helpful when creating rules for the target of a link
 [link](#link) | string a full URL like http://mysite.com/thing/ | Get the full link to a Menu Item
 [name](#name) | string | The label for the menu item
-[slug](#slug) | string | The slug for the menu item
+[slug](#slug) | string the slug of the menu item kinda-like-this | The slug for the menu item
 ## __construct
-`__construct( array/object $data)`
+`__construct( array/object $data )`
 
 **returns:** `void`
 
@@ -24,15 +24,15 @@ $data | array/object |
 
 
 ## __toString
-`__toString()`
+`__toString( )`
 
-**returns:** `void`
+**returns:** `string the label for the menu item`
 
 
 
 
 ## add_child
-`add_child( \TimberMenuItem $item)`
+`add_child( \TimberMenuItem $item )`
 
 **returns:** `void`
 
@@ -44,11 +44,11 @@ $item | \TimberMenuItem |
 
 
 ## add_class
-`add_class( mixed $class_name)`
+`add_class( mixed $class_name )`
 
 **returns:** `void`
 
-
+add a class the menu item should have
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -56,7 +56,7 @@ $class_name | mixed |
 
 
 ## children
-`children()`
+`children( )`
 
 **returns:** `array/bool`
 
@@ -64,7 +64,7 @@ Get the child [TimberMenuItems](#TimberMenuItem)s of a [TimberMenuItem](#TimberM
 
 
 ## external
-`external()`
+`external( )`
 
 **returns:** `bool`
 
@@ -72,17 +72,17 @@ Checks to see if a link is external, helpful when creating rules for the target 
 
 
 ## is_external
-`is_external()`
+`is_external( )`
 
 **returns:** `bool`
 
-Checks to see if a link is external, helpful when creating rules for the target of a link
+Checks to see if the menu item is an external link so if my site is `example.org`, `google.com/whatever` is an external link. Helpful when creating rules for the target of a link
 
 ```handlebars
-	
+	<a href="{{ item.link }}" target="{{ item.is_external ? '_blank' : '_self' }}">
 ```
 ## link
-`link()`
+`link( )`
 
 **returns:** `string a full URL like http://mysite.com/thing/`
 
@@ -94,7 +94,7 @@ Get the full link to a Menu Item
 	{% endfor %}
 ```
 ## meta
-`meta( \unknown $key)`
+`meta( string $key )`
 
 **returns:** `mixed whatever value is storied in the database`
 
@@ -102,11 +102,11 @@ Get the full link to a Menu Item
 
 Name | Type | Description
 ---- | ---- | -----------
-$key | \unknown | string lookup key
+$key | string | lookup key
 
 
 ## name
-`name()`
+`name( )`
 
 **returns:** `string`
 
@@ -114,7 +114,7 @@ The label for the menu item
 
 
 ## path
-`path()`
+`path( )`
 
 **returns:** `string the path of a URL like /foo`
 
@@ -126,9 +126,9 @@ Return the relative path of a Menu Item's link
 	{% endfor %}
 ```
 ## slug
-`slug()`
+`slug( )`
 
-**returns:** `string`
+**returns:** `string the slug of the menu item kinda-like-this`
 
 The slug for the menu item
 
@@ -141,7 +141,7 @@ The slug for the menu item
 	    {% endfor %}
 	</ul>
 ## title
-`title()`
+`title( )`
 
 **returns:** `string the public label like Foo`
 

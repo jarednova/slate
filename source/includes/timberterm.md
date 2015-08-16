@@ -7,7 +7,7 @@
 Name | Type | Description
 ---- | ---- | -----------
 ## __construct
-`__construct( mixed/int $tid=null, string $tax=`""`)`
+`__construct( mixed/int $tid=null, string $tax=`""` )`
 
 **returns:** `void`
 
@@ -20,7 +20,7 @@ $tax | string |
 
 
 ## __toString
-`__toString()`
+`__toString( )`
 
 **returns:** `string`
 
@@ -28,7 +28,7 @@ $tax | string |
 
 
 ## children
-`children()`
+`children( )`
 
 **returns:** `array`
 
@@ -36,7 +36,7 @@ $tax | string |
 
 
 ## edit_link
-`edit_link()`
+`edit_link( )`
 
 **returns:** `string`
 
@@ -44,7 +44,7 @@ $tax | string |
 
 
 ## get_edit_url
-`get_edit_url()`
+`get_edit_url( )`
 
 **returns:** `string`
 
@@ -52,7 +52,7 @@ $tax | string |
 
 
 ## get_meta_field
-`get_meta_field( string $field_name)`
+`get_meta_field( string $field_name )`
 
 **returns:** `string`
 
@@ -64,7 +64,7 @@ $field_name | string |
 
 
 ## get_page
-`get_page( int $i)`
+`get_page( int $i )`
 
 **returns:** `string`
 
@@ -76,7 +76,7 @@ $i | int |
 
 
 ## get_posts
-`get_posts( mixed/int $numberposts=10, string $post_type=`"any"`, string $PostClass=`""`)`
+`get_posts( mixed/int $numberposts=10, string $post_type=`"any"`, string $PostClass=`""` )`
 
 **returns:** `array/bool/null`
 
@@ -90,7 +90,7 @@ $PostClass | string |
 
 
 ## get_url
-`get_url()`
+`get_url( )`
 
 **returns:** `string`
 
@@ -98,7 +98,7 @@ $PostClass | string |
 
 
 ## link
-`link()`
+`link( )`
 
 **returns:** `string`
 
@@ -106,7 +106,7 @@ $PostClass | string |
 
 
 ## meta
-`meta( string $field_name)`
+`meta( string $field_name )`
 
 **returns:** `string`
 
@@ -118,7 +118,7 @@ $field_name | string |
 
 
 ## path
-`path()`
+`path( )`
 
 **returns:** `string`
 
@@ -126,7 +126,7 @@ $field_name | string |
 
 
 ## posts
-`posts( mixed/int $numberposts_or_args=10, string $post_type_or_class=`"any"`, string $post_class=`""`)`
+`posts( mixed/int $numberposts_or_args=10, string $post_type_or_class=`"any"`, string $post_class=`""` )`
 
 **returns:** `array/bool/null`
 
@@ -140,7 +140,7 @@ $post_class | string |
 
 
 ## title
-`title()`
+`title( )`
 
 **returns:** `string`
 
@@ -148,7 +148,7 @@ $post_class | string |
 
 
 ## update
-`update( mixed $key, mixed $value)`
+`update( mixed $key, mixed $value )`
 
 **returns:** `void`
 
@@ -161,7 +161,7 @@ $value | mixed |
 
 
 ## url
-`url()`
+`url( )`
 
 **returns:** `string`
 
@@ -169,7 +169,7 @@ $value | mixed |
 
 
 ## get_term_from_query
-`get_term_from_query()`
+`get_term_from_query( )`
 
 **returns:** `\integer`
 
@@ -177,7 +177,7 @@ $value | mixed |
 
 
 ## get_tid
-`get_tid( int $tid)`
+`get_tid( int $tid )`
 
 **returns:** `int`
 
@@ -189,7 +189,7 @@ $tid | int |
 
 
 ## init
-`init( int $tid)`
+`init( int $tid )`
 
 **returns:** `void`
 

@@ -6,45 +6,9 @@
 
 Name | Type | Description
 ---- | ---- | -----------
-## _is_transient_locked
-`_is_transient_locked( string $slug)`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$slug | string | 
-
-
-## _lock_transient
-`_lock_transient( string $slug, \integer $lock_timeout)`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$slug | string | 
-$lock_timeout | \integer | 
-
-
-## _unlock_transient
-`_unlock_transient( string $slug)`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$slug | string | 
-
-
+[transient](#transient) | mixed | A utility for a one-stop shop for Transients
 ## array_to_object
-`array_to_object( mixed $array)`
+`array_to_object( mixed $array )`
 
 **returns:** `\stdClass`
 
@@ -56,7 +20,7 @@ $array | mixed |
 
 
 ## array_truncate
-`array_truncate( mixed $array, mixed $len)`
+`array_truncate( mixed $array, mixed $len )`
 
 **returns:** `array`
 
@@ -69,7 +33,7 @@ $len | mixed |
 
 
 ## close_tags
-`close_tags( mixed $html)`
+`close_tags( mixed $html )`
 
 **returns:** `string`
 
@@ -81,7 +45,7 @@ $html | mixed |
 
 
 ## download_url
-`download_url( mixed $url, mixed $timeout=300)`
+`download_url( mixed $url, mixed $timeout=300 )`
 
 **returns:** `void`
 
@@ -94,7 +58,7 @@ $timeout | mixed |
 
 
 ## error_log
-`error_log( mixed $arg)`
+`error_log( mixed $arg )`
 
 **returns:** `void`
 
@@ -106,7 +70,7 @@ $arg | mixed | that you want to error_log
 
 
 ## function_wrapper
-`function_wrapper( mixed $function_name, array $defaults=array(), bool $return_output_buffer=false)`
+`function_wrapper( mixed $function_name, array $defaults=array(), bool $return_output_buffer=false )`
 
 **returns:** `\TimberFunctionWrapper`
 
@@ -120,11 +84,11 @@ $return_output_buffer | bool |
 
 
 ## get_comment_form
-`get_comment_form( mixed $post_id=null, array $args=array())`
+`get_comment_form( mixed $post_id=null, array $args=array() )`
 
 **returns:** `string`
 
-
+Gets the comment form for use on a single article page
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -133,7 +97,7 @@ $args | array |
 
 
 ## get_current_url
-`get_current_url()`
+`get_current_url( )`
 
 **returns:** `mixed`
 
@@ -141,7 +105,7 @@ $args | array |
 
 
 ## get_full_path
-`get_full_path( mixed $src)`
+`get_full_path( mixed $src )`
 
 **returns:** `mixed`
 
@@ -153,7 +117,7 @@ $src | mixed |
 
 
 ## get_image_path
-`get_image_path( mixed $iid)`
+`get_image_path( mixed $iid )`
 
 **returns:** `mixed`
 
@@ -165,7 +129,7 @@ $iid | mixed |
 
 
 ## get_object_by_property
-`get_object_by_property( mixed $array, mixed $key, mixed $value)`
+`get_object_by_property( mixed $array, mixed $key, mixed $value )`
 
 **returns:** `array/null`
 
@@ -179,7 +143,7 @@ $value | mixed |
 
 
 ## get_object_index_by_property
-`get_object_index_by_property( mixed $array, mixed $key, mixed $value)`
+`get_object_index_by_property( mixed $array, mixed $key, mixed $value )`
 
 **returns:** `bool/int`
 
@@ -193,7 +157,7 @@ $value | mixed |
 
 
 ## get_params
-`get_params( mixed $i=-1)`
+`get_params( mixed $i=-1 )`
 
 **returns:** `mixed`
 
@@ -205,7 +169,7 @@ $i | mixed |
 
 
 ## get_path_base
-`get_path_base()`
+`get_path_base( )`
 
 **returns:** `mixed`
 
@@ -213,7 +177,7 @@ $i | mixed |
 
 
 ## get_post_by_meta
-`get_post_by_meta( mixed $key, mixed $value)`
+`get_post_by_meta( mixed $key, mixed $value )`
 
 **returns:** `int`
 
@@ -226,7 +190,7 @@ $value | mixed |
 
 
 ## get_posts_by_meta
-`get_posts_by_meta( mixed $key, mixed $value)`
+`get_posts_by_meta( mixed $key, mixed $value )`
 
 **returns:** `array/int`
 
@@ -239,7 +203,7 @@ $value | mixed |
 
 
 ## get_rel_path
-`get_rel_path( mixed $src)`
+`get_rel_path( mixed $src )`
 
 **returns:** `mixed`
 
@@ -251,7 +215,7 @@ $src | mixed |
 
 
 ## get_rel_url
-`get_rel_url( mixed $url, bool $force=false)`
+`get_rel_url( mixed $url, bool $force=false )`
 
 **returns:** `mixed`
 
@@ -264,7 +228,7 @@ $force | bool |
 
 
 ## get_term_id_by_term_taxonomy_id
-`get_term_id_by_term_taxonomy_id( mixed $ttid)`
+`get_term_id_by_term_taxonomy_id( mixed $ttid )`
 
 **returns:** `mixed`
 
@@ -276,7 +240,7 @@ $ttid | mixed |
 
 
 ## get_wp_title
-`get_wp_title( string $separator=`" "`, string $seplocation=`"left"`)`
+`get_wp_title( string $separator=`" "`, string $seplocation=`"left"` )`
 
 **returns:** `string`
 
@@ -289,7 +253,7 @@ $seplocation | string |
 
 
 ## is_array_assoc
-`is_array_assoc( mixed $arr)`
+`is_array_assoc( mixed $arr )`
 
 **returns:** `bool`
 
@@ -301,7 +265,7 @@ $arr | mixed |
 
 
 ## is_external
-`is_external( mixed $url)`
+`is_external( mixed $url )`
 
 **returns:** `bool`
 
@@ -313,7 +277,7 @@ $url | mixed |
 
 
 ## is_local
-`is_local( mixed $url)`
+`is_local( mixed $url )`
 
 **returns:** `bool`
 
@@ -325,7 +289,7 @@ $url | mixed |
 
 
 ## is_true
-`is_true( mixed $value)`
+`is_true( mixed $value )`
 
 **returns:** `bool`
 
@@ -337,7 +301,7 @@ $value | mixed |
 
 
 ## is_url
-`is_url( mixed $url)`
+`is_url( mixed $url )`
 
 **returns:** `bool`
 
@@ -349,7 +313,7 @@ $url | mixed |
 
 
 ## iseven
-`iseven( mixed $i)`
+`iseven( mixed $i )`
 
 **returns:** `bool`
 
@@ -361,7 +325,7 @@ $i | mixed |
 
 
 ## isodd
-`isodd( mixed $i)`
+`isodd( mixed $i )`
 
 **returns:** `bool`
 
@@ -373,7 +337,7 @@ $i | mixed |
 
 
 ## ob_function
-`ob_function( \callback $function, array $args=array())`
+`ob_function( \callback $function, array $args=array() )`
 
 **returns:** `string`
 
@@ -386,7 +350,7 @@ $args | array |
 
 
 ## osort
-`osort( mixed $array, mixed $prop)`
+`osort( mixed $array, mixed $prop )`
 
 **returns:** `void`
 
@@ -399,7 +363,7 @@ $prop | mixed |
 
 
 ## paginate_links
-`paginate_links( string $args=`""`)`
+`paginate_links( string $args=`""` )`
 
 **returns:** `array`
 
@@ -411,7 +375,7 @@ $args | string |
 
 
 ## prepend_to_url
-`prepend_to_url( mixed $url, mixed $path)`
+`prepend_to_url( mixed $url, mixed $path )`
 
 **returns:** `void`
 
@@ -424,7 +388,7 @@ $path | mixed |
 
 
 ## preslashit
-`preslashit( mixed $path)`
+`preslashit( mixed $path )`
 
 **returns:** `void`
 
@@ -436,7 +400,7 @@ $path | mixed |
 
 
 ## remove_double_slashes
-`remove_double_slashes( mixed $url)`
+`remove_double_slashes( mixed $url )`
 
 **returns:** `void`
 
@@ -448,7 +412,7 @@ $url | mixed |
 
 
 ## start_timer
-`start_timer()`
+`start_timer( )`
 
 **returns:** `\float`
 
@@ -456,7 +420,7 @@ $url | mixed |
 
 
 ## stop_timer
-`stop_timer( mixed $start)`
+`stop_timer( mixed $start )`
 
 **returns:** `string`
 
@@ -468,23 +432,30 @@ $start | mixed |
 
 
 ## transient
-`transient( mixed $slug, \callable $callback, mixed $transient_time, mixed $lock_timeout=5, bool $force=false)`
+`transient( mixed $slug, \callable $callback, mixed $transient_time, mixed $lock_timeout=5, bool $force=false )`
 
 **returns:** `mixed`
 
-
+A utility for a one-stop shop for Transients
 
 Name | Type | Description
 ---- | ---- | -----------
 $slug | mixed | 
-$callback | \callable |       Callback that generates the data that's to be cached
+$callback | \callable |      Callback that generates the data that's to be cached
 $transient_time | mixed | 
 $lock_timeout | mixed | 
 $force | bool | 
 
-
+```php
+	$favorites = Timber::transient('user-'.$uid.'-favorites', function() use ($uid) {
+	 	//some expensive query here that's doing something you want to store to a transient
+	 	return $favorites;
+	}, 600);
+	Timber::context['favorites'] = $favorites;
+	Timber::render('single.twig', $context);
+```
 ## trim_words
-`trim_words( mixed $text, mixed $num_words=55, mixed $more=null, string $allowed_tags=`"p a span b i br"`)`
+`trim_words( mixed $text, mixed $num_words=55, mixed $more=null, string $allowed_tags=`"p a span b i br"` )`
 
 **returns:** `string`
 
@@ -499,7 +470,7 @@ $allowed_tags | string |
 
 
 ## twitterify
-`twitterify( mixed $ret)`
+`twitterify( mixed $ret )`
 
 **returns:** `string`
 

@@ -30,7 +30,7 @@ slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named
 [thumbnail](#thumbnail) | \TimberImage/null of your thumbnail | get the featured image as a TimberImage
 [title](#title) | string | Returns the processed title to be used in templates. This returns the title of the post after WP's filters have run. This is analogous to `the_title()` in standard WP template tags.
 ## __construct
-`__construct( mixed $pid=null)`
+`__construct( mixed $pid=null )`
 
 **returns:** `void`
 
@@ -45,7 +45,7 @@ $pid | mixed |
 	$other_post = new TimberPost($random_post_id);
 ```
 ## __toString
-`__toString()`
+`__toString( )`
 
 **returns:** `string`
 
@@ -53,7 +53,7 @@ Outputs the title of the post if you do something like `<h1>{{post}}</h1>`
 
 
 ## author
-`author()`
+`author( )`
 
 **returns:** `\TimberUser/bool A TimberUser object if found, false if not`
 
@@ -66,7 +66,7 @@ Return the author of a post
 	</p>
 ```
 ## categories
-`categories()`
+`categories( )`
 
 **returns:** `array of TimberTerms`
 
@@ -74,7 +74,7 @@ Get the categoires on a particular post
 
 
 ## category
-`category()`
+`category( )`
 
 **returns:** `\TimberTerm/null`
 
@@ -82,7 +82,7 @@ Returns a category attached to a post
 
 
 ## children
-`children( string $post_type=`"any"`, bool/string/bool $childPostClass=false)`
+`children( string $post_type=`"any"`, bool/string/bool $childPostClass=false )`
 
 **returns:** `array`
 
@@ -102,7 +102,7 @@ $childPostClass | bool/string/bool | _optional_ a custom post class (ex: 'MyTimb
 	{% endif %}
 ```
 ## comments
-`comments( int $count, string $order=`"wp"`, string $type=`"comment"`, string $status=`"approve"`, string $CommentClass=`"TimberComment"`)`
+`comments( int $count, string $order=`"wp"`, string $type=`"comment"`, string $status=`"approve"`, string $CommentClass=`"TimberComment"` )`
 
 **returns:** `bool/array`
 
@@ -111,7 +111,7 @@ Gets the comments on a TimberPost and returns them as an array of [TimberComment
 Name | Type | Description
 ---- | ---- | -----------
 $count | int | Set the number of comments you want to get. `0` is analogous to "all"
-$order | string | use WordPress ordering or a different scheme
+$order | string | use ordering set in WordPress admin, or a different scheme
 $type | string | For when other plugins use the comments table for their own special purposes, might be set to 'liveblog' or other depending on what's stored in yr comments table
 $status | string | Could be 'pending', etc.
 $CommentClass | string | What class to use when returning Comment objects. As you become a Timber pro, you might find yourself extending TimberComment for your site or app (obviously, totally optional)
@@ -127,7 +127,7 @@ $CommentClass | string | What class to use when returning Comment objects. As yo
 	{% endfor %}
 ```
 ## content
-`content( int $page)`
+`content( int $page )`
 
 **returns:** `string`
 
@@ -144,7 +144,7 @@ $page | int |
 	</div>
 ```
 ## date
-`date( string $date_format=`""`)`
+`date( string $date_format=`""` )`
 
 **returns:** `string`
 
@@ -165,7 +165,7 @@ $date_format | string |
 	Published on Jan 12th
 ```
 ## edit_link
-`edit_link()`
+`edit_link( )`
 
 **returns:** `bool/string`
 
@@ -173,7 +173,7 @@ $date_format | string |
 
 
 ## format
-`format()`
+`format( )`
 
 **returns:** `mixed`
 
@@ -181,7 +181,7 @@ $date_format | string |
 
 
 ## get_comment_count
-`get_comment_count()`
+`get_comment_count( )`
 
 **returns:** `int`
 
@@ -189,7 +189,7 @@ $date_format | string |
 
 
 ## get_content
-`get_content( int $len, int $page)`
+`get_content( int $len, int $page )`
 
 **returns:** `string`
 
@@ -207,7 +207,7 @@ $page | int |
 	<div class="article-text"><p>Blah blah blah</p><p>More blah blah blah.</p></div>
 ```
 ## get_display_date
-`get_display_date( string $use=`"post_date"`)`
+`get_display_date( string $use=`"post_date"` )`
 
 **returns:** `string`
 
@@ -219,7 +219,7 @@ $use | string |
 
 
 ## get_field
-`get_field( string $field_name)`
+`get_field( string $field_name )`
 
 **returns:** `mixed`
 
@@ -231,7 +231,7 @@ $field_name | string |
 
 
 ## get_image
-`get_image( string $field)`
+`get_image( string $field )`
 
 **returns:** `\TimberImage`
 
@@ -243,7 +243,7 @@ $field | string |
 
 
 ## get_method_values
-`get_method_values()`
+`get_method_values( )`
 
 **returns:** `array`
 
@@ -251,7 +251,7 @@ $field | string |
 
 
 ## get_paged_content
-`get_paged_content()`
+`get_paged_content( )`
 
 **returns:** `string`
 
@@ -259,7 +259,7 @@ $field | string |
 
 
 ## get_pagination
-`get_pagination()`
+`get_pagination( )`
 
 **returns:** `array`
 
@@ -267,7 +267,7 @@ Get a data array of pagination so you can navigate to the previous/next for a pa
 
 
 ## get_post_type
-`get_post_type()`
+`get_post_type( )`
 
 **returns:** `mixed`
 
@@ -280,7 +280,7 @@ Here is my summary
 	This post is from <span>Recipes</span>
 ```
 ## get_preview
-`get_preview( mixed/int $len=50, bool $force=false, string $readmore=`"Read More"`, bool $strip=true)`
+`get_preview( mixed/int $len=50, bool $force=false, string $readmore=`"Read More"`, bool $strip=true )`
 
 **returns:** `string of the post preview`
 
@@ -297,7 +297,7 @@ $strip | bool | Strip tags? yes or no. tell me!
 	<p>{{post.get_preview(50)}}</p>
 ```
 ## has_term
-`has_term( string/int $term_name_or_id, string $taxonomy=`"all"`)`
+`has_term( string/int $term_name_or_id, string $taxonomy=`"all"` )`
 
 **returns:** `bool`
 
@@ -310,7 +310,7 @@ $taxonomy | string |
 
 
 ## import_field
-`import_field( string $field_name)`
+`import_field( string $field_name )`
 
 **returns:** `void`
 
@@ -322,7 +322,7 @@ $field_name | string |
 
 
 ## link
-`link()`
+`link( )`
 
 **returns:** `string ex: http://example.org/2015/07/my-awesome-post`
 
@@ -332,7 +332,7 @@ get the permalink for a post object
 	<a href="{{post.link}}">Read my post</a>
 ```
 ## meta
-`meta( mixed/string $field_name=null)`
+`meta( mixed/string $field_name=null )`
 
 **returns:** `mixed`
 
@@ -344,7 +344,7 @@ $field_name | mixed/string |
 
 
 ## modified_author
-`modified_author()`
+`modified_author( )`
 
 **returns:** `\TimberUser/bool A TimberUser object if found, false if not`
 
@@ -357,7 +357,7 @@ Get the author (WordPress user) who last modified the post
 	Last updated by Harper Lee
 ```
 ## modified_date
-`modified_date( string $date_format=`""`)`
+`modified_date( string $date_format=`""` )`
 
 **returns:** `string`
 
@@ -369,7 +369,7 @@ $date_format | string |
 
 
 ## modified_time
-`modified_time( string $time_format=`""`)`
+`modified_time( string $time_format=`""` )`
 
 **returns:** `string`
 
@@ -381,7 +381,7 @@ $time_format | string |
 
 
 ## name
-`name()`
+`name( )`
 
 **returns:** `string`
 
@@ -389,7 +389,7 @@ $time_format | string |
 
 
 ## next
-`next( bool $in_same_cat=false)`
+`next( bool $in_same_cat=false )`
 
 **returns:** `mixed`
 
@@ -401,7 +401,7 @@ $in_same_cat | bool |
 
 
 ## paged_content
-`paged_content()`
+`paged_content( )`
 
 **returns:** `string`
 
@@ -409,7 +409,7 @@ $in_same_cat | bool |
 
 
 ## pagination
-`pagination()`
+`pagination( )`
 
 **returns:** `array`
 
@@ -417,7 +417,7 @@ $in_same_cat | bool |
 
 
 ## parent
-`parent()`
+`parent( )`
 
 **returns:** `bool/\TimberPost`
 
@@ -427,7 +427,7 @@ Gets the parent (if one exists) from a post as a TimberPost object (or whatever 
 	Parent page: <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
 ```
 ## path
-`path()`
+`path( )`
 
 **returns:** `string`
 
@@ -437,7 +437,7 @@ Gets the relative path of a WP Post, so while link() will return http://example.
 	<a href="{{post.path}}">{{post.title}}</a>
 ```
 ## permalink
-`permalink()`
+`permalink( )`
 
 **returns:** `string`
 
@@ -445,7 +445,7 @@ Gets the relative path of a WP Post, so while link() will return http://example.
 
 
 ## prev
-`prev( bool $in_same_cat=false)`
+`prev( bool $in_same_cat=false )`
 
 **returns:** `mixed`
 
@@ -461,7 +461,7 @@ $in_same_cat | bool |
 	<p>{{post.prev.get_preview(25)}}</p>
 ```
 ## tags
-`tags()`
+`tags( )`
 
 **returns:** `array`
 
@@ -469,7 +469,7 @@ Gets the tags on a post, uses WP's post_tag taxonomy
 
 
 ## terms
-`terms( string $tax=`""`, bool $merge=true)`
+`terms( string $tax=`""`, bool $merge=true )`
 
 **returns:** `array`
 
@@ -482,7 +482,7 @@ $merge | bool | Should the resulting array be one big one (true)? Or should it b
 
 
 ## thumbnail
-`thumbnail()`
+`thumbnail( )`
 
 **returns:** `\TimberImage/null of your thumbnail`
 
@@ -492,7 +492,7 @@ get the featured image as a TimberImage
 	<img src="{{post.thumbnail.src}}" />
 ```
 ## title
-`title()`
+`title( )`
 
 **returns:** `string`
 
@@ -502,7 +502,7 @@ Returns the processed title to be used in templates. This returns the title of t
 	<h1>{{ post.title }}</h1>
 ```
 ## update
-`update( string $field, mixed $value)`
+`update( string $field, mixed $value )`
 
 **returns:** `void`
 
@@ -515,7 +515,7 @@ $value | mixed |
 
 
 ## get_wp_link_page
-`get_wp_link_page( int $i)`
+`get_wp_link_page( int $i )`
 
 **returns:** `string`
 
