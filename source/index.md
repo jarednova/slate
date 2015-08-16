@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Timber Object Reference
 
 language_tabs:
   - php : PHP
@@ -7,7 +7,6 @@ language_tabs:
   - html : HTML
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
