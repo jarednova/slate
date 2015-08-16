@@ -11,12 +11,14 @@ toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - errors
   - TimberMenuItem
   - TimberPost
   - TimberSite
   - TimberTerm
   - TimberTheme
+
+  - TimberHelper
+
 
 search: true
 ---
