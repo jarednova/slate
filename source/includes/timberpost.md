@@ -59,7 +59,7 @@ Outputs the title of the post if you do something like `<h1>{{post}}</h1>`
 
 Return the author of a post
 
-```twig
+```handlebars
 	<h1>{{post.title}}</h1>
 	<p class="byline">
 	    <a href="{{post.author.link}}">{{post.author.name}}</a>
@@ -93,7 +93,7 @@ Name | Type | Description
 $post_type | string | _optional_ use to find children of a particular post type (attachment vs. page for example). You might want to restrict to certain types of children in case other stuff gets all mucked in there. You can use 'parent' to use the parent's post type
 $childPostClass | bool/string/bool | _optional_ a custom post class (ex: 'MyTimberPost') to return the objects as. By default (false) it will use TimberPost::$post_class value.
 
-```twig
+```handlebars
 	{% if post.children %}
 	    Here are the child pages:
 	    {% for child in page.children %}
@@ -116,7 +116,7 @@ $type | string | For when other plugins use the comments table for their own spe
 $status | string | Could be 'pending', etc.
 $CommentClass | string | What class to use when returning Comment objects. As you become a Timber pro, you might find yourself extending TimberComment for your site or app (obviously, totally optional)
 
-```twig
+```handlebars
 	{# single.twig #}
 	<h4>Comments:</h4>
 	{% for comment in post.comments %}
@@ -137,7 +137,7 @@ Name | Type | Description
 ---- | ---- | -----------
 $page | int | 
 
-```twig
+```handlebars
 	<div class="article">
 	    <h2>{{post.title}}</h2>
 	    <div class="content">{{ post.content }}</div>
@@ -154,7 +154,7 @@ Name | Type | Description
 ---- | ---- | -----------
 $date_format | string | 
 
-```twig
+```handlebars
 	Published on {{ post.date }} // Uses WP's formatting set in Admin
 	OR
 	Published on {{ post.date | date('F jS') }} // Jan 12th
@@ -200,7 +200,7 @@ Name | Type | Description
 $len | int | 
 $page | int | 
 
-```twig
+```handlebars
 	<div class="article-text">{{post.get_content}}</div>
 ```
 ```html
@@ -273,7 +273,7 @@ Get a data array of pagination so you can navigate to the previous/next for a pa
 
 Here is my summary
 
-```twig
+```handlebars
 	This post is from <span>{{ post.get_post_type.labels.plural }}</span>
 ```
 ```html
@@ -293,7 +293,7 @@ $force | bool | What happens if your custom post excerpt is longer then the leng
 $readmore | string | The text you want to use on the 'readmore' link
 $strip | bool | Strip tags? yes or no. tell me!
 
-```twig
+```handlebars
 	<p>{{post.get_preview(50)}}</p>
 ```
 ## has_term
@@ -328,7 +328,7 @@ $field_name | string |
 
 get the permalink for a post object
 
-```twig
+```handlebars
 	<a href="{{post.link}}">Read my post</a>
 ```
 ## meta
@@ -350,7 +350,7 @@ $field_name | mixed/string |
 
 Get the author (WordPress user) who last modified the post
 
-```twig
+```handlebars
 	Last updated by {{ post.modified_author.name }}
 ```
 ```html
@@ -423,7 +423,7 @@ $in_same_cat | bool |
 
 Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
 
-```twig
+```handlebars
 	Parent page: <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
 ```
 ## path
@@ -433,7 +433,7 @@ Gets the parent (if one exists) from a post as a TimberPost object (or whatever 
 
 Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
 
-```twig
+```handlebars
 	<a href="{{post.path}}">{{post.title}}</a>
 ```
 ## permalink
@@ -455,7 +455,7 @@ Name | Type | Description
 ---- | ---- | -----------
 $in_same_cat | bool | 
 
-```twig
+```handlebars
 	<h4>Prior Entry:</h4>
 	<h3>{{post.prev.title}}</h3>
 	<p>{{post.prev.get_preview(25)}}</p>
@@ -488,7 +488,7 @@ $merge | bool | Should the resulting array be one big one (true)? Or should it b
 
 get the featured image as a TimberImage
 
-```twig
+```handlebars
 	<img src="{{post.thumbnail.src}}" />
 ```
 ## title
@@ -498,7 +498,7 @@ get the featured image as a TimberImage
 
 Returns the processed title to be used in templates. This returns the title of the post after WP's filters have run. This is analogous to `the_title()` in standard WP template tags.
 
-```twig
+```handlebars
 	<h1>{{ post.title }}</h1>
 ```
 ## update
