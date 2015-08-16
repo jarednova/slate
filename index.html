@@ -39,6 +39,9 @@
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
+        <ul class="toc-footer">
+            <li><a href='http://upstatement.com/timber'>Timber Homepage</a></li>
+        </ul>
       <div id="toc">
       </div>
         <ul class="toc-footer">
@@ -49,6 +52,728 @@
       <div class="dark-box"></div>
       <div class="content">
         
+          <h1 id="timberarchives">TimberArchives</h1>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#get_items">get_items</a></td>
+<td>array/string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="__construct">__construct</h2>
+
+<p><code class="prettyprint">__construct( mixed $args=null, string $base=</code>&ldquo;&rdquo;<code class="prettyprint">)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$args</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$base</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_items">get_items</h2>
+
+<p><code class="prettyprint">get_items( mixed/array/string $args=null )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array/string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$args</td>
+<td>mixed/array/string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="class-object_type">Class: object_type</h3>
+
+<p><em>This class extends \TimberCore</em></p>
+
+          <h1 id="timbercomment">TimberComment</h1>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h2 id="__construct">__construct</h2>
+
+<p><code class="prettyprint">__construct( int $cid )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$cid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="__tostring">__toString</h2>
+
+<p><code class="prettyprint">__toString( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<h2 id="author">author</h2>
+
+<p><code class="prettyprint">author( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">\TimberUser</code></p>
+
+<h2 id="avatar">avatar</h2>
+
+<p><code class="prettyprint">avatar( mixed/int $size=92, string $default=</code>&ldquo;&rdquo;<code class="prettyprint">)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool/mixed/string</code></p>
+
+<p>Fetches the Gravatar <code class="prettyprint">handlebars {{comment.avatar(36,template_uri~&quot;/img/dude.jpg&quot;)}}</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$size</td>
+<td>mixed/int</td>
+<td></td>
+</tr>
+<tr>
+<td>$default</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="content">content</h2>
+
+<p><code class="prettyprint">content( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="date">date</h2>
+
+<p><code class="prettyprint">date( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="init">init</h2>
+
+<p><code class="prettyprint">init( \integer $cid )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$cid</td>
+<td>\integer</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="is_child">is_child</h2>
+
+<p><code class="prettyprint">is_child( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<h2 id="meta">meta</h2>
+
+<p><code class="prettyprint">meta( string $field_name )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$field_name</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="status">status</h2>
+
+<p><code class="prettyprint">status( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="avatar_default">avatar_default</h2>
+
+<p><code class="prettyprint">avatar_default( string $default, string $email, string $size, string $host )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$default</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$email</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$size</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$host</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="avatar_email">avatar_email</h2>
+
+<p><code class="prettyprint">avatar_email( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="avatar_host">avatar_host</h2>
+
+<p><code class="prettyprint">avatar_host( string $email_hash )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$email_hash</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="avatar_out">avatar_out</h2>
+
+<p><code class="prettyprint">avatar_out( string $default, string $host, string $email_hash, string $size )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$default</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$host</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$email_hash</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$size</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_meta_field">get_meta_field</h2>
+
+<p><code class="prettyprint">get_meta_field( string $field_name )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$field_name</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_meta_fields">get_meta_fields</h2>
+
+<p><code class="prettyprint">get_meta_fields( mixed/int $comment_id=null )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$comment_id</td>
+<td>mixed/int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="class-children">Class: children</h3>
+
+<p><em>This class extends \TimberCore</em></p>
+
+<p><em>This class implements \TimberCoreInterface</em></p>
+
+          <h1 id="timberimage">TimberImage</h1>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>class</td>
+<td>string</td>
+<td>$class stores the CSS classes for the post (ex: &ldquo;post post-type-book post-123&rdquo;)</td>
+</tr>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>$id the numeric WordPress id of a post</td>
+</tr>
+<tr>
+<td>post_status</td>
+<td>string</td>
+<td>$post_status    the status of a post (&ldquo;draft&rdquo;, &ldquo;publish&rdquo;, etc.)</td>
+</tr>
+<tr>
+<td>post_type</td>
+<td>string</td>
+<td>$post_type      the name of the post type, this is the machine name (so &ldquo;my_custom_post_type&rdquo; as opposed to &ldquo;My Custom Post Type&rdquo;)</td>
+</tr>
+<tr>
+<td>slug</td>
+<td>string</td>
+<td>$slug       the URL-safe slug, this corresponds to the poorly-named &ldquo;post_name&rdquo; in the WP database, ex: &ldquo;hello-world&rdquo;</td>
+</tr>
+</tbody></table>
+
+<h2 id="__construct">__construct</h2>
+
+<p><code class="prettyprint">__construct( int $iid )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$iid</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="__tostring">__toString</h2>
+
+<p><code class="prettyprint">__toString( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="alt">alt</h2>
+
+<p><code class="prettyprint">alt( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string alt text stored in WordPress</code></p>
+
+<h2 id="aspect">aspect</h2>
+
+<p><code class="prettyprint">aspect( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">\float</code></p>
+
+<h2 id="get_alt">get_alt</h2>
+
+<p><code class="prettyprint">get_alt( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="get_dimensions">get_dimensions</h2>
+
+<p><code class="prettyprint">get_dimensions( mixed/string $dim=null )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array/int</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$dim</td>
+<td>mixed/string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_height">get_height</h2>
+
+<p><code class="prettyprint">get_height( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
+
+<h2 id="get_parent">get_parent</h2>
+
+<p><code class="prettyprint">get_parent( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool/\TimberImage</code></p>
+
+<h2 id="get_path">get_path</h2>
+
+<p><code class="prettyprint">get_path( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="get_src">get_src</h2>
+
+<p><code class="prettyprint">get_src( string $size=</code>&ldquo;&rdquo;<code class="prettyprint">)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool/string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$size</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_url">get_url</h2>
+
+<p><code class="prettyprint">get_url( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="get_width">get_width</h2>
+
+<p><code class="prettyprint">get_width( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
+
+<h2 id="height">height</h2>
+
+<p><code class="prettyprint">height( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
+
+<h2 id="init">init</h2>
+
+<p><code class="prettyprint">init( bool/int $iid=false )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$iid</td>
+<td>bool/int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="src">src</h2>
+
+<p><code class="prettyprint">src( string $size=</code>&ldquo;&rdquo;<code class="prettyprint">)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool/string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$size</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="url">url</h2>
+
+<p><code class="prettyprint">url( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="width">width</h2>
+
+<p><code class="prettyprint">width( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
+
+<h2 id="wp_upload_dir">wp_upload_dir</h2>
+
+<p><code class="prettyprint">wp_upload_dir( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<h3 id="class-slug"><strike>Class: slug</strike></h3>
+
+<blockquote>
+<p><strong>DEPRECATED</strong> since 0.21.7</p>
+</blockquote>
+
+<p><em>This class extends \TimberPost</em></p>
+
+<p><em>This class implements \TimberCoreInterface</em></p>
+
+          <h1 id="timbermenu">TimberMenu</h1>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h2 id="__construct">__construct</h2>
+
+<p><code class="prettyprint">__construct( int $slug )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$slug</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="find_parent_item_in_menu">find_parent_item_in_menu</h2>
+
+<p><code class="prettyprint">find_parent_item_in_menu( array $menu_items, int $parent_id )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">\TimberMenuItem/null</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$menu_items</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>$parent_id</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_items">get_items</h2>
+
+<p><code class="prettyprint">get_items( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array</code></p>
+
+<h2 id="order_children">order_children</h2>
+
+<p><code class="prettyprint">order_children( array $items )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$items</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_menu_id_from_locations">get_menu_id_from_locations</h2>
+
+<p><code class="prettyprint">get_menu_id_from_locations( string $slug, array $locations )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">\integer</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$slug</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$locations</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_menu_id_from_terms">get_menu_id_from_terms</h2>
+
+<p><code class="prettyprint">get_menu_id_from_terms( int $slug )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$slug</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="init">init</h2>
+
+<p><code class="prettyprint">init( int $menu_id )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$menu_id</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="init_as_page_menu">init_as_page_menu</h2>
+
+<p><code class="prettyprint">init_as_page_menu( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<h3 id="class-object_type">Class: object_type</h3>
+
+<p><em>This class extends \TimberCore</em></p>
+
           <h1 id="timbermenuitem">TimberMenuItem</h1>
 
 <table><thead>
@@ -1621,6 +2346,214 @@ Gets the public label for the menu item
 <h3 id="class-object_type">Class: object_type</h3>
 
 <p><em>This class extends \TimberCore</em></p>
+
+          <h1 id="timberuser">TimberUser</h1>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h2 id="__construct">__construct</h2>
+
+<p><code class="prettyprint">__construct( bool/int/bool $uid=false )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$uid</td>
+<td>bool/int/bool</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="__set">__set</h2>
+
+<p><code class="prettyprint">__set( string $field, mixed $value )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$field</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="__tostring">__toString</h2>
+
+<p><code class="prettyprint">__toString( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="get_custom">get_custom</h2>
+
+<p><code class="prettyprint">get_custom( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array/null</code></p>
+
+<h2 id="get_link">get_link</h2>
+
+<p><code class="prettyprint">get_link( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="get_meta">get_meta</h2>
+
+<p><code class="prettyprint">get_meta( string $field_name )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">null</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$field_name</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_meta_field">get_meta_field</h2>
+
+<p><code class="prettyprint">get_meta_field( string $field_name )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$field_name</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_path">get_path</h2>
+
+<p><code class="prettyprint">get_path( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string ex: /author/lincoln</code></p>
+
+<h2 id="get_permalink">get_permalink</h2>
+
+<p><code class="prettyprint">get_permalink( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="import_custom">import_custom</h2>
+
+<p><code class="prettyprint">import_custom( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<h2 id="init">init</h2>
+
+<p><code class="prettyprint">init( bool/int/bool $uid=false )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$uid</td>
+<td>bool/int/bool</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="link">link</h2>
+
+<p><code class="prettyprint">link( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="meta">meta</h2>
+
+<p><code class="prettyprint">meta( string $field_name )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$field_name</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="name">name</h2>
+
+<p><code class="prettyprint">name( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="path">path</h2>
+
+<p><code class="prettyprint">path( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="permalink">permalink</h2>
+
+<p><code class="prettyprint">permalink( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h2 id="slug">slug</h2>
+
+<p><code class="prettyprint">slug( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<h3 id="class-id">Class: ID</h3>
+
+<p><em>This class extends \TimberCore</em></p>
+
+<p><em>This class implements \TimberCoreInterface</em></p>
 
           <h1 id="timberhelper">TimberHelper</h1>
 
