@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Timber Object Reference</title>
 
     <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
@@ -42,229 +42,13 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
-
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-
-<h1 id="authentication">Authentication</h1>
-
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following: [[Thing]]</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">If you&rsquo;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-
-          <h1 id="errors">Errors</h1>
-
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
-</tbody></table>
-
+        
           <h1 id="timbermenuitem">TimberMenuItem</h1>
 
 <table><thead>
@@ -1843,6 +1627,917 @@ Gets the public label for the menu item
 <h3 id="class-object_type">Class: object_type</h3>
 
 <p><em>This class extends \TimberCore</em></p>
+
+          <h1 id="timberhelper">TimberHelper</h1>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h2 id="is_transientlocked"><em>is_transient</em>locked</h2>
+
+<p><code class="prettyprint">_is_transient_locked( string $slug)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$slug</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="_lock_transient">_lock_transient</h2>
+
+<p><code class="prettyprint">_lock_transient( string $slug, \integer $lock_timeout)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$slug</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$lock_timeout</td>
+<td>\integer</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="_unlock_transient">_unlock_transient</h2>
+
+<p><code class="prettyprint">_unlock_transient( string $slug)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$slug</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="array_to_object">array_to_object</h2>
+
+<p><code class="prettyprint">array_to_object( mixed $array)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">\stdClass</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$array</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="array_truncate">array_truncate</h2>
+
+<p><code class="prettyprint">array_truncate( mixed $array, mixed $len)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$array</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$len</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="close_tags">close_tags</h2>
+
+<p><code class="prettyprint">close_tags( mixed $html)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$html</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="download_url">download_url</h2>
+
+<p><code class="prettyprint">download_url( mixed $url, mixed $timeout=300)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$timeout</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="error_log">error_log</h2>
+
+<p><code class="prettyprint">error_log( mixed $arg)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$arg</td>
+<td>mixed</td>
+<td>that you want to error_log</td>
+</tr>
+</tbody></table>
+
+<h2 id="function_wrapper">function_wrapper</h2>
+
+<p><code class="prettyprint">function_wrapper( mixed $function_name, array $defaults=array(), bool $return_output_buffer=false)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">\TimberFunctionWrapper</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$function_name</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$defaults</td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td>$return_output_buffer</td>
+<td>bool</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_comment_form">get_comment_form</h2>
+
+<p><code class="prettyprint">get_comment_form( mixed $post_id=null, array $args=array())</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$post_id</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$args</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_current_url">get_current_url</h2>
+
+<p><code class="prettyprint">get_current_url()</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<h2 id="get_full_path">get_full_path</h2>
+
+<p><code class="prettyprint">get_full_path( mixed $src)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$src</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_image_path">get_image_path</h2>
+
+<p><code class="prettyprint">get_image_path( mixed $iid)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$iid</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_object_by_property">get_object_by_property</h2>
+
+<p><code class="prettyprint">get_object_by_property( mixed $array, mixed $key, mixed $value)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array/null</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$array</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$key</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_object_index_by_property">get_object_index_by_property</h2>
+
+<p><code class="prettyprint">get_object_index_by_property( mixed $array, mixed $key, mixed $value)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool/int</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$array</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$key</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_params">get_params</h2>
+
+<p><code class="prettyprint">get_params( mixed $i=-1)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$i</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_path_base">get_path_base</h2>
+
+<p><code class="prettyprint">get_path_base()</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<h2 id="get_post_by_meta">get_post_by_meta</h2>
+
+<p><code class="prettyprint">get_post_by_meta( mixed $key, mixed $value)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$key</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_posts_by_meta">get_posts_by_meta</h2>
+
+<p><code class="prettyprint">get_posts_by_meta( mixed $key, mixed $value)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array/int</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$key</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$value</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_rel_path">get_rel_path</h2>
+
+<p><code class="prettyprint">get_rel_path( mixed $src)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$src</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_rel_url">get_rel_url</h2>
+
+<p><code class="prettyprint">get_rel_url( mixed $url, bool $force=false)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$force</td>
+<td>bool</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_term_id_by_term_taxonomy_id">get_term_id_by_term_taxonomy_id</h2>
+
+<p><code class="prettyprint">get_term_id_by_term_taxonomy_id( mixed $ttid)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$ttid</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="get_wp_title">get_wp_title</h2>
+
+<p><code class="prettyprint">get_wp_title( string $separator=</code>&ldquo; &rdquo;<code class="prettyprint">, string $seplocation=</code>&ldquo;left&rdquo;<code class="prettyprint">)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$separator</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>$seplocation</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="is_array_assoc">is_array_assoc</h2>
+
+<p><code class="prettyprint">is_array_assoc( mixed $arr)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$arr</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="is_external">is_external</h2>
+
+<p><code class="prettyprint">is_external( mixed $url)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="is_local">is_local</h2>
+
+<p><code class="prettyprint">is_local( mixed $url)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="is_true">is_true</h2>
+
+<p><code class="prettyprint">is_true( mixed $value)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$value</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="is_url">is_url</h2>
+
+<p><code class="prettyprint">is_url( mixed $url)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="iseven">iseven</h2>
+
+<p><code class="prettyprint">iseven( mixed $i)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$i</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="isodd">isodd</h2>
+
+<p><code class="prettyprint">isodd( mixed $i)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$i</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="ob_function">ob_function</h2>
+
+<p><code class="prettyprint">ob_function( \callback $function, array $args=array())</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$function</td>
+<td>\callback</td>
+<td></td>
+</tr>
+<tr>
+<td>$args</td>
+<td>array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="osort">osort</h2>
+
+<p><code class="prettyprint">osort( mixed $array, mixed $prop)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$array</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$prop</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="paginate_links">paginate_links</h2>
+
+<p><code class="prettyprint">paginate_links( string $args=</code>&ldquo;&rdquo;<code class="prettyprint">)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">array</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$args</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="prepend_to_url">prepend_to_url</h2>
+
+<p><code class="prettyprint">prepend_to_url( mixed $url, mixed $path)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$path</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="preslashit">preslashit</h2>
+
+<p><code class="prettyprint">preslashit( mixed $path)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$path</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="remove_double_slashes">remove_double_slashes</h2>
+
+<p><code class="prettyprint">remove_double_slashes( mixed $url)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="start_timer">start_timer</h2>
+
+<p><code class="prettyprint">start_timer()</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">\float</code></p>
+
+<h2 id="stop_timer">stop_timer</h2>
+
+<p><code class="prettyprint">stop_timer( mixed $start)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$start</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="transient">transient</h2>
+
+<p><code class="prettyprint">transient( mixed $slug, \callable $callback, mixed $transient_time, mixed $lock_timeout=5, bool $force=false)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$slug</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$callback</td>
+<td>\callable</td>
+<td>Callback that generates the data that&rsquo;s to be cached</td>
+</tr>
+<tr>
+<td>$transient_time</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$lock_timeout</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$force</td>
+<td>bool</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="trim_words">trim_words</h2>
+
+<p><code class="prettyprint">trim_words( mixed $text, mixed $num_words=55, mixed $more=null, string $allowed_tags=</code>&ldquo;p a span b i br&rdquo;<code class="prettyprint">)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$text</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$num_words</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$more</td>
+<td>mixed</td>
+<td></td>
+</tr>
+<tr>
+<td>$allowed_tags</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="twitterify">twitterify</h2>
+
+<p><code class="prettyprint">twitterify( mixed $ret)</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$ret</td>
+<td>mixed</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="class-timberhelper">Class: TimberHelper</h3>
 
       </div>
       <div class="dark-box">
