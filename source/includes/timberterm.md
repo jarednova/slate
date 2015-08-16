@@ -2,164 +2,206 @@
 # TimberTerm
 
 
+
+
+Name | Type | Description
+---- | ---- | -----------
 ## __construct
+`__construct( mixed/int $tid=null, string $tax=`""`)`
+
 **returns:** `void`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-mixed/int | $tid | 
-string | $tax | 
+$tid | mixed/int | 
+$tax | string | 
 
 
 ## __toString
+`__toString()`
+
 **returns:** `string`
 
 
 
 
 ## children
+`children()`
+
 **returns:** `array`
 
 
 
 
 ## edit_link
+`edit_link()`
+
 **returns:** `string`
 
 
 
 
 ## get_edit_url
+`get_edit_url()`
+
 **returns:** `string`
 
 
 
 
 ## get_meta_field
+`get_meta_field( string $field_name)`
+
 **returns:** `string`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-string | $field_name | 
+$field_name | string | 
 
 
 ## get_page
+`get_page( int $i)`
+
 **returns:** `string`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-int | $i | 
+$i | int | 
 
 
 ## get_posts
+`get_posts( mixed/int $numberposts=10, string $post_type=`"any"`, string $PostClass=`""`)`
+
 **returns:** `array/bool/null`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-mixed/int | $numberposts | 
-string | $post_type | 
-string | $PostClass | 
+$numberposts | mixed/int | 
+$post_type | string | 
+$PostClass | string | 
 
 
 ## get_url
+`get_url()`
+
 **returns:** `string`
 
 
 
 
 ## link
+`link()`
+
 **returns:** `string`
 
 
 
 
 ## meta
+`meta( string $field_name)`
+
 **returns:** `string`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-string | $field_name | 
+$field_name | string | 
 
 
 ## path
+`path()`
+
 **returns:** `string`
 
 
 
 
 ## posts
+`posts( mixed/int $numberposts_or_args=10, string $post_type_or_class=`"any"`, string $post_class=`""`)`
+
 **returns:** `array/bool/null`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-mixed/int | $numberposts_or_args | 
-string | $post_type_or_class | 
-string | $post_class | 
+$numberposts_or_args | mixed/int | 
+$post_type_or_class | string | 
+$post_class | string | 
 
 
 ## title
+`title()`
+
 **returns:** `string`
 
 
 
 
 ## update
+`update( mixed $key, mixed $value)`
+
 **returns:** `void`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-mixed | $key | 
-mixed | $value | 
+$key | mixed | 
+$value | mixed | 
 
 
 ## url
+`url()`
+
 **returns:** `string`
 
 
 
 
 ## get_term_from_query
+`get_term_from_query()`
+
 **returns:** `\integer`
 
 
 
 
 ## get_tid
+`get_tid( int $tid)`
+
 **returns:** `int`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-int | $tid | 
+$tid | int | 
 
 
 ## init
+`init( int $tid)`
+
 **returns:** `void`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-int | $tid | 
+$tid | int | 
 
 
 
-### Class: TimberTerm
+### Class: ID
 
 
 

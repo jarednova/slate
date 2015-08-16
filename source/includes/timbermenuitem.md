@@ -2,126 +2,158 @@
 # TimberMenuItem
 
 
+
+
+Name | Type | Description
+---- | ---- | -----------
+[children](#children) | array/bool | Get the child [TimberMenuItems](#TimberMenuItem)s of a [TimberMenuItem](#TimberMenuItem)
+[is_external](#is_external) | bool | Checks to see if a link is external, helpful when creating rules for the target of a link
+[link](#link) | string a full URL like http://mysite.com/thing/ | Get the full link to a Menu Item
+[name](#name) | string | The label for the menu item
+[slug](#slug) | string | The slug for the menu item
 ## __construct
+`__construct( array/object $data)`
+
 **returns:** `void`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-array/object | $data | 
+$data | array/object | 
 
 
 ## __toString
+`__toString()`
+
 **returns:** `void`
 
 
 
 
 ## add_child
+`add_child( \TimberMenuItem $item)`
+
 **returns:** `void`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-\TimberMenuItem | $item | 
+$item | \TimberMenuItem | 
 
 
 ## add_class
+`add_class( mixed $class_name)`
+
 **returns:** `void`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-mixed | $class_name | 
+$class_name | mixed | 
 
 
 ## children
+`children()`
+
 **returns:** `array/bool`
 
-
+Get the child [TimberMenuItems](#TimberMenuItem)s of a [TimberMenuItem](#TimberMenuItem)
 
 
 ## external
+`external()`
+
 **returns:** `bool`
 
 Checks to see if a link is external, helpful when creating rules for the target of a link
 
 
 ## is_external
+`is_external()`
+
 **returns:** `bool`
 
+Checks to see if a link is external, helpful when creating rules for the target of a link
 
-
-
+```handlebars
+	
+```
 ## link
+`link()`
+
 **returns:** `string a full URL like http://mysite.com/thing/`
 
 Get the full link to a Menu Item
 
-```twig
+```handlebars
 	{% for item in menu.items %}
 	    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
 	{% endfor %}
 ```
 ## meta
+`meta( \unknown $key)`
+
 **returns:** `mixed whatever value is storied in the database`
 
 
 
-Type | Name | Description
+Name | Type | Description
 ---- | ---- | -----------
-\unknown | $key | string lookup key
+$key | \unknown | string lookup key
 
 
 ## name
+`name()`
+
 **returns:** `string`
 
-
+The label for the menu item
 
 
 ## path
+`path()`
+
 **returns:** `string the path of a URL like /foo`
 
 Return the relative path of a Menu Item's link
 
-```twig
+```handlebars
 	{% for item in menu.items %}
 	    <li><a href="{{ item.path }}">{{ item.title }}</a></li>
 	{% endfor %}
 ```
-## permalink
-**returns:** `string a full URL like http://mysite.com/thing/`
-
-Gets the link a menu item points at
-
-
 ## slug
+`slug()`
+
 **returns:** `string`
 
+The slug for the menu item
 
-
-
+```handlebars
+	<ul>
+	    {% for item in menu.items %}
+	        <li class="{{item.slug}}">
+	            <a href="{{item.link}}">{{item.name}}</a>
+	         </li>
+	    {% endfor %}
+	</ul>
 ## title
+`title()`
+
 **returns:** `string the public label like Foo`
 
 Gets the public label for the menu item
 
-```twig
+```handlebars
 	{% for item in menu.items %}
 	    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
 	{% endfor %}
 ```
-## update_child_levels
-**returns:** `void`
 
-
-
-
-
-### Class: TimberMenuItem
+### Class: object_type
 
 
 
