@@ -48,7 +48,7 @@
 <tr>
 <td><a href="#is_external">is_external</a></td>
 <td>bool</td>
-<td>Checks to see if a link is external, helpful when creating rules for the target of a link</td>
+<td>Checks to see if the menu item is an external link so if my site is <code class="prettyprint">example.org</code>, <code class="prettyprint">google.com/whatever</code> is an external link. Helpful when creating rules for the target of a link</td>
 </tr>
 <tr>
 <td><a href="#link">link</a></td>
@@ -62,14 +62,14 @@
 </tr>
 <tr>
 <td><a href="#slug">slug</a></td>
-<td>string</td>
+<td>string the slug of the menu item kinda-like-this</td>
 <td>The slug for the menu item</td>
 </tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
 
-<p><code class="prettyprint">__construct( array/object $data)</code></p>
+<p><code class="prettyprint">__construct( array/object $data )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -89,13 +89,13 @@
 
 <h2 id="__tostring">__toString</h2>
 
-<p><code class="prettyprint">__toString()</code></p>
+<p><code class="prettyprint">__toString( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">string the label for the menu item</code></p>
 
 <h2 id="add_child">add_child</h2>
 
-<p><code class="prettyprint">add_child( \TimberMenuItem $item)</code></p>
+<p><code class="prettyprint">add_child( \TimberMenuItem $item )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -115,9 +115,11 @@
 
 <h2 id="add_class">add_class</h2>
 
-<p><code class="prettyprint">add_class( mixed $class_name)</code></p>
+<p><code class="prettyprint">add_class( mixed $class_name )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<p>add a class the menu item should have</p>
 
 <table><thead>
 <tr>
@@ -135,7 +137,7 @@
 
 <h2 id="children">children</h2>
 
-<p><code class="prettyprint">children()</code></p>
+<p><code class="prettyprint">children( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/bool</code></p>
 
@@ -143,7 +145,7 @@
 
 <h2 id="external">external</h2>
 
-<p><code class="prettyprint">external()</code></p>
+<p><code class="prettyprint">external( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -151,17 +153,17 @@
 
 <h2 id="is_external">is_external</h2>
 
-<p><code class="prettyprint">is_external()</code></p>
+<p><code class="prettyprint">is_external( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
-<p>Checks to see if a link is external, helpful when creating rules for the target of a link</p>
-<pre class="highlight handlebars"><code>
+<p>Checks to see if the menu item is an external link so if my site is <code class="prettyprint">example.org</code>, <code class="prettyprint">google.com/whatever</code> is an external link. Helpful when creating rules for the target of a link</p>
+<pre class="highlight handlebars"><code>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">link</span> <span class="k">}}</span><span class="s">"</span> <span class="na">target=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">is_external</span> <span class="err">?</span> <span class="s1">'_blank'</span> <span class="err">:</span> <span class="s1">'_self'</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
 </code></pre>
 
 <h2 id="link">link</h2>
 
-<p><code class="prettyprint">link()</code></p>
+<p><code class="prettyprint">link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string a full URL like http://mysite.com/thing/</code></p>
 
@@ -173,7 +175,7 @@
 
 <h2 id="meta">meta</h2>
 
-<p><code class="prettyprint">meta( \unknown $key)</code></p>
+<p><code class="prettyprint">meta( string $key )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed whatever value is storied in the database</code></p>
 
@@ -186,14 +188,14 @@
 </thead><tbody>
 <tr>
 <td>$key</td>
-<td>\unknown</td>
-<td>string lookup key</td>
+<td>string</td>
+<td>lookup key</td>
 </tr>
 </tbody></table>
 
 <h2 id="name">name</h2>
 
-<p><code class="prettyprint">name()</code></p>
+<p><code class="prettyprint">name( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -201,7 +203,7 @@
 
 <h2 id="path">path</h2>
 
-<p><code class="prettyprint">path()</code></p>
+<p><code class="prettyprint">path( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string the path of a URL like /foo</code></p>
 
@@ -213,9 +215,9 @@
 
 <h2 id="slug">slug</h2>
 
-<p><code class="prettyprint">slug()</code></p>
+<p><code class="prettyprint">slug( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">string the slug of the menu item kinda-like-this</code></p>
 
 <p>The slug for the menu item</p>
 <pre class="highlight handlebars"><code>    <span class="nt">&lt;ul&gt;</span>
@@ -226,7 +228,7 @@
         {% endfor %}
     <span class="nt">&lt;/ul&gt;</span>
 ## title
-`title()`
+`title( )`
 
 **returns:** `string the public label like Foo`
 

@@ -66,7 +66,7 @@
 <tr>
 <td><a href="#is_external">is_external</a></td>
 <td>bool</td>
-<td>Checks to see if a link is external, helpful when creating rules for the target of a link</td>
+<td>Checks to see if the menu item is an external link so if my site is <code class="prettyprint">example.org</code>, <code class="prettyprint">google.com/whatever</code> is an external link. Helpful when creating rules for the target of a link</td>
 </tr>
 <tr>
 <td><a href="#link">link</a></td>
@@ -80,14 +80,14 @@
 </tr>
 <tr>
 <td><a href="#slug">slug</a></td>
-<td>string</td>
+<td>string the slug of the menu item kinda-like-this</td>
 <td>The slug for the menu item</td>
 </tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
 
-<p><code class="prettyprint">__construct( array/object $data)</code></p>
+<p><code class="prettyprint">__construct( array/object $data )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -107,13 +107,13 @@
 
 <h2 id="__tostring">__toString</h2>
 
-<p><code class="prettyprint">__toString()</code></p>
+<p><code class="prettyprint">__toString( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">string the label for the menu item</code></p>
 
 <h2 id="add_child">add_child</h2>
 
-<p><code class="prettyprint">add_child( \TimberMenuItem $item)</code></p>
+<p><code class="prettyprint">add_child( \TimberMenuItem $item )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -133,9 +133,11 @@
 
 <h2 id="add_class">add_class</h2>
 
-<p><code class="prettyprint">add_class( mixed $class_name)</code></p>
+<p><code class="prettyprint">add_class( mixed $class_name )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<p>add a class the menu item should have</p>
 
 <table><thead>
 <tr>
@@ -153,7 +155,7 @@
 
 <h2 id="children">children</h2>
 
-<p><code class="prettyprint">children()</code></p>
+<p><code class="prettyprint">children( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/bool</code></p>
 
@@ -161,7 +163,7 @@
 
 <h2 id="external">external</h2>
 
-<p><code class="prettyprint">external()</code></p>
+<p><code class="prettyprint">external( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -169,17 +171,17 @@
 
 <h2 id="is_external">is_external</h2>
 
-<p><code class="prettyprint">is_external()</code></p>
+<p><code class="prettyprint">is_external( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
-<p>Checks to see if a link is external, helpful when creating rules for the target of a link</p>
-<pre class="highlight handlebars"><code>
+<p>Checks to see if the menu item is an external link so if my site is <code class="prettyprint">example.org</code>, <code class="prettyprint">google.com/whatever</code> is an external link. Helpful when creating rules for the target of a link</p>
+<pre class="highlight handlebars"><code>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">link</span> <span class="k">}}</span><span class="s">"</span> <span class="na">target=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">is_external</span> <span class="err">?</span> <span class="s1">'_blank'</span> <span class="err">:</span> <span class="s1">'_self'</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
 </code></pre>
 
 <h2 id="link">link</h2>
 
-<p><code class="prettyprint">link()</code></p>
+<p><code class="prettyprint">link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string a full URL like http://mysite.com/thing/</code></p>
 
@@ -191,7 +193,7 @@
 
 <h2 id="meta">meta</h2>
 
-<p><code class="prettyprint">meta( \unknown $key)</code></p>
+<p><code class="prettyprint">meta( string $key )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed whatever value is storied in the database</code></p>
 
@@ -204,14 +206,14 @@
 </thead><tbody>
 <tr>
 <td>$key</td>
-<td>\unknown</td>
-<td>string lookup key</td>
+<td>string</td>
+<td>lookup key</td>
 </tr>
 </tbody></table>
 
 <h2 id="name">name</h2>
 
-<p><code class="prettyprint">name()</code></p>
+<p><code class="prettyprint">name( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -219,7 +221,7 @@
 
 <h2 id="path">path</h2>
 
-<p><code class="prettyprint">path()</code></p>
+<p><code class="prettyprint">path( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string the path of a URL like /foo</code></p>
 
@@ -231,9 +233,9 @@
 
 <h2 id="slug">slug</h2>
 
-<p><code class="prettyprint">slug()</code></p>
+<p><code class="prettyprint">slug( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">string the slug of the menu item kinda-like-this</code></p>
 
 <p>The slug for the menu item</p>
 <pre class="highlight handlebars"><code>    <span class="nt">&lt;ul&gt;</span>
@@ -244,7 +246,7 @@
         {% endfor %}
     <span class="nt">&lt;/ul&gt;</span>
 ## title
-`title()`
+`title( )`
 
 **returns:** `string the public label like Foo`
 
@@ -390,7 +392,7 @@ Gets the public label for the menu item
 
 <h2 id="__construct">__construct</h2>
 
-<p><code class="prettyprint">__construct( mixed $pid=null)</code></p>
+<p><code class="prettyprint">__construct( mixed $pid=null )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -415,7 +417,7 @@ Gets the public label for the menu item
 
 <h2 id="__tostring">__toString</h2>
 
-<p><code class="prettyprint">__toString()</code></p>
+<p><code class="prettyprint">__toString( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -423,7 +425,7 @@ Gets the public label for the menu item
 
 <h2 id="author">author</h2>
 
-<p><code class="prettyprint">author()</code></p>
+<p><code class="prettyprint">author( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\TimberUser/bool A TimberUser object if found, false if not</code></p>
 
@@ -436,7 +438,7 @@ Gets the public label for the menu item
 
 <h2 id="categories">categories</h2>
 
-<p><code class="prettyprint">categories()</code></p>
+<p><code class="prettyprint">categories( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array of TimberTerms</code></p>
 
@@ -444,7 +446,7 @@ Gets the public label for the menu item
 
 <h2 id="category">category</h2>
 
-<p><code class="prettyprint">category()</code></p>
+<p><code class="prettyprint">category( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\TimberTerm/null</code></p>
 
@@ -452,7 +454,7 @@ Gets the public label for the menu item
 
 <h2 id="children">children</h2>
 
-<p><code class="prettyprint">children( string $post_type=</code>&ldquo;any&rdquo;<code class="prettyprint">, bool/string/bool $childPostClass=false)</code></p>
+<p><code class="prettyprint">children( string $post_type=</code>&ldquo;any&rdquo;<code class="prettyprint">, bool/string/bool $childPostClass=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
@@ -507,7 +509,7 @@ Gets the public label for the menu item
 <tr>
 <td>$order</td>
 <td>string</td>
-<td>use WordPress ordering or a different scheme</td>
+<td>use ordering set in WordPress admin, or a different scheme</td>
 </tr>
 <tr>
 <td>$type</td>
@@ -537,7 +539,7 @@ Gets the public label for the menu item
 
 <h2 id="content">content</h2>
 
-<p><code class="prettyprint">content( int $page)</code></p>
+<p><code class="prettyprint">content( int $page )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -594,25 +596,25 @@ Gets the public label for the menu item
 
 <h2 id="edit_link">edit_link</h2>
 
-<p><code class="prettyprint">edit_link()</code></p>
+<p><code class="prettyprint">edit_link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool/string</code></p>
 
 <h2 id="format">format</h2>
 
-<p><code class="prettyprint">format()</code></p>
+<p><code class="prettyprint">format( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
 <h2 id="get_comment_count">get_comment_count</h2>
 
-<p><code class="prettyprint">get_comment_count()</code></p>
+<p><code class="prettyprint">get_comment_count( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">int</code></p>
 
 <h2 id="get_content">get_content</h2>
 
-<p><code class="prettyprint">get_content( int $len, int $page)</code></p>
+<p><code class="prettyprint">get_content( int $len, int $page )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -665,7 +667,7 @@ Gets the public label for the menu item
 
 <h2 id="get_field">get_field</h2>
 
-<p><code class="prettyprint">get_field( string $field_name)</code></p>
+<p><code class="prettyprint">get_field( string $field_name )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -685,7 +687,7 @@ Gets the public label for the menu item
 
 <h2 id="get_image">get_image</h2>
 
-<p><code class="prettyprint">get_image( string $field)</code></p>
+<p><code class="prettyprint">get_image( string $field )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\TimberImage</code></p>
 
@@ -705,19 +707,19 @@ Gets the public label for the menu item
 
 <h2 id="get_method_values">get_method_values</h2>
 
-<p><code class="prettyprint">get_method_values()</code></p>
+<p><code class="prettyprint">get_method_values( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
 <h2 id="get_paged_content">get_paged_content</h2>
 
-<p><code class="prettyprint">get_paged_content()</code></p>
+<p><code class="prettyprint">get_paged_content( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="get_pagination">get_pagination</h2>
 
-<p><code class="prettyprint">get_pagination()</code></p>
+<p><code class="prettyprint">get_pagination( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
@@ -725,7 +727,7 @@ Gets the public label for the menu item
 
 <h2 id="get_post_type">get_post_type</h2>
 
-<p><code class="prettyprint">get_post_type()</code></p>
+<p><code class="prettyprint">get_post_type( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -737,7 +739,7 @@ Gets the public label for the menu item
 
 <h2 id="get_preview">get_preview</h2>
 
-<p><code class="prettyprint">get_preview( mixed/int $len=50, bool $force=false, string $readmore=</code>&ldquo;Read More&rdquo;<code class="prettyprint">, bool $strip=true)</code></p>
+<p><code class="prettyprint">get_preview( mixed/int $len=50, bool $force=false, string $readmore=</code>&ldquo;Read More&rdquo;<code class="prettyprint">, bool $strip=true )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string of the post preview</code></p>
 
@@ -801,7 +803,7 @@ Gets the public label for the menu item
 
 <h2 id="import_field">import_field</h2>
 
-<p><code class="prettyprint">import_field( string $field_name)</code></p>
+<p><code class="prettyprint">import_field( string $field_name )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -821,7 +823,7 @@ Gets the public label for the menu item
 
 <h2 id="link">link</h2>
 
-<p><code class="prettyprint">link()</code></p>
+<p><code class="prettyprint">link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string ex: http://example.org/2015/07/my-awesome-post</code></p>
 
@@ -831,7 +833,7 @@ Gets the public label for the menu item
 
 <h2 id="meta">meta</h2>
 
-<p><code class="prettyprint">meta( mixed/string $field_name=null)</code></p>
+<p><code class="prettyprint">meta( mixed/string $field_name=null )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -851,7 +853,7 @@ Gets the public label for the menu item
 
 <h2 id="modified_author">modified_author</h2>
 
-<p><code class="prettyprint">modified_author()</code></p>
+<p><code class="prettyprint">modified_author( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\TimberUser/bool A TimberUser object if found, false if not</code></p>
 
@@ -903,13 +905,13 @@ Gets the public label for the menu item
 
 <h2 id="name">name</h2>
 
-<p><code class="prettyprint">name()</code></p>
+<p><code class="prettyprint">name( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="next">next</h2>
 
-<p><code class="prettyprint">next( bool $in_same_cat=false)</code></p>
+<p><code class="prettyprint">next( bool $in_same_cat=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -929,19 +931,19 @@ Gets the public label for the menu item
 
 <h2 id="paged_content">paged_content</h2>
 
-<p><code class="prettyprint">paged_content()</code></p>
+<p><code class="prettyprint">paged_content( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="pagination">pagination</h2>
 
-<p><code class="prettyprint">pagination()</code></p>
+<p><code class="prettyprint">pagination( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
 <h2 id="parent">parent</h2>
 
-<p><code class="prettyprint">parent()</code></p>
+<p><code class="prettyprint">parent( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool/\TimberPost</code></p>
 
@@ -951,7 +953,7 @@ Gets the public label for the menu item
 
 <h2 id="path">path</h2>
 
-<p><code class="prettyprint">path()</code></p>
+<p><code class="prettyprint">path( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -961,13 +963,13 @@ Gets the public label for the menu item
 
 <h2 id="permalink">permalink</h2>
 
-<p><code class="prettyprint">permalink()</code></p>
+<p><code class="prettyprint">permalink( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="prev">prev</h2>
 
-<p><code class="prettyprint">prev( bool $in_same_cat=false)</code></p>
+<p><code class="prettyprint">prev( bool $in_same_cat=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -993,7 +995,7 @@ Gets the public label for the menu item
 
 <h2 id="tags">tags</h2>
 
-<p><code class="prettyprint">tags()</code></p>
+<p><code class="prettyprint">tags( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
@@ -1001,7 +1003,7 @@ Gets the public label for the menu item
 
 <h2 id="terms">terms</h2>
 
-<p><code class="prettyprint">terms( string $tax=</code>&ldquo;&rdquo;<code class="prettyprint">, bool $merge=true)</code></p>
+<p><code class="prettyprint">terms( string $tax=</code>&ldquo;&rdquo;<code class="prettyprint">, bool $merge=true )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
@@ -1028,7 +1030,7 @@ Gets the public label for the menu item
 
 <h2 id="thumbnail">thumbnail</h2>
 
-<p><code class="prettyprint">thumbnail()</code></p>
+<p><code class="prettyprint">thumbnail( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\TimberImage/null of your thumbnail</code></p>
 
@@ -1038,7 +1040,7 @@ Gets the public label for the menu item
 
 <h2 id="title">title</h2>
 
-<p><code class="prettyprint">title()</code></p>
+<p><code class="prettyprint">title( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1048,7 +1050,7 @@ Gets the public label for the menu item
 
 <h2 id="update">update</h2>
 
-<p><code class="prettyprint">update( string $field, mixed $value)</code></p>
+<p><code class="prettyprint">update( string $field, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1075,7 +1077,7 @@ Gets the public label for the menu item
 
 <h2 id="get_wp_link_page">get_wp_link_page</h2>
 
-<p><code class="prettyprint">get_wp_link_page( int $i)</code></p>
+<p><code class="prettyprint">get_wp_link_page( int $i )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1112,11 +1114,41 @@ Gets the public label for the menu item
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>charset</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#link">link</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>multisite</td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td>theme</td>
+<td><a href="#TimberTheme">TimberTheme</a></td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#url">url</a></td>
+<td>string</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
 
-<p><code class="prettyprint">__construct( mixed/string/int $site_name_or_id=null)</code></p>
+<p><code class="prettyprint">__construct( mixed/string/int $site_name_or_id=null )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1136,7 +1168,7 @@ Gets the public label for the menu item
 
 <h2 id="__get">__get</h2>
 
-<p><code class="prettyprint">__get( mixed $field)</code></p>
+<p><code class="prettyprint">__get( mixed $field )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -1154,27 +1186,15 @@ Gets the public label for the menu item
 </tr>
 </tbody></table>
 
-<h2 id="get_link">get_link</h2>
-
-<p><code class="prettyprint">get_link()</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="get_url">get_url</h2>
-
-<p><code class="prettyprint">get_url()</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
 <h2 id="link">link</h2>
 
-<p><code class="prettyprint">link()</code></p>
+<p><code class="prettyprint">link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="meta">meta</h2>
 
-<p><code class="prettyprint">meta( mixed $field)</code></p>
+<p><code class="prettyprint">meta( mixed $field )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1194,7 +1214,7 @@ Gets the public label for the menu item
 
 <h2 id="update">update</h2>
 
-<p><code class="prettyprint">update( mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">update( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1219,35 +1239,9 @@ Gets the public label for the menu item
 
 <h2 id="url">url</h2>
 
-<p><code class="prettyprint">url()</code></p>
+<p><code class="prettyprint">url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="init">init</h2>
-
-<p><code class="prettyprint">init()</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<h2 id="init_with_multisite">init_with_multisite</h2>
-
-<p><code class="prettyprint">init_with_multisite( string/int $site_name_or_id)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$site_name_or_id</td>
-<td>string/int</td>
-<td></td>
-</tr>
-</tbody></table>
 
 <h3 id="class-object_type">Class: object_type</h3>
 
@@ -1293,31 +1287,31 @@ Gets the public label for the menu item
 
 <h2 id="__tostring">__toString</h2>
 
-<p><code class="prettyprint">__toString()</code></p>
+<p><code class="prettyprint">__toString( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="children">children</h2>
 
-<p><code class="prettyprint">children()</code></p>
+<p><code class="prettyprint">children( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
 <h2 id="edit_link">edit_link</h2>
 
-<p><code class="prettyprint">edit_link()</code></p>
+<p><code class="prettyprint">edit_link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="get_edit_url">get_edit_url</h2>
 
-<p><code class="prettyprint">get_edit_url()</code></p>
+<p><code class="prettyprint">get_edit_url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="get_meta_field">get_meta_field</h2>
 
-<p><code class="prettyprint">get_meta_field( string $field_name)</code></p>
+<p><code class="prettyprint">get_meta_field( string $field_name )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1337,7 +1331,7 @@ Gets the public label for the menu item
 
 <h2 id="get_page">get_page</h2>
 
-<p><code class="prettyprint">get_page( int $i)</code></p>
+<p><code class="prettyprint">get_page( int $i )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1387,19 +1381,19 @@ Gets the public label for the menu item
 
 <h2 id="get_url">get_url</h2>
 
-<p><code class="prettyprint">get_url()</code></p>
+<p><code class="prettyprint">get_url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="link">link</h2>
 
-<p><code class="prettyprint">link()</code></p>
+<p><code class="prettyprint">link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="meta">meta</h2>
 
-<p><code class="prettyprint">meta( string $field_name)</code></p>
+<p><code class="prettyprint">meta( string $field_name )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1419,7 +1413,7 @@ Gets the public label for the menu item
 
 <h2 id="path">path</h2>
 
-<p><code class="prettyprint">path()</code></p>
+<p><code class="prettyprint">path( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1455,13 +1449,13 @@ Gets the public label for the menu item
 
 <h2 id="title">title</h2>
 
-<p><code class="prettyprint">title()</code></p>
+<p><code class="prettyprint">title( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="update">update</h2>
 
-<p><code class="prettyprint">update( mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">update( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1486,19 +1480,19 @@ Gets the public label for the menu item
 
 <h2 id="url">url</h2>
 
-<p><code class="prettyprint">url()</code></p>
+<p><code class="prettyprint">url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="get_term_from_query">get_term_from_query</h2>
 
-<p><code class="prettyprint">get_term_from_query()</code></p>
+<p><code class="prettyprint">get_term_from_query( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\integer</code></p>
 
 <h2 id="get_tid">get_tid</h2>
 
-<p><code class="prettyprint">get_tid( int $tid)</code></p>
+<p><code class="prettyprint">get_tid( int $tid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">int</code></p>
 
@@ -1518,7 +1512,7 @@ Gets the public label for the menu item
 
 <h2 id="init">init</h2>
 
-<p><code class="prettyprint">init( int $tid)</code></p>
+<p><code class="prettyprint">init( int $tid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1555,7 +1549,7 @@ Gets the public label for the menu item
 
 <h2 id="__construct">__construct</h2>
 
-<p><code class="prettyprint">__construct( mixed/string $slug=null)</code></p>
+<p><code class="prettyprint">__construct( mixed/string $slug=null )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1575,7 +1569,7 @@ Gets the public label for the menu item
 
 <h2 id="init">init</h2>
 
-<p><code class="prettyprint">init( mixed/string $slug=null)</code></p>
+<p><code class="prettyprint">init( mixed/string $slug=null )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1595,7 +1589,7 @@ Gets the public label for the menu item
 
 <h2 id="theme_mod">theme_mod</h2>
 
-<p><code class="prettyprint">theme_mod( string $name, bool $default=false)</code></p>
+<p><code class="prettyprint">theme_mod( string $name, bool $default=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1620,7 +1614,7 @@ Gets the public label for the menu item
 
 <h2 id="theme_mods">theme_mods</h2>
 
-<p><code class="prettyprint">theme_mods()</code></p>
+<p><code class="prettyprint">theme_mods( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1637,76 +1631,16 @@ Gets the public label for the menu item
 <th>Description</th>
 </tr>
 </thead><tbody>
-</tbody></table>
-
-<h2 id="is_transientlocked"><em>is_transient</em>locked</h2>
-
-<p><code class="prettyprint">_is_transient_locked( string $slug)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="_lock_transient">_lock_transient</h2>
-
-<p><code class="prettyprint">_lock_transient( string $slug, \integer $lock_timeout)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$lock_timeout</td>
-<td>\integer</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="_unlock_transient">_unlock_transient</h2>
-
-<p><code class="prettyprint">_unlock_transient( string $slug)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>string</td>
-<td></td>
+<td><a href="#transient">transient</a></td>
+<td>mixed</td>
+<td>A utility for a one-stop shop for Transients</td>
 </tr>
 </tbody></table>
 
 <h2 id="array_to_object">array_to_object</h2>
 
-<p><code class="prettyprint">array_to_object( mixed $array)</code></p>
+<p><code class="prettyprint">array_to_object( mixed $array )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\stdClass</code></p>
 
@@ -1726,7 +1660,7 @@ Gets the public label for the menu item
 
 <h2 id="array_truncate">array_truncate</h2>
 
-<p><code class="prettyprint">array_truncate( mixed $array, mixed $len)</code></p>
+<p><code class="prettyprint">array_truncate( mixed $array, mixed $len )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
@@ -1751,7 +1685,7 @@ Gets the public label for the menu item
 
 <h2 id="close_tags">close_tags</h2>
 
-<p><code class="prettyprint">close_tags( mixed $html)</code></p>
+<p><code class="prettyprint">close_tags( mixed $html )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -1771,7 +1705,7 @@ Gets the public label for the menu item
 
 <h2 id="download_url">download_url</h2>
 
-<p><code class="prettyprint">download_url( mixed $url, mixed $timeout=300)</code></p>
+<p><code class="prettyprint">download_url( mixed $url, mixed $timeout=300 )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1796,7 +1730,7 @@ Gets the public label for the menu item
 
 <h2 id="error_log">error_log</h2>
 
-<p><code class="prettyprint">error_log( mixed $arg)</code></p>
+<p><code class="prettyprint">error_log( mixed $arg )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -1816,7 +1750,7 @@ Gets the public label for the menu item
 
 <h2 id="function_wrapper">function_wrapper</h2>
 
-<p><code class="prettyprint">function_wrapper( mixed $function_name, array $defaults=array(), bool $return_output_buffer=false)</code></p>
+<p><code class="prettyprint">function_wrapper( mixed $function_name, array $defaults=array(), bool $return_output_buffer=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\TimberFunctionWrapper</code></p>
 
@@ -1846,9 +1780,11 @@ Gets the public label for the menu item
 
 <h2 id="get_comment_form">get_comment_form</h2>
 
-<p><code class="prettyprint">get_comment_form( mixed $post_id=null, array $args=array())</code></p>
+<p><code class="prettyprint">get_comment_form( mixed $post_id=null, array $args=array() )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p>Gets the comment form for use on a single article page</p>
 
 <table><thead>
 <tr>
@@ -1871,13 +1807,13 @@ Gets the public label for the menu item
 
 <h2 id="get_current_url">get_current_url</h2>
 
-<p><code class="prettyprint">get_current_url()</code></p>
+<p><code class="prettyprint">get_current_url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
 <h2 id="get_full_path">get_full_path</h2>
 
-<p><code class="prettyprint">get_full_path( mixed $src)</code></p>
+<p><code class="prettyprint">get_full_path( mixed $src )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -1897,7 +1833,7 @@ Gets the public label for the menu item
 
 <h2 id="get_image_path">get_image_path</h2>
 
-<p><code class="prettyprint">get_image_path( mixed $iid)</code></p>
+<p><code class="prettyprint">get_image_path( mixed $iid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -1917,7 +1853,7 @@ Gets the public label for the menu item
 
 <h2 id="get_object_by_property">get_object_by_property</h2>
 
-<p><code class="prettyprint">get_object_by_property( mixed $array, mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_object_by_property( mixed $array, mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/null</code></p>
 
@@ -1947,7 +1883,7 @@ Gets the public label for the menu item
 
 <h2 id="get_object_index_by_property">get_object_index_by_property</h2>
 
-<p><code class="prettyprint">get_object_index_by_property( mixed $array, mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_object_index_by_property( mixed $array, mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool/int</code></p>
 
@@ -1977,7 +1913,7 @@ Gets the public label for the menu item
 
 <h2 id="get_params">get_params</h2>
 
-<p><code class="prettyprint">get_params( mixed $i=-1)</code></p>
+<p><code class="prettyprint">get_params( mixed $i=-1 )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -1997,13 +1933,13 @@ Gets the public label for the menu item
 
 <h2 id="get_path_base">get_path_base</h2>
 
-<p><code class="prettyprint">get_path_base()</code></p>
+<p><code class="prettyprint">get_path_base( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
 <h2 id="get_post_by_meta">get_post_by_meta</h2>
 
-<p><code class="prettyprint">get_post_by_meta( mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_post_by_meta( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">int</code></p>
 
@@ -2028,7 +1964,7 @@ Gets the public label for the menu item
 
 <h2 id="get_posts_by_meta">get_posts_by_meta</h2>
 
-<p><code class="prettyprint">get_posts_by_meta( mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_posts_by_meta( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/int</code></p>
 
@@ -2053,7 +1989,7 @@ Gets the public label for the menu item
 
 <h2 id="get_rel_path">get_rel_path</h2>
 
-<p><code class="prettyprint">get_rel_path( mixed $src)</code></p>
+<p><code class="prettyprint">get_rel_path( mixed $src )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -2073,7 +2009,7 @@ Gets the public label for the menu item
 
 <h2 id="get_rel_url">get_rel_url</h2>
 
-<p><code class="prettyprint">get_rel_url( mixed $url, bool $force=false)</code></p>
+<p><code class="prettyprint">get_rel_url( mixed $url, bool $force=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -2098,7 +2034,7 @@ Gets the public label for the menu item
 
 <h2 id="get_term_id_by_term_taxonomy_id">get_term_id_by_term_taxonomy_id</h2>
 
-<p><code class="prettyprint">get_term_id_by_term_taxonomy_id( mixed $ttid)</code></p>
+<p><code class="prettyprint">get_term_id_by_term_taxonomy_id( mixed $ttid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -2143,7 +2079,7 @@ Gets the public label for the menu item
 
 <h2 id="is_array_assoc">is_array_assoc</h2>
 
-<p><code class="prettyprint">is_array_assoc( mixed $arr)</code></p>
+<p><code class="prettyprint">is_array_assoc( mixed $arr )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -2163,7 +2099,7 @@ Gets the public label for the menu item
 
 <h2 id="is_external">is_external</h2>
 
-<p><code class="prettyprint">is_external( mixed $url)</code></p>
+<p><code class="prettyprint">is_external( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -2183,7 +2119,7 @@ Gets the public label for the menu item
 
 <h2 id="is_local">is_local</h2>
 
-<p><code class="prettyprint">is_local( mixed $url)</code></p>
+<p><code class="prettyprint">is_local( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -2203,7 +2139,7 @@ Gets the public label for the menu item
 
 <h2 id="is_true">is_true</h2>
 
-<p><code class="prettyprint">is_true( mixed $value)</code></p>
+<p><code class="prettyprint">is_true( mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -2223,7 +2159,7 @@ Gets the public label for the menu item
 
 <h2 id="is_url">is_url</h2>
 
-<p><code class="prettyprint">is_url( mixed $url)</code></p>
+<p><code class="prettyprint">is_url( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -2243,7 +2179,7 @@ Gets the public label for the menu item
 
 <h2 id="iseven">iseven</h2>
 
-<p><code class="prettyprint">iseven( mixed $i)</code></p>
+<p><code class="prettyprint">iseven( mixed $i )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -2263,7 +2199,7 @@ Gets the public label for the menu item
 
 <h2 id="isodd">isodd</h2>
 
-<p><code class="prettyprint">isodd( mixed $i)</code></p>
+<p><code class="prettyprint">isodd( mixed $i )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -2283,7 +2219,7 @@ Gets the public label for the menu item
 
 <h2 id="ob_function">ob_function</h2>
 
-<p><code class="prettyprint">ob_function( \callback $function, array $args=array())</code></p>
+<p><code class="prettyprint">ob_function( \callback $function, array $args=array() )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -2308,7 +2244,7 @@ Gets the public label for the menu item
 
 <h2 id="osort">osort</h2>
 
-<p><code class="prettyprint">osort( mixed $array, mixed $prop)</code></p>
+<p><code class="prettyprint">osort( mixed $array, mixed $prop )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -2353,7 +2289,7 @@ Gets the public label for the menu item
 
 <h2 id="prepend_to_url">prepend_to_url</h2>
 
-<p><code class="prettyprint">prepend_to_url( mixed $url, mixed $path)</code></p>
+<p><code class="prettyprint">prepend_to_url( mixed $url, mixed $path )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -2378,7 +2314,7 @@ Gets the public label for the menu item
 
 <h2 id="preslashit">preslashit</h2>
 
-<p><code class="prettyprint">preslashit( mixed $path)</code></p>
+<p><code class="prettyprint">preslashit( mixed $path )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -2398,7 +2334,7 @@ Gets the public label for the menu item
 
 <h2 id="remove_double_slashes">remove_double_slashes</h2>
 
-<p><code class="prettyprint">remove_double_slashes( mixed $url)</code></p>
+<p><code class="prettyprint">remove_double_slashes( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -2418,13 +2354,13 @@ Gets the public label for the menu item
 
 <h2 id="start_timer">start_timer</h2>
 
-<p><code class="prettyprint">start_timer()</code></p>
+<p><code class="prettyprint">start_timer( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\float</code></p>
 
 <h2 id="stop_timer">stop_timer</h2>
 
-<p><code class="prettyprint">stop_timer( mixed $start)</code></p>
+<p><code class="prettyprint">stop_timer( mixed $start )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -2444,9 +2380,11 @@ Gets the public label for the menu item
 
 <h2 id="transient">transient</h2>
 
-<p><code class="prettyprint">transient( mixed $slug, \callable $callback, mixed $transient_time, mixed $lock_timeout=5, bool $force=false)</code></p>
+<p><code class="prettyprint">transient( mixed $slug, \callable $callback, mixed $transient_time, mixed $lock_timeout=5, bool $force=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p>A utility for a one-stop shop for Transients</p>
 
 <table><thead>
 <tr>
@@ -2481,6 +2419,13 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
+<pre class="highlight php"><code>    $favorites = Timber::transient('user-'.$uid.'-favorites', function() use ($uid) {
+        //some expensive query here that's doing something you want to store to a transient
+        return $favorites;
+    }, 600);
+    Timber::context['favorites'] = $favorites;
+    Timber::render('single.twig', $context);
+</code></pre>
 
 <h2 id="trim_words">trim_words</h2>
 
@@ -2519,7 +2464,7 @@ Gets the public label for the menu item
 
 <h2 id="twitterify">twitterify</h2>
 
-<p><code class="prettyprint">twitterify( mixed $ret)</code></p>
+<p><code class="prettyprint">twitterify( mixed $ret )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 

@@ -40,76 +40,16 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
-</tbody></table>
-
-<h2 id="is_transientlocked"><em>is_transient</em>locked</h2>
-
-<p><code class="prettyprint">_is_transient_locked( string $slug)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="_lock_transient">_lock_transient</h2>
-
-<p><code class="prettyprint">_lock_transient( string $slug, \integer $lock_timeout)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$lock_timeout</td>
-<td>\integer</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="_unlock_transient">_unlock_transient</h2>
-
-<p><code class="prettyprint">_unlock_transient( string $slug)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>string</td>
-<td></td>
+<td><a href="#transient">transient</a></td>
+<td>mixed</td>
+<td>A utility for a one-stop shop for Transients</td>
 </tr>
 </tbody></table>
 
 <h2 id="array_to_object">array_to_object</h2>
 
-<p><code class="prettyprint">array_to_object( mixed $array)</code></p>
+<p><code class="prettyprint">array_to_object( mixed $array )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\stdClass</code></p>
 
@@ -129,7 +69,7 @@
 
 <h2 id="array_truncate">array_truncate</h2>
 
-<p><code class="prettyprint">array_truncate( mixed $array, mixed $len)</code></p>
+<p><code class="prettyprint">array_truncate( mixed $array, mixed $len )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
@@ -154,7 +94,7 @@
 
 <h2 id="close_tags">close_tags</h2>
 
-<p><code class="prettyprint">close_tags( mixed $html)</code></p>
+<p><code class="prettyprint">close_tags( mixed $html )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -174,7 +114,7 @@
 
 <h2 id="download_url">download_url</h2>
 
-<p><code class="prettyprint">download_url( mixed $url, mixed $timeout=300)</code></p>
+<p><code class="prettyprint">download_url( mixed $url, mixed $timeout=300 )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -199,7 +139,7 @@
 
 <h2 id="error_log">error_log</h2>
 
-<p><code class="prettyprint">error_log( mixed $arg)</code></p>
+<p><code class="prettyprint">error_log( mixed $arg )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -219,7 +159,7 @@
 
 <h2 id="function_wrapper">function_wrapper</h2>
 
-<p><code class="prettyprint">function_wrapper( mixed $function_name, array $defaults=array(), bool $return_output_buffer=false)</code></p>
+<p><code class="prettyprint">function_wrapper( mixed $function_name, array $defaults=array(), bool $return_output_buffer=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\TimberFunctionWrapper</code></p>
 
@@ -249,9 +189,11 @@
 
 <h2 id="get_comment_form">get_comment_form</h2>
 
-<p><code class="prettyprint">get_comment_form( mixed $post_id=null, array $args=array())</code></p>
+<p><code class="prettyprint">get_comment_form( mixed $post_id=null, array $args=array() )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p>Gets the comment form for use on a single article page</p>
 
 <table><thead>
 <tr>
@@ -274,13 +216,13 @@
 
 <h2 id="get_current_url">get_current_url</h2>
 
-<p><code class="prettyprint">get_current_url()</code></p>
+<p><code class="prettyprint">get_current_url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
 <h2 id="get_full_path">get_full_path</h2>
 
-<p><code class="prettyprint">get_full_path( mixed $src)</code></p>
+<p><code class="prettyprint">get_full_path( mixed $src )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -300,7 +242,7 @@
 
 <h2 id="get_image_path">get_image_path</h2>
 
-<p><code class="prettyprint">get_image_path( mixed $iid)</code></p>
+<p><code class="prettyprint">get_image_path( mixed $iid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -320,7 +262,7 @@
 
 <h2 id="get_object_by_property">get_object_by_property</h2>
 
-<p><code class="prettyprint">get_object_by_property( mixed $array, mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_object_by_property( mixed $array, mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/null</code></p>
 
@@ -350,7 +292,7 @@
 
 <h2 id="get_object_index_by_property">get_object_index_by_property</h2>
 
-<p><code class="prettyprint">get_object_index_by_property( mixed $array, mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_object_index_by_property( mixed $array, mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool/int</code></p>
 
@@ -380,7 +322,7 @@
 
 <h2 id="get_params">get_params</h2>
 
-<p><code class="prettyprint">get_params( mixed $i=-1)</code></p>
+<p><code class="prettyprint">get_params( mixed $i=-1 )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -400,13 +342,13 @@
 
 <h2 id="get_path_base">get_path_base</h2>
 
-<p><code class="prettyprint">get_path_base()</code></p>
+<p><code class="prettyprint">get_path_base( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
 <h2 id="get_post_by_meta">get_post_by_meta</h2>
 
-<p><code class="prettyprint">get_post_by_meta( mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_post_by_meta( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">int</code></p>
 
@@ -431,7 +373,7 @@
 
 <h2 id="get_posts_by_meta">get_posts_by_meta</h2>
 
-<p><code class="prettyprint">get_posts_by_meta( mixed $key, mixed $value)</code></p>
+<p><code class="prettyprint">get_posts_by_meta( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/int</code></p>
 
@@ -456,7 +398,7 @@
 
 <h2 id="get_rel_path">get_rel_path</h2>
 
-<p><code class="prettyprint">get_rel_path( mixed $src)</code></p>
+<p><code class="prettyprint">get_rel_path( mixed $src )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -476,7 +418,7 @@
 
 <h2 id="get_rel_url">get_rel_url</h2>
 
-<p><code class="prettyprint">get_rel_url( mixed $url, bool $force=false)</code></p>
+<p><code class="prettyprint">get_rel_url( mixed $url, bool $force=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -501,7 +443,7 @@
 
 <h2 id="get_term_id_by_term_taxonomy_id">get_term_id_by_term_taxonomy_id</h2>
 
-<p><code class="prettyprint">get_term_id_by_term_taxonomy_id( mixed $ttid)</code></p>
+<p><code class="prettyprint">get_term_id_by_term_taxonomy_id( mixed $ttid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
@@ -546,7 +488,7 @@
 
 <h2 id="is_array_assoc">is_array_assoc</h2>
 
-<p><code class="prettyprint">is_array_assoc( mixed $arr)</code></p>
+<p><code class="prettyprint">is_array_assoc( mixed $arr )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -566,7 +508,7 @@
 
 <h2 id="is_external">is_external</h2>
 
-<p><code class="prettyprint">is_external( mixed $url)</code></p>
+<p><code class="prettyprint">is_external( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -586,7 +528,7 @@
 
 <h2 id="is_local">is_local</h2>
 
-<p><code class="prettyprint">is_local( mixed $url)</code></p>
+<p><code class="prettyprint">is_local( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -606,7 +548,7 @@
 
 <h2 id="is_true">is_true</h2>
 
-<p><code class="prettyprint">is_true( mixed $value)</code></p>
+<p><code class="prettyprint">is_true( mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -626,7 +568,7 @@
 
 <h2 id="is_url">is_url</h2>
 
-<p><code class="prettyprint">is_url( mixed $url)</code></p>
+<p><code class="prettyprint">is_url( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -646,7 +588,7 @@
 
 <h2 id="iseven">iseven</h2>
 
-<p><code class="prettyprint">iseven( mixed $i)</code></p>
+<p><code class="prettyprint">iseven( mixed $i )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -666,7 +608,7 @@
 
 <h2 id="isodd">isodd</h2>
 
-<p><code class="prettyprint">isodd( mixed $i)</code></p>
+<p><code class="prettyprint">isodd( mixed $i )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
@@ -686,7 +628,7 @@
 
 <h2 id="ob_function">ob_function</h2>
 
-<p><code class="prettyprint">ob_function( \callback $function, array $args=array())</code></p>
+<p><code class="prettyprint">ob_function( \callback $function, array $args=array() )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -711,7 +653,7 @@
 
 <h2 id="osort">osort</h2>
 
-<p><code class="prettyprint">osort( mixed $array, mixed $prop)</code></p>
+<p><code class="prettyprint">osort( mixed $array, mixed $prop )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -756,7 +698,7 @@
 
 <h2 id="prepend_to_url">prepend_to_url</h2>
 
-<p><code class="prettyprint">prepend_to_url( mixed $url, mixed $path)</code></p>
+<p><code class="prettyprint">prepend_to_url( mixed $url, mixed $path )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -781,7 +723,7 @@
 
 <h2 id="preslashit">preslashit</h2>
 
-<p><code class="prettyprint">preslashit( mixed $path)</code></p>
+<p><code class="prettyprint">preslashit( mixed $path )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -801,7 +743,7 @@
 
 <h2 id="remove_double_slashes">remove_double_slashes</h2>
 
-<p><code class="prettyprint">remove_double_slashes( mixed $url)</code></p>
+<p><code class="prettyprint">remove_double_slashes( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -821,13 +763,13 @@
 
 <h2 id="start_timer">start_timer</h2>
 
-<p><code class="prettyprint">start_timer()</code></p>
+<p><code class="prettyprint">start_timer( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">\float</code></p>
 
 <h2 id="stop_timer">stop_timer</h2>
 
-<p><code class="prettyprint">stop_timer( mixed $start)</code></p>
+<p><code class="prettyprint">stop_timer( mixed $start )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
@@ -847,9 +789,11 @@
 
 <h2 id="transient">transient</h2>
 
-<p><code class="prettyprint">transient( mixed $slug, \callable $callback, mixed $transient_time, mixed $lock_timeout=5, bool $force=false)</code></p>
+<p><code class="prettyprint">transient( mixed $slug, \callable $callback, mixed $transient_time, mixed $lock_timeout=5, bool $force=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p>A utility for a one-stop shop for Transients</p>
 
 <table><thead>
 <tr>
@@ -884,6 +828,13 @@
 <td></td>
 </tr>
 </tbody></table>
+<pre class="highlight php"><code>    $favorites = Timber::transient('user-'.$uid.'-favorites', function() use ($uid) {
+        //some expensive query here that's doing something you want to store to a transient
+        return $favorites;
+    }, 600);
+    Timber::context['favorites'] = $favorites;
+    Timber::render('single.twig', $context);
+</code></pre>
 
 <h2 id="trim_words">trim_words</h2>
 
@@ -922,7 +873,7 @@
 
 <h2 id="twitterify">twitterify</h2>
 
-<p><code class="prettyprint">twitterify( mixed $ret)</code></p>
+<p><code class="prettyprint">twitterify( mixed $ret )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
