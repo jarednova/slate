@@ -39,7 +39,7 @@
 <span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<pre class="highlight plaintext"><code>&lt;script src="{{theme.link}}/static/js/all.js"&gt;&lt;/script&gt;
+<pre class="highlight handlebars"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"</span><span class="k">{{</span><span class="nv">theme</span><span class="p">.</span><span class="nv">link</span><span class="k">}}</span><span class="s">/static/js/all.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
 <pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://example.org/wp-content/themes/my-theme/static/js/all.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
@@ -110,7 +110,7 @@
         <span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'single.'</span><span class="p">)</span>
     <span class="cp">?&gt;</span>
     ```
-    ```twig
+    ```handlebars
     We are currently using the {{ theme_stuff.name }} theme.
     ```
     ```html
@@ -149,7 +149,7 @@ $default | bool |
 <span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
 <span class="cp">?&gt;</span>
 </code></pre>
-<pre class="highlight plaintext"><code>&lt;script src="{{theme.link}}/static/js/all.js"&gt;&lt;/script&gt;
+<pre class="highlight handlebars"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"</span><span class="k">{{</span><span class="nv">theme</span><span class="p">.</span><span class="nv">link</span><span class="k">}}</span><span class="s">/static/js/all.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
 <pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://example.org/wp-content/themes/my-theme/static/js/all.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>

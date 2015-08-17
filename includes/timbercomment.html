@@ -40,6 +40,31 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><a href="#author">author</a></td>
+<td>\TimberUser</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#content">content</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#date">date</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#is_child">is_child</a></td>
+<td>bool</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#status">status</a></td>
+<td>string</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
@@ -80,7 +105,7 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">bool/mixed/string</code></p>
 
-<p>Fetches the Gravatar <code class="prettyprint">twig {{comment.avatar(36,template_uri~&quot;/img/dude.jpg&quot;)}}</code></p>
+<p>Fetches the Gravatar <code class="prettyprint">handlebars {{comment.avatar(36,template_uri~&quot;/img/dude.jpg&quot;)}}</code></p>
 
 <table><thead>
 <tr>
@@ -113,26 +138,6 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<h2 id="init">init</h2>
-
-<p><code class="prettyprint">init( \integer $cid )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$cid</td>
-<td>\integer</td>
-<td></td>
-</tr>
-</tbody></table>
-
 <h2 id="is_child">is_child</h2>
 
 <p><code class="prettyprint">is_child( )</code></p>
@@ -164,102 +169,6 @@
 <p><code class="prettyprint">status( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="avatar_default">avatar_default</h2>
-
-<p><code class="prettyprint">avatar_default( string $default, string $email, string $size, string $host )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$default</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$email</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$size</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$host</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="avatar_email">avatar_email</h2>
-
-<p><code class="prettyprint">avatar_email( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="avatar_host">avatar_host</h2>
-
-<p><code class="prettyprint">avatar_host( string $email_hash )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$email_hash</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="avatar_out">avatar_out</h2>
-
-<p><code class="prettyprint">avatar_out( string $default, string $host, string $email_hash, string $size )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$default</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$host</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$email_hash</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$size</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
 
 <h2 id="get_meta_field">get_meta_field</h2>
 
