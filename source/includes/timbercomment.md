@@ -6,6 +6,7 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+
 ## __construct
 `__construct( int $cid )`
 

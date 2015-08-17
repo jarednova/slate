@@ -22,20 +22,26 @@ Timber::render('single.twig', $context);
 
 Name | Type | Description
 ---- | ---- | -----------
+
 [author](#author) | \TimberUser/bool A TimberUser object if found, false if not | Return the author of a post
 [categories](#categories) | array of TimberTerms | Get the categoires on a particular post
 [category](#category) | \TimberTerm/null | Returns a category attached to a post
 [children](#children) | array | Returns an array of children on the post as TimberPosts (or other claass as you define).
+class | string | $class stores the CSS classes for the post (ex: "post post-type-book post-123")
 [comments](#comments) | bool/array | Gets the comments on a TimberPost and returns them as an array of [TimberComments](#TimberComment) (or whatever comment class you set).
 [content](#content) | string | Gets the actual content of a WP Post, as opposed to post_content this will run the hooks/filters attached to the_content. \This guy will return your posts content with WordPress filters run on it (like for shortcodes and wpautop).
 [date](#date) | string | Get the date to use in your template!
 [format](#format) | mixed | 
 [get_preview](#get_preview) | string of the post preview | get a preview of your post, if you have an excerpt it will use that, otherwise it will pull from the post_content. If there's a <!-- more --> tag it will use that to mark where to pull through.
+id | string | $id the numeric WordPress id of a post
 [link](#link) | string ex: http://example.org/2015/07/my-awesome-post | get the permalink for a post object
 [next](#next) | mixed | 
 [parent](#parent) | bool/[\TimberPost](#class-timberpost) | Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
 [path](#path) | string | Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
+post_status | string | 		$post_status 	the status of a post ("draft", "publish", etc.)
+post_type | string | 	$post_type 		the name of the post type, this is the machine name (so "my_custom_post_type" as opposed to "My Custom Post Type")
 [prev](#prev) | mixed | Get the previous post in a set
+slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named "post_name" in the WP database, ex: "hello-world"
 [tags](#tags) | array | Gets the tags on a post, uses WP's post_tag taxonomy
 [terms](#terms) | array | Get the terms associated with the post This goes across all taxonomies by default
 [thumbnail](#thumbnail) | \TimberImage/null of your thumbnail | get the featured image as a TimberImage

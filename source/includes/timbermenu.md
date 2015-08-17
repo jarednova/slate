@@ -40,6 +40,11 @@ Timber::render('index.twig', $context);
 
 Name | Type | Description
 ---- | ---- | -----------
+
+id | integer | $id the ID# of the menu, corresponding to the wp_terms table
+items | TimberMenuItem[]|null | $items you need to iterate through
+name | string | $name of the menu (ex: `Main Navigation`)
+title | string | $name of the menu (ex: `Main Navigation`)
 ## __construct
 `__construct( int/string $slug )`
 

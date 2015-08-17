@@ -6,7 +6,12 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+
+charset | string | 
 [link](#link) | string | 
+multisite | bool | 
+theme | [TimberTheme](#TimberTheme) | 
+title | string | 
 [url](#url) | string | 
 ## __construct
 `__construct( mixed/string/int $site_name_or_id=null )`

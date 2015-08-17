@@ -6,6 +6,7 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+
 [transient](#transient) | mixed | A utility for a one-stop shop for Transients
 ## array_to_object
 `array_to_object( mixed $array )`

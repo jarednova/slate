@@ -6,6 +6,7 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+
 [link](#link) | string | 
 [name](#name) | string the human-friendly name of the user (ex: "Buster Bluth") | 
 [path](#path) | string | 
