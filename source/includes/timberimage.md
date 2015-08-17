@@ -56,14 +56,6 @@ $iid | int |
 
 
 
-## get_alt
-`get_alt( )`
-
-**returns:** `string`
-
-
-
-
 ## get_dimensions
 `get_dimensions( mixed/string $dim=null )`
 
@@ -74,14 +66,6 @@ $iid | int |
 Name | Type | Description
 ---- | ---- | -----------
 $dim | mixed/string | 
-
-
-## get_parent
-`get_parent( )`
-
-**returns:** `bool/\TimberPost`
-
-
 
 
 ## get_url

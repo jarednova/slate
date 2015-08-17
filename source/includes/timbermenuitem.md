@@ -79,7 +79,7 @@ Checks to see if a link is external, helpful when creating rules for the target 
 
 Checks to see if the menu item is an external link so if my site is `example.org`, `google.com/whatever` is an external link. Helpful when creating rules for the target of a link
 
-```twig
+```handlebars
 	<a href="{{ item.link }}" target="{{ item.is_external ? '_blank' : '_self' }}">
 ```
 ## link
@@ -89,7 +89,7 @@ Checks to see if the menu item is an external link so if my site is `example.org
 
 Get the full link to a Menu Item
 
-```twig
+```handlebars
 	{% for item in menu.items %}
 	    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
 	{% endfor %}
@@ -121,7 +121,7 @@ The label for the menu item
 
 Return the relative path of a Menu Item's link
 
-```twig
+```handlebars
 	{% for item in menu.items %}
 	    <li><a href="{{ item.path }}">{{ item.title }}</a></li>
 	{% endfor %}
@@ -133,7 +133,7 @@ Return the relative path of a Menu Item's link
 
 The slug for the menu item
 
-```twig
+```handlebars
 	<ul>
 	    {% for item in menu.items %}
 	        <li class="{{item.slug}}">
@@ -148,7 +148,7 @@ The slug for the menu item
 
 Gets the public label for the menu item
 
-```twig
+```handlebars
 	{% for item in menu.items %}
 	    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
 	{% endfor %}

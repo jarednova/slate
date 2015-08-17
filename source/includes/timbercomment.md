@@ -6,6 +6,11 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+[author](#author) | \TimberUser | 
+[content](#content) | string | 
+[date](#date) | string | 
+[is_child](#is_child) | bool | 
+[status](#status) | string | 
 
 ## __construct
 `__construct( int $cid )`
@@ -40,7 +45,7 @@ $cid | int |
 
 **returns:** `bool/mixed/string`
 
-Fetches the Gravatar ```twig {{comment.avatar(36,template_uri~"/img/dude.jpg")}} ```
+Fetches the Gravatar ```handlebars {{comment.avatar(36,template_uri~"/img/dude.jpg")}} ```
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -62,18 +67,6 @@ $default | string |
 **returns:** `string`
 
 
-
-
-## init
-`init( \integer $cid )`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$cid | \integer | 
 
 
 ## is_child
@@ -102,56 +95,6 @@ $field_name | string |
 **returns:** `string`
 
 
-
-
-## avatar_default
-`avatar_default( string $default, string $email, string $size, string $host )`
-
-**returns:** `string`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$default | string | 
-$email | string | 
-$size | string | 
-$host | string | 
-
-
-## avatar_email
-`avatar_email( )`
-
-**returns:** `string`
-
-
-
-
-## avatar_host
-`avatar_host( string $email_hash )`
-
-**returns:** `string`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$email_hash | string | 
-
-
-## avatar_out
-`avatar_out( string $default, string $host, string $email_hash, string $size )`
-
-**returns:** `mixed`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$default | string | 
-$host | string | 
-$email_hash | string | 
-$size | string | 
 
 
 ## get_meta_field

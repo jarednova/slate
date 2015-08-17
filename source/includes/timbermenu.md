@@ -20,7 +20,8 @@ $context['posts'] = Timber::get_posts();
 Timber::render('index.twig', $context);
 ?>
 ```
-```twig
+
+```handlebars
 <nav>
 	<ul class="main-nav">
 	{% for item in menu.get_items %}
@@ -102,7 +103,8 @@ $context['posts'] = Timber::get_posts();
 Timber::render('index.twig', $context);
 ?>
 ```
-```twig
+
+```handlebars
 <nav>
 	<ul class="main-nav">
 	{% for item in menu.get_items %}

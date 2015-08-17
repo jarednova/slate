@@ -8,7 +8,7 @@ $context = Timber::get_context();
 Timber::render('index.twig', $context);
 ?>
 ```
-```twig
+```handlebars
 <script src="{{theme.link}}/static/js/all.js"></script>
 ```
 ```html
@@ -42,7 +42,7 @@ $slug | mixed/string |
         Timber::render('single.')
     ?>
     ```
-    ```twig
+    ```handlebars
     We are currently using the {{ theme_stuff.name }} theme.
     ```
     ```html
@@ -81,7 +81,7 @@ $context = Timber::get_context();
 Timber::render('index.twig', $context);
 ?>
 ```
-```twig
+```handlebars
 <script src="{{theme.link}}/static/js/all.js"></script>
 ```
 ```html

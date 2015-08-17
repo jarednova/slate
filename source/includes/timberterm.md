@@ -127,7 +127,7 @@ $numberposts_or_args | mixed/int |
 $post_type_or_class | string | 
 $post_class | string | 
 
-```twig
+```handlebars
 	<h4>Recent posts in {{term.name}}</h4>
 	<ul>
 	{% for post in term.posts(3, 'post') %}
