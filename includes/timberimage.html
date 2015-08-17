@@ -40,31 +40,6 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>class</td>
-<td>string</td>
-<td>$class stores the CSS classes for the post (ex: &ldquo;post post-type-book post-123&rdquo;)</td>
-</tr>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>$id the numeric WordPress id of a post</td>
-</tr>
-<tr>
-<td>post_status</td>
-<td>string</td>
-<td>$post_status    the status of a post (&ldquo;draft&rdquo;, &ldquo;publish&rdquo;, etc.)</td>
-</tr>
-<tr>
-<td>post_type</td>
-<td>string</td>
-<td>$post_type      the name of the post type, this is the machine name (so &ldquo;my_custom_post_type&rdquo; as opposed to &ldquo;My Custom Post Type&rdquo;)</td>
-</tr>
-<tr>
-<td>slug</td>
-<td>string</td>
-<td>$slug       the URL-safe slug, this corresponds to the poorly-named &ldquo;post_name&rdquo; in the WP database, ex: &ldquo;hello-world&rdquo;</td>
-</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
@@ -141,7 +116,7 @@
 
 <p><code class="prettyprint">get_parent( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">bool/\TimberImage</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">bool/[\TimberImage](#class-timberimage)</code></p>
 
 <h2 id="get_path">get_path</h2>
 
@@ -245,11 +220,7 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
-<h3 id="class-slug"><strike>Class: slug</strike></h3>
-
-<blockquote>
-<p><strong>DEPRECATED</strong> since 0.21.7</p>
-</blockquote>
+<h3 id="class-timberimage">Class: TimberImage</h3>
 
 <p><em>This class extends \TimberPost</em></p>
 

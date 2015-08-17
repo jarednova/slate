@@ -93,27 +93,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="get_items">get_items</h2>
-
-<p><code class="prettyprint">get_items( mixed/array/string $args=null )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">array/string</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$args</td>
-<td>mixed/array/string</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h3 id="class-object_type">Class: object_type</h3>
+<h3 id="class-timberarchives">Class: TimberArchives</h3>
 
 <p><em>This class extends \TimberCore</em></p>
 
@@ -166,7 +146,7 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">bool/mixed/string</code></p>
 
-<p>Fetches the Gravatar <code class="prettyprint">handlebars {{comment.avatar(36,template_uri~&quot;/img/dude.jpg&quot;)}}</code></p>
+<p>Fetches the Gravatar <code class="prettyprint">twig {{comment.avatar(36,template_uri~&quot;/img/dude.jpg&quot;)}}</code></p>
 
 <table><thead>
 <tr>
@@ -387,7 +367,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="class-children">Class: children</h3>
+<h3 id="class-timbercomment">Class: TimberComment</h3>
 
 <p><em>This class extends \TimberCore</em></p>
 
@@ -402,31 +382,6 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>class</td>
-<td>string</td>
-<td>$class stores the CSS classes for the post (ex: &ldquo;post post-type-book post-123&rdquo;)</td>
-</tr>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>$id the numeric WordPress id of a post</td>
-</tr>
-<tr>
-<td>post_status</td>
-<td>string</td>
-<td>$post_status    the status of a post (&ldquo;draft&rdquo;, &ldquo;publish&rdquo;, etc.)</td>
-</tr>
-<tr>
-<td>post_type</td>
-<td>string</td>
-<td>$post_type      the name of the post type, this is the machine name (so &ldquo;my_custom_post_type&rdquo; as opposed to &ldquo;My Custom Post Type&rdquo;)</td>
-</tr>
-<tr>
-<td>slug</td>
-<td>string</td>
-<td>$slug       the URL-safe slug, this corresponds to the poorly-named &ldquo;post_name&rdquo; in the WP database, ex: &ldquo;hello-world&rdquo;</td>
-</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
@@ -503,7 +458,7 @@
 
 <p><code class="prettyprint">get_parent( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">bool/\TimberImage</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">bool/[\TimberImage](#class-timberimage)</code></p>
 
 <h2 id="get_path">get_path</h2>
 
@@ -607,17 +562,48 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
-<h3 id="class-slug"><strike>Class: slug</strike></h3>
-
-<blockquote>
-<p><strong>DEPRECATED</strong> since 0.21.7</p>
-</blockquote>
+<h3 id="class-timberimage">Class: TimberImage</h3>
 
 <p><em>This class extends \TimberPost</em></p>
 
 <p><em>This class implements \TimberCoreInterface</em></p>
 
           <h1 id="timbermenu">TimberMenu</h1>
+
+<p>In Timber, you can use TimberMenu() to make a standard Wordpress menu available to the Twig template as an object you can loop through. And once the menu becomes available to the context, you can get items from it in a way that is a little smoother and more versatile than Wordpress&rsquo;s wp_nav_menu. (You need never again rely on a crazy &ldquo;Walker Function!&rdquo;). The first thing to do is to initialize the menu using TimberMenu(). This will make the menu available as an object to work with in the context. (TimberMenu can include a Wordpress menu slug or ID, or it can be sent with no parameter&ndash;and guess the right menu.)</p>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="c1"># functions.php
+</span><span class="nx">add_filter</span><span class="p">(</span><span class="s1">'timber/context'</span><span class="p">,</span> <span class="s1">'add_to_context'</span><span class="p">);</span>
+<span class="k">function</span> <span class="nf">add_to_context</span><span class="p">(</span><span class="nv">$data</span><span class="p">){</span>
+    <span class="c1">// So here you are adding data to Timber's context object, i.e...
+</span>    <span class="nv">$data</span><span class="p">[</span><span class="s1">'foo'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'I am some other typical value set in your functions.php file, unrelated to the menu'</span><span class="p">;</span>
+    <span class="c1">// Now, in similar fashion, you add a Timber menu and send it along to the context. 
+</span>        <span class="nv">$data</span><span class="p">[</span><span class="s1">'menu'</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimberMenu</span><span class="p">();</span> <span class="c1">// This is where you can also send a WordPress menu slug or ID
+</span>    <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1"># index.php (or any PHP file)
+// Since you want a menu object available on every page, I added it to the universal Timber context via the functions.php file. You could also this in each PHP file if you find that too confusing.
+</span><span class="nv">$context</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_context</span><span class="p">();</span>
+<span class="nv">$context</span><span class="p">[</span><span class="s1">'posts'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_posts</span><span class="p">();</span>
+<span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight plaintext"><code>&lt;nav&gt;
+    &lt;ul class="main-nav"&gt;
+    {% for item in menu.get_items %}
+        &lt;li class="nav-main-item {{item.classes | join(' ')}}"&gt;&lt;a class="nav-main-link" href="{{item.get_link}}"&gt;{{item.title}}&lt;/a&gt;
+            {% if item.get_children %}
+            &lt;ul class="nav-drop"&gt;
+              {% for child in item.get_children %}
+                &lt;li class="nav-drop-item"&gt;&lt;a href="{{child.get_link}}"&gt;{{child.title}}&lt;/a&gt;&lt;/li&gt;
+              {% endfor %}
+             &lt;/ul&gt;
+          {% endif %}
+          &lt;/li&gt;
+   {% endfor %}
+   &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
 
 <table><thead>
 <tr>
@@ -630,7 +616,7 @@
 
 <h2 id="__construct">__construct</h2>
 
-<p><code class="prettyprint">__construct( int $slug )</code></p>
+<p><code class="prettyprint">__construct( int/string $slug )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
@@ -643,7 +629,7 @@
 </thead><tbody>
 <tr>
 <td>$slug</td>
-<td>int</td>
+<td>int/string</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -679,98 +665,46 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">array</code></p>
 
-<h2 id="order_children">order_children</h2>
+<h3 id="class-timbermenu">Class: TimberMenu</h3>
 
-<p><code class="prettyprint">order_children( array $items )</code></p>
+<blockquote>
+<p>In Timber, you can use TimberMenu() to make a standard Wordpress menu available to the Twig template as an object you can loop through. And once the menu becomes available to the context, you can get items from it in a way that is a little smoother and more versatile than Wordpress&rsquo;s wp_nav_menu. (You need never again rely on a crazy &ldquo;Walker Function!&rdquo;). The first thing to do is to initialize the menu using TimberMenu(). This will make the menu available as an object to work with in the context. (TimberMenu can include a Wordpress menu slug or ID, or it can be sent with no parameter&ndash;and guess the right menu.)</p>
+</blockquote>
 
-<p><strong>returns:</strong> <code class="prettyprint">array</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$items</td>
-<td>array</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="get_menu_id_from_locations">get_menu_id_from_locations</h2>
-
-<p><code class="prettyprint">get_menu_id_from_locations( string $slug, array $locations )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">\integer</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$locations</td>
-<td>array</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="get_menu_id_from_terms">get_menu_id_from_terms</h2>
-
-<p><code class="prettyprint">get_menu_id_from_terms( int $slug )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="init">init</h2>
-
-<p><code class="prettyprint">init( int $menu_id )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$menu_id</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="init_as_page_menu">init_as_page_menu</h2>
-
-<p><code class="prettyprint">init_as_page_menu( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<h3 id="class-object_type">Class: object_type</h3>
+<h6 id="example">Example</h6>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="c1"># functions.php
+</span><span class="nx">add_filter</span><span class="p">(</span><span class="s1">'timber/context'</span><span class="p">,</span> <span class="s1">'add_to_context'</span><span class="p">);</span>
+<span class="k">function</span> <span class="nf">add_to_context</span><span class="p">(</span><span class="nv">$data</span><span class="p">){</span>
+    <span class="c1">// So here you are adding data to Timber's context object, i.e...
+</span>    <span class="nv">$data</span><span class="p">[</span><span class="s1">'foo'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'I am some other typical value set in your functions.php file, unrelated to the menu'</span><span class="p">;</span>
+    <span class="c1">// Now, in similar fashion, you add a Timber menu and send it along to the context. 
+</span>        <span class="nv">$data</span><span class="p">[</span><span class="s1">'menu'</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimberMenu</span><span class="p">();</span> <span class="c1">// This is where you can also send a WordPress menu slug or ID
+</span>    <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1"># index.php (or any PHP file)
+// Since you want a menu object available on every page, I added it to the universal Timber context via the functions.php file. You could also this in each PHP file if you find that too confusing.
+</span><span class="nv">$context</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_context</span><span class="p">();</span>
+<span class="nv">$context</span><span class="p">[</span><span class="s1">'posts'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_posts</span><span class="p">();</span>
+<span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight plaintext"><code>&lt;nav&gt;
+    &lt;ul class="main-nav"&gt;
+    {% for item in menu.get_items %}
+        &lt;li class="nav-main-item {{item.classes | join(' ')}}"&gt;&lt;a class="nav-main-link" href="{{item.get_link}}"&gt;{{item.title}}&lt;/a&gt;
+            {% if item.get_children %}
+            &lt;ul class="nav-drop"&gt;
+              {% for child in item.get_children %}
+                &lt;li class="nav-drop-item"&gt;&lt;a href="{{child.get_link}}"&gt;{{child.title}}&lt;/a&gt;&lt;/li&gt;
+              {% endfor %}
+             &lt;/ul&gt;
+          {% endif %}
+          &lt;/li&gt;
+   {% endfor %}
+   &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
 
 <p><em>This class extends \TimberCore</em></p>
 
@@ -901,7 +835,7 @@
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
 
 <p>Checks to see if the menu item is an external link so if my site is <code class="prettyprint">example.org</code>, <code class="prettyprint">google.com/whatever</code> is an external link. Helpful when creating rules for the target of a link</p>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">link</span> <span class="k">}}</span><span class="s">"</span> <span class="na">target=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">is_external</span> <span class="err">?</span> <span class="s1">'_blank'</span> <span class="err">:</span> <span class="s1">'_self'</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;a href="{{ item.link }}" target="{{ item.is_external ? '_blank' : '_self' }}"&gt;
 </code></pre>
 
 <h2 id="link">link</h2>
@@ -911,8 +845,8 @@
 <p><strong>returns:</strong> <code class="prettyprint">string a full URL like http://mysite.com/thing/</code></p>
 
 <p>Get the full link to a Menu Item</p>
-<pre class="highlight handlebars"><code>    {% for item in menu.items %}
-        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">link</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">title</span> <span class="k">}}</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<pre class="highlight plaintext"><code>    {% for item in menu.items %}
+        &lt;li&gt;&lt;a href="{{ item.link }}"&gt;{{ item.title }}&lt;/a&gt;&lt;/li&gt;
     {% endfor %}
 </code></pre>
 
@@ -951,8 +885,8 @@
 <p><strong>returns:</strong> <code class="prettyprint">string the path of a URL like /foo</code></p>
 
 <p>Return the relative path of a Menu Item&rsquo;s link</p>
-<pre class="highlight handlebars"><code>    {% for item in menu.items %}
-        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">path</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">title</span> <span class="k">}}</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<pre class="highlight plaintext"><code>    {% for item in menu.items %}
+        &lt;li&gt;&lt;a href="{{ item.path }}"&gt;{{ item.title }}&lt;/a&gt;&lt;/li&gt;
     {% endfor %}
 </code></pre>
 
@@ -963,13 +897,13 @@
 <p><strong>returns:</strong> <code class="prettyprint">string the slug of the menu item kinda-like-this</code></p>
 
 <p>The slug for the menu item</p>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;ul&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;ul&gt;
         {% for item in menu.items %}
-            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"</span><span class="k">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">slug</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">link</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">item</span><span class="p">.</span><span class="nv">name</span><span class="k">}}</span><span class="nt">&lt;/a&gt;</span>
-             <span class="nt">&lt;/li&gt;</span>
+            &lt;li class="{{item.slug}}"&gt;
+                &lt;a href="{{item.link}}"&gt;{{item.name}}&lt;/a&gt;
+             &lt;/li&gt;
         {% endfor %}
-    <span class="nt">&lt;/ul&gt;</span>
+    &lt;/ul&gt;
 ## title
 `title( )`
 
@@ -977,19 +911,36 @@
 
 Gets the public label for the menu item
 
-```handlebars
+```twig
     {% for item in menu.items %}
-        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">link</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span> <span class="nv">item</span><span class="p">.</span><span class="nv">title</span> <span class="k">}}</span><span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        &lt;li&gt;&lt;a href="{{ item.link }}"&gt;{{ item.title }}&lt;/a&gt;&lt;/li&gt;
     {% endfor %}
 </code></pre>
 
-<h3 id="class-object_type">Class: object_type</h3>
+<h3 id="class-timbermenuitem">Class: TimberMenuItem</h3>
 
 <p><em>This class extends \TimberCore</em></p>
 
 <p><em>This class implements \TimberCoreInterface</em></p>
 
           <h1 id="timberpost">TimberPost</h1>
+
+<p>This is the object you use to access or extend WordPress posts. Think of it as Timber&rsquo;s (more accessible) version of WP_Post. This is used throughout Timber to represent posts retrieved from WordPress making them available to Twig templates. See the PHP and Twig examples for an example of what it&rsquo;s like to work with this object in your code.</p>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="c1">// single.php, see connected twig example
+</span><span class="nv">$context</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_context</span><span class="p">();</span>
+<span class="nv">$context</span><span class="p">[</span><span class="s1">'post'</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimberPost</span><span class="p">();</span> <span class="c1">// It's a new TimberPost object, but an existing post from WordPress.
+</span><span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'single.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight plaintext"><code>{# single.twig #}
+&lt;article&gt;
+    &lt;h1 class="headline"&gt;{{post.post_title}}&lt;/h1&gt;
+    &lt;div class="body"&gt;
+        {{post.content}}
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
 
 <table><thead>
 <tr>
@@ -1019,11 +970,6 @@ Gets the public label for the menu item
 <td>Returns an array of children on the post as TimberPosts (or other claass as you define).</td>
 </tr>
 <tr>
-<td>class</td>
-<td>string</td>
-<td>$class stores the CSS classes for the post (ex: &ldquo;post post-type-book post-123&rdquo;)</td>
-</tr>
-<tr>
 <td><a href="#comments">comments</a></td>
 <td>bool/array</td>
 <td>Gets the comments on a TimberPost and returns them as an array of <a href="#TimberComment">TimberComments</a> (or whatever comment class you set).</td>
@@ -1049,11 +995,6 @@ Gets the public label for the menu item
 <td>get a preview of your post, if you have an excerpt it will use that, otherwise it will pull from the post_content. If there&rsquo;s a &lt;!&ndash; more &ndash;&gt; tag it will use that to mark where to pull through.</td>
 </tr>
 <tr>
-<td>id</td>
-<td>string</td>
-<td>$id the numeric WordPress id of a post</td>
-</tr>
-<tr>
 <td><a href="#link">link</a></td>
 <td>string ex: http://example.org/2015/07/my-awesome-post</td>
 <td>get the permalink for a post object</td>
@@ -1065,7 +1006,7 @@ Gets the public label for the menu item
 </tr>
 <tr>
 <td><a href="#parent">parent</a></td>
-<td>bool/\TimberPost</td>
+<td>bool/<a href="#class-timberpost">\TimberPost</a></td>
 <td>Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)</td>
 </tr>
 <tr>
@@ -1074,24 +1015,9 @@ Gets the public label for the menu item
 <td>Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post</td>
 </tr>
 <tr>
-<td>post_status</td>
-<td>string</td>
-<td>$post_status    the status of a post (&ldquo;draft&rdquo;, &ldquo;publish&rdquo;, etc.)</td>
-</tr>
-<tr>
-<td>post_type</td>
-<td>string</td>
-<td>$post_type      the name of the post type, this is the machine name (so &ldquo;my_custom_post_type&rdquo; as opposed to &ldquo;My Custom Post Type&rdquo;)</td>
-</tr>
-<tr>
 <td><a href="#prev">prev</a></td>
 <td>mixed</td>
 <td>Get the previous post in a set</td>
-</tr>
-<tr>
-<td>slug</td>
-<td>string</td>
-<td>$slug       the URL-safe slug, this corresponds to the poorly-named &ldquo;post_name&rdquo; in the WP database, ex: &ldquo;hello-world&rdquo;</td>
 </tr>
 <tr>
 <td><a href="#tags">tags</a></td>
@@ -1155,10 +1081,10 @@ Gets the public label for the menu item
 <p><strong>returns:</strong> <code class="prettyprint">\TimberUser/bool A TimberUser object if found, false if not</code></p>
 
 <p>Return the author of a post</p>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;h1&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="k">}}</span><span class="nt">&lt;/h1&gt;</span>
-    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"byline"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">author</span><span class="p">.</span><span class="nv">link</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">author</span><span class="p">.</span><span class="nv">name</span><span class="k">}}</span><span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/p&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;h1&gt;{{post.title}}&lt;/h1&gt;
+    &lt;p class="byline"&gt;
+        &lt;a href="{{post.author.link}}"&gt;{{post.author.name}}&lt;/a&gt;
+    &lt;/p&gt;
 </code></pre>
 
 <h2 id="categories">categories</h2>
@@ -1203,10 +1129,10 @@ Gets the public label for the menu item
 <td><em>optional</em> a custom post class (ex: &#39;MyTimberPost&rsquo;) to return the objects as. By default (false) it will use TimberPost::$post_class value.</td>
 </tr>
 </tbody></table>
-<pre class="highlight handlebars"><code>    {% if post.children %}
+<pre class="highlight plaintext"><code>    {% if post.children %}
         Here are the child pages:
         {% for child in page.children %}
-            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">child</span><span class="p">.</span><span class="nv">link</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span> <span class="nv">child</span><span class="p">.</span><span class="nv">title</span> <span class="k">}}</span><span class="nt">&lt;/a&gt;</span>
+            &lt;a href="{{ child.link }}"&gt;{{ child.title }}&lt;/a&gt;
         {% endfor %}
     {% endif %}
 </code></pre>
@@ -1252,13 +1178,13 @@ Gets the public label for the menu item
 <td>What class to use when returning Comment objects. As you become a Timber pro, you might find yourself extending TimberComment for your site or app (obviously, totally optional)</td>
 </tr>
 </tbody></table>
-<pre class="highlight handlebars"><code>    {# single.twig #}
-    <span class="nt">&lt;h4&gt;</span>Comments:<span class="nt">&lt;/h4&gt;</span>
+<pre class="highlight plaintext"><code>    {# single.twig #}
+    &lt;h4&gt;Comments:&lt;/h4&gt;
     {% for comment in post.comments %}
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"comment-</span><span class="k">{{</span><span class="nv">comment</span><span class="p">.</span><span class="nv">ID</span><span class="k">}}</span><span class="s"> comment-order-</span><span class="k">{{</span><span class="nv">loop</span><span class="p">.</span><span class="nv">index</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;p&gt;</span><span class="k">{{</span><span class="nv">comment</span><span class="p">.</span><span class="nv">author</span><span class="p">.</span><span class="nv">name</span><span class="k">}}</span> said:<span class="nt">&lt;/p&gt;</span>
-            <span class="nt">&lt;p&gt;</span><span class="k">{{</span><span class="nv">comment</span><span class="p">.</span><span class="nv">content</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
+        &lt;div class="comment-{{comment.ID}} comment-order-{{loop.index}}"&gt;
+            &lt;p&gt;{{comment.author.name}} said:&lt;/p&gt;
+            &lt;p&gt;{{comment.content}}&lt;/p&gt;
+        &lt;/div&gt;
     {% endfor %}
 </code></pre>
 
@@ -1283,10 +1209,10 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"article"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h2&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="k">}}</span><span class="nt">&lt;/h2&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span><span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">content</span> <span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;div class="article"&gt;
+        &lt;h2&gt;{{post.title}}&lt;/h2&gt;
+        &lt;div class="content"&gt;{{ post.content }}&lt;/div&gt;
+    &lt;/div&gt;
 </code></pre>
 
 <h2 id="date">date</h2>
@@ -1310,9 +1236,9 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
-<pre class="highlight handlebars"><code>    Published on <span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">date</span> <span class="k">}}</span> // Uses WP's formatting set in Admin
+<pre class="highlight plaintext"><code>    Published on {{ post.date }} // Uses WP's formatting set in Admin
     OR
-    Published on <span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">date</span> <span class="err">|</span> <span class="nv">date</span><span class="err">(</span><span class="s1">'F jS'</span><span class="err">)</span> <span class="k">}}</span> // Jan 12th
+    Published on {{ post.date | date('F jS') }} // Jan 12th
 </code></pre>
 <pre class="highlight html"><code>    Published on January 12, 2015
     OR
@@ -1363,7 +1289,7 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"article-text"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">get_content</span><span class="k">}}</span><span class="nt">&lt;/div&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;div class="article-text"&gt;{{post.get_content}}&lt;/div&gt;
 </code></pre>
 <pre class="highlight html"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"article-text"</span><span class="nt">&gt;&lt;p&gt;</span>Blah blah blah<span class="nt">&lt;/p&gt;&lt;p&gt;</span>More blah blah blah.<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
 </code></pre>
@@ -1457,7 +1383,7 @@ Gets the public label for the menu item
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
 <p>Here is my summary</p>
-<pre class="highlight handlebars"><code>    This post is from <span class="nt">&lt;span&gt;</span><span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">get_post_type</span><span class="p">.</span><span class="nv">labels</span><span class="p">.</span><span class="nv">plural</span> <span class="k">}}</span><span class="nt">&lt;/span&gt;</span>
+<pre class="highlight plaintext"><code>    This post is from &lt;span&gt;{{ post.get_post_type.labels.plural }}&lt;/span&gt;
 </code></pre>
 <pre class="highlight html"><code>    This post is from <span class="nt">&lt;span&gt;</span>Recipes<span class="nt">&lt;/span&gt;</span>
 </code></pre>
@@ -1498,7 +1424,7 @@ Gets the public label for the menu item
 <td>Strip tags? yes or no. tell me!</td>
 </tr>
 </tbody></table>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;p&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">get_preview</span><span class="err">(</span><span class="nv">50</span><span class="err">)</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;p&gt;{{post.get_preview(50)}}&lt;/p&gt;
 </code></pre>
 
 <h2 id="has_term">has_term</h2>
@@ -1553,7 +1479,7 @@ Gets the public label for the menu item
 <p><strong>returns:</strong> <code class="prettyprint">string ex: http://example.org/2015/07/my-awesome-post</code></p>
 
 <p>get the permalink for a post object</p>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">link</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span>Read my post<span class="nt">&lt;/a&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;a href="{{post.link}}"&gt;Read my post&lt;/a&gt;
 </code></pre>
 
 <h2 id="meta">meta</h2>
@@ -1583,7 +1509,7 @@ Gets the public label for the menu item
 <p><strong>returns:</strong> <code class="prettyprint">\TimberUser/bool A TimberUser object if found, false if not</code></p>
 
 <p>Get the author (WordPress user) who last modified the post</p>
-<pre class="highlight handlebars"><code>    Last updated by <span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">modified_author</span><span class="p">.</span><span class="nv">name</span> <span class="k">}}</span>
+<pre class="highlight plaintext"><code>    Last updated by {{ post.modified_author.name }}
 </code></pre>
 <pre class="highlight html"><code>    Last updated by Harper Lee
 </code></pre>
@@ -1670,10 +1596,10 @@ Gets the public label for the menu item
 
 <p><code class="prettyprint">parent( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">bool/\TimberPost</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">bool/[\TimberPost](#class-timberpost)</code></p>
 
 <p>Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)</p>
-<pre class="highlight handlebars"><code>    Parent page: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">parent</span><span class="p">.</span><span class="nv">link</span> <span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">parent</span><span class="p">.</span><span class="nv">title</span> <span class="k">}}</span><span class="nt">&lt;/a&gt;</span>
+<pre class="highlight plaintext"><code>    Parent page: &lt;a href="{{ post.parent.link }}"&gt;{{ post.parent.title }}&lt;/a&gt;
 </code></pre>
 
 <h2 id="path">path</h2>
@@ -1683,7 +1609,7 @@ Gets the public label for the menu item
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <p>Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post</p>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">path</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="k">}}</span><span class="nt">&lt;/a&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;a href="{{post.path}}"&gt;{{post.title}}&lt;/a&gt;
 </code></pre>
 
 <h2 id="permalink">permalink</h2>
@@ -1713,9 +1639,9 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;h4&gt;</span>Prior Entry:<span class="nt">&lt;/h4&gt;</span>
-    <span class="nt">&lt;h3&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">prev</span><span class="p">.</span><span class="nv">title</span><span class="k">}}</span><span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;p&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">prev</span><span class="p">.</span><span class="nv">get_preview</span><span class="err">(</span><span class="nv">25</span><span class="err">)</span><span class="k">}}</span><span class="nt">&lt;/p&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;h4&gt;Prior Entry:&lt;/h4&gt;
+    &lt;h3&gt;{{post.prev.title}}&lt;/h3&gt;
+    &lt;p&gt;{{post.prev.get_preview(25)}}&lt;/p&gt;
 </code></pre>
 
 <h2 id="tags">tags</h2>
@@ -1760,7 +1686,7 @@ Gets the public label for the menu item
 <p><strong>returns:</strong> <code class="prettyprint">\TimberImage/null of your thumbnail</code></p>
 
 <p>get the featured image as a TimberImage</p>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">thumbnail</span><span class="p">.</span><span class="nv">src</span><span class="k">}}</span><span class="s">"</span> <span class="nt">/&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;img src="{{post.thumbnail.src}}" /&gt;
 </code></pre>
 
 <h2 id="title">title</h2>
@@ -1770,7 +1696,7 @@ Gets the public label for the menu item
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <p>Returns the processed title to be used in templates. This returns the title of the post after WP&rsquo;s filters have run. This is analogous to <code class="prettyprint">the_title()</code> in standard WP template tags.</p>
-<pre class="highlight handlebars"><code>    <span class="nt">&lt;h1&gt;</span><span class="k">{{</span> <span class="nv">post</span><span class="p">.</span><span class="nv">title</span> <span class="k">}}</span><span class="nt">&lt;/h1&gt;</span>
+<pre class="highlight plaintext"><code>    &lt;h1&gt;{{ post.title }}&lt;/h1&gt;
 </code></pre>
 
 <h2 id="update">update</h2>
@@ -1820,11 +1746,28 @@ Gets the public label for the menu item
 </tr>
 </tbody></table>
 
-<h3 id="class-slug"><strike>Class: slug</strike></h3>
+<h3 id="class-timberpost">Class: TimberPost</h3>
 
 <blockquote>
-<p><strong>DEPRECATED</strong> since 0.21.7</p>
+<p>This is the object you use to access or extend WordPress posts. Think of it as Timber&rsquo;s (more accessible) version of WP_Post. This is used throughout Timber to represent posts retrieved from WordPress making them available to Twig templates. See the PHP and Twig examples for an example of what it&rsquo;s like to work with this object in your code.</p>
 </blockquote>
+
+<h6 id="example">Example</h6>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="c1">// single.php, see connected twig example
+</span><span class="nv">$context</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_context</span><span class="p">();</span>
+<span class="nv">$context</span><span class="p">[</span><span class="s1">'post'</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimberPost</span><span class="p">();</span> <span class="c1">// It's a new TimberPost object, but an existing post from WordPress.
+</span><span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'single.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight plaintext"><code>{# single.twig #}
+&lt;article&gt;
+    &lt;h1 class="headline"&gt;{{post.post_title}}&lt;/h1&gt;
+    &lt;div class="body"&gt;
+        {{post.content}}
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
 
 <p><em>This class extends \TimberCore</em></p>
 
@@ -1840,27 +1783,7 @@ Gets the public label for the menu item
 </tr>
 </thead><tbody>
 <tr>
-<td>charset</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
 <td><a href="#link">link</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>multisite</td>
-<td>bool</td>
-<td></td>
-</tr>
-<tr>
-<td>theme</td>
-<td><a href="#TimberTheme">TimberTheme</a></td>
-<td></td>
-</tr>
-<tr>
-<td>title</td>
 <td>string</td>
 <td></td>
 </tr>
@@ -1968,7 +1891,7 @@ Gets the public label for the menu item
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<h3 id="class-object_type">Class: object_type</h3>
+<h3 id="class-timbersite">Class: TimberSite</h3>
 
 <p><em>This class extends \TimberCore</em></p>
 
@@ -1983,6 +1906,36 @@ Gets the public label for the menu item
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><a href="#children">children</a></td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#edit_link">edit_link</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#link">link</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#meta">meta</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#path">path</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#posts">posts</a></td>
+<td>array/bool/null</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
@@ -2027,32 +1980,6 @@ Gets the public label for the menu item
 <p><code class="prettyprint">edit_link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="get_edit_url">get_edit_url</h2>
-
-<p><code class="prettyprint">get_edit_url( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="get_meta_field">get_meta_field</h2>
-
-<p><code class="prettyprint">get_meta_field( string $field_name )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$field_name</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
 
 <h2 id="get_page">get_page</h2>
 
@@ -2171,6 +2098,13 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>    &lt;h4&gt;Recent posts in {{term.name}}&lt;/h4&gt;
+    &lt;ul&gt;
+    {% for post in term.posts(3, 'post') %}
+        &lt;li&gt;&lt;a href="{{post.link}}"&gt;{{post.title}}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+</code></pre>
 
 <h2 id="title">title</h2>
 
@@ -2209,59 +2143,24 @@ Gets the public label for the menu item
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<h2 id="get_term_from_query">get_term_from_query</h2>
-
-<p><code class="prettyprint">get_term_from_query( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">\integer</code></p>
-
-<h2 id="get_tid">get_tid</h2>
-
-<p><code class="prettyprint">get_tid( int $tid )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$tid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="init">init</h2>
-
-<p><code class="prettyprint">init( int $tid )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$tid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h3 id="class-id">Class: ID</h3>
+<h3 id="class-timberterm">Class: TimberTerm</h3>
 
 <p><em>This class extends \TimberCore</em></p>
 
 <p><em>This class implements \TimberCoreInterface</em></p>
 
           <h1 id="timbertheme">TimberTheme</h1>
+
+<p>Need to display info about your theme? Well you&rsquo;ve come to the right place. By default info on the current theme comes for free with what&rsquo;s fetched by <code class="prettyprint">Timber::get_context()</code> in which case you can access it your theme like so:</p>
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$context</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_context</span><span class="p">();</span>
+<span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight plaintext"><code>&lt;script src="{{theme.link}}/static/js/all.js"&gt;&lt;/script&gt;
+</code></pre>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://example.org/wp-content/themes/my-theme/static/js/all.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
 
 <table><thead>
 <tr>
@@ -2278,25 +2177,7 @@ Gets the public label for the menu item
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$slug</td>
-<td>mixed/string</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="init">init</h2>
-
-<p><code class="prettyprint">init( mixed/string $slug=null )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+<p>Constructs a new TimberTheme object. NOTE the TimberTheme object of the current theme comes in the default <code class="prettyprint">Timber::get_context()</code> call. You can access this in your twig template via `{{site.theme}}.</p>
 
 <table><thead>
 <tr>
@@ -2311,39 +2192,55 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
+<pre class="highlight php"><code>    <span class="cp">&lt;?php</span>
+        <span class="nv">$theme</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TimberTheme</span><span class="p">(</span><span class="s2">"my-theme"</span><span class="p">);</span>
+        <span class="nv">$context</span><span class="p">[</span><span class="s1">'theme_stuff'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$theme</span><span class="p">;</span>
+        <span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'single.'</span><span class="p">)</span>
+    <span class="cp">?&gt;</span>
+    ```
+    ```twig
+    We are currently using the {{ theme_stuff.name }} theme.
+    ```
+    ```html
+    We are currently using the My Theme theme.
+    ```
+## theme_mod
+`theme_mod( string $name, bool $default=false )`
 
-<h2 id="theme_mod">theme_mod</h2>
+**returns:** `string`
 
-<p><code class="prettyprint">theme_mod( string $name, bool $default=false )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$name</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$default</td>
-<td>bool</td>
-<td></td>
-</tr>
-</tbody></table>
+Name | Type | Description
+---- | ---- | -----------
+$name | string | 
+$default | bool | 
 
-<h2 id="theme_mods">theme_mods</h2>
 
-<p><code class="prettyprint">theme_mods( )</code></p>
+## theme_mods
+`theme_mods( )`
 
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+**returns:** `array`
 
-<h3 id="class-object_type">Class: object_type</h3>
+
+
+
+
+### Class: TimberTheme
+
+&gt; Need to display info about your theme? Well you've come to the right place. By default info on the current theme comes for free with what's fetched by `Timber::get_context()` in which case you can access it your theme like so:
+
+###### Example
+```php
+<span class="cp">&lt;?php</span>
+<span class="nv">$context</span> <span class="o">=</span> <span class="nx">Timber</span><span class="o">::</span><span class="na">get_context</span><span class="p">();</span>
+<span class="nx">Timber</span><span class="o">::</span><span class="na">render</span><span class="p">(</span><span class="s1">'index.twig'</span><span class="p">,</span> <span class="nv">$context</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
+</code></pre>
+<pre class="highlight plaintext"><code>&lt;script src="{{theme.link}}/static/js/all.js"&gt;&lt;/script&gt;
+</code></pre>
+<pre class="highlight html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://example.org/wp-content/themes/my-theme/static/js/all.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
 
 <p><em>This class extends \TimberCore</em></p>
 
@@ -2356,6 +2253,26 @@ Gets the public label for the menu item
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><a href="#link">link</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#name">name</a></td>
+<td>string the human-friendly name of the user (ex: &ldquo;Buster Bluth&rdquo;)</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#path">path</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#slug">slug</a></td>
+<td>string</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
@@ -2378,31 +2295,6 @@ Gets the public label for the menu item
 </tr>
 </tbody></table>
 
-<h2 id="__set">__set</h2>
-
-<p><code class="prettyprint">__set( string $field, mixed $value )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$field</td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td>$value</td>
-<td>mixed</td>
-<td></td>
-</tr>
-</tbody></table>
-
 <h2 id="__tostring">__toString</h2>
 
 <p><code class="prettyprint">__toString( )</code></p>
@@ -2414,32 +2306,6 @@ Gets the public label for the menu item
 <p><code class="prettyprint">get_custom( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/null</code></p>
-
-<h2 id="get_link">get_link</h2>
-
-<p><code class="prettyprint">get_link( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="get_meta">get_meta</h2>
-
-<p><code class="prettyprint">get_meta( string $field_name )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">null</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$field_name</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
 
 <h2 id="get_meta_field">get_meta_field</h2>
 
@@ -2461,12 +2327,6 @@ Gets the public label for the menu item
 </tr>
 </tbody></table>
 
-<h2 id="get_path">get_path</h2>
-
-<p><code class="prettyprint">get_path( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string ex: /author/lincoln</code></p>
-
 <h2 id="get_permalink">get_permalink</h2>
 
 <p><code class="prettyprint">get_permalink( )</code></p>
@@ -2478,26 +2338,6 @@ Gets the public label for the menu item
 <p><code class="prettyprint">import_custom( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<h2 id="init">init</h2>
-
-<p><code class="prettyprint">init( bool/int/bool $uid=false )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$uid</td>
-<td>bool/int/bool</td>
-<td></td>
-</tr>
-</tbody></table>
 
 <h2 id="link">link</h2>
 
@@ -2529,7 +2369,7 @@ Gets the public label for the menu item
 
 <p><code class="prettyprint">name( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">string the human-friendly name of the user (ex: &quot;Buster Bluth&quot;)</code></p>
 
 <h2 id="path">path</h2>
 
@@ -2549,7 +2389,7 @@ Gets the public label for the menu item
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<h3 id="class-id">Class: ID</h3>
+<h3 id="class-timberuser">Class: TimberUser</h3>
 
 <p><em>This class extends \TimberCore</em></p>
 

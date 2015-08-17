@@ -40,6 +40,36 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><a href="#children">children</a></td>
+<td>array</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#edit_link">edit_link</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#link">link</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#meta">meta</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#path">path</a></td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#posts">posts</a></td>
+<td>array/bool/null</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
@@ -84,32 +114,6 @@
 <p><code class="prettyprint">edit_link( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="get_edit_url">get_edit_url</h2>
-
-<p><code class="prettyprint">get_edit_url( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="get_meta_field">get_meta_field</h2>
-
-<p><code class="prettyprint">get_meta_field( string $field_name )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$field_name</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
 
 <h2 id="get_page">get_page</h2>
 
@@ -228,6 +232,13 @@
 <td></td>
 </tr>
 </tbody></table>
+<pre class="highlight plaintext"><code>    &lt;h4&gt;Recent posts in {{term.name}}&lt;/h4&gt;
+    &lt;ul&gt;
+    {% for post in term.posts(3, 'post') %}
+        &lt;li&gt;&lt;a href="{{post.link}}"&gt;{{post.title}}&lt;/a&gt;&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+</code></pre>
 
 <h2 id="title">title</h2>
 
@@ -266,53 +277,7 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<h2 id="get_term_from_query">get_term_from_query</h2>
-
-<p><code class="prettyprint">get_term_from_query( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">\integer</code></p>
-
-<h2 id="get_tid">get_tid</h2>
-
-<p><code class="prettyprint">get_tid( int $tid )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$tid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h2 id="init">init</h2>
-
-<p><code class="prettyprint">init( int $tid )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$tid</td>
-<td>int</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<h3 id="class-id">Class: ID</h3>
+<h3 id="class-timberterm">Class: TimberTerm</h3>
 
 <p><em>This class extends \TimberCore</em></p>
 
