@@ -6,7 +6,6 @@
 
 Name | Type | Description
 ---- | ---- | -----------
-
 [children](#children) | array | 
 [edit_link](#edit_link) | string | 
 [link](#link) | string | 
@@ -15,6 +14,7 @@ name | string | the human-friendly name of the term (ex: French Cuisine)
 [path](#path) | string | 
 [posts](#posts) | array/bool/null | 
 taxonomy | strng | the WordPress taxonomy slug (ex: `post_tag` or `actors`)
+
 ## __construct
 `__construct( mixed/int $tid=null, string $tax=`""` )`
 

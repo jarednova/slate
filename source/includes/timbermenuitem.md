@@ -6,12 +6,12 @@
 
 Name | Type | Description
 ---- | ---- | -----------
-
 [children](#children) | array/bool | Get the child [TimberMenuItems](#TimberMenuItem)s of a [TimberMenuItem](#TimberMenuItem)
 [is_external](#is_external) | bool | Checks to see if the menu item is an external link so if my site is `example.org`, `google.com/whatever` is an external link. Helpful when creating rules for the target of a link
 [link](#link) | string a full URL like http://mysite.com/thing/ | Get the full link to a Menu Item
 [name](#name) | string | The label for the menu item
 [slug](#slug) | string the slug of the menu item kinda-like-this | The slug for the menu item
+
 ## __construct
 `__construct( array/object $data )`
 

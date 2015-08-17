@@ -6,7 +6,6 @@
 
 Name | Type | Description
 ---- | ---- | -----------
-
 [alt](#alt) | string alt text stored in WordPress | 
 [aspect](#aspect) | \float | 
 class | string | $class stores the CSS classes for the post (ex: "post post-type-book post-123")
@@ -20,6 +19,7 @@ post_type | string | 	$post_type 		the name of the post type, this is the machin
 slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named "post_name" in the WP database, ex: "hello-world"
 [src](#src) | bool/string | 
 [width](#width) | int | 
+
 ## __construct
 `__construct( int $iid )`
 

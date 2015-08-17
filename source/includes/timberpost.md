@@ -22,7 +22,6 @@ Timber::render('single.twig', $context);
 
 Name | Type | Description
 ---- | ---- | -----------
-
 [author](#author) | \TimberUser/bool A TimberUser object if found, false if not | Return the author of a post
 [categories](#categories) | array of TimberTerms | Get the categoires on a particular post
 [category](#category) | \TimberTerm/null | Returns a category attached to a post
@@ -46,6 +45,7 @@ slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named
 [terms](#terms) | array | Get the terms associated with the post This goes across all taxonomies by default
 [thumbnail](#thumbnail) | \TimberImage/null of your thumbnail | get the featured image as a TimberImage
 [title](#title) | string | Returns the processed title to be used in templates. This returns the title of the post after WP's filters have run. This is analogous to `the_title()` in standard WP template tags.
+
 ## __construct
 `__construct( mixed $pid=null )`
 

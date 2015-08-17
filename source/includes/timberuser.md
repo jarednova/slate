@@ -6,11 +6,11 @@
 
 Name | Type | Description
 ---- | ---- | -----------
-
 [link](#link) | string | 
 [name](#name) | string the human-friendly name of the user (ex: "Buster Bluth") | 
 [path](#path) | string | 
 [slug](#slug) | string | 
+
 ## __construct
 `__construct( bool/int/bool $uid=false )`
 
