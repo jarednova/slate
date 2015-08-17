@@ -441,11 +441,13 @@
 </tr>
 </tbody></table>
 
-<h2 id="get_url">get_url</h2>
+<h2 id="get_url"><strike>get_url</strike></h2>
 
 <p><code class="prettyprint">get_url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> use src() instead</p>
 
 <h2 id="height">height</h2>
 
@@ -485,11 +487,13 @@
 </tr>
 </tbody></table>
 
-<h2 id="url">url</h2>
+<h2 id="url"><strike>url</strike></h2>
 
 <p><code class="prettyprint">url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> use src() instead</p>
 
 <h2 id="width">width</h2>
 
@@ -1300,11 +1304,13 @@ Gets the public label for the menu item
 <pre class="highlight html"><code>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"article-text"</span><span class="nt">&gt;&lt;p&gt;</span>Blah blah blah<span class="nt">&lt;/p&gt;&lt;p&gt;</span>More blah blah blah.<span class="nt">&lt;/p&gt;&lt;/div&gt;</span>
 </code></pre>
 
-<h2 id="get_display_date">get_display_date</h2>
+<h2 id="get_display_date"><strike>get_display_date</strike></h2>
 
 <p><code class="prettyprint">get_display_date( string $use=</code>&ldquo;post_date&rdquo;<code class="prettyprint">)</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.20.0</p>
 
 <p>Get the human-friendly date that should actually display in a .twig template</p>
 
@@ -1618,11 +1624,13 @@ Gets the public label for the menu item
 <pre class="highlight handlebars"><code>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">path</span><span class="k">}}</span><span class="s">"</span><span class="nt">&gt;</span><span class="k">{{</span><span class="nv">post</span><span class="p">.</span><span class="nv">title</span><span class="k">}}</span><span class="nt">&lt;/a&gt;</span>
 </code></pre>
 
-<h2 id="permalink">permalink</h2>
+<h2 id="permalink"><strike>permalink</strike></h2>
 
 <p><code class="prettyprint">permalink( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> use link() instead</p>
 
 <h2 id="prev">prev</h2>
 
@@ -1972,6 +1980,11 @@ Gets the public label for the menu item
 <td>strng</td>
 <td>the WordPress taxonomy slug (ex: <code class="prettyprint">post_tag</code> or <code class="prettyprint">actors</code>)</td>
 </tr>
+<tr>
+<td><a href="#title">title</a></td>
+<td>string</td>
+<td></td>
+</tr>
 </tbody></table>
 
 <h2 id="__construct">__construct</h2>
@@ -2066,12 +2079,6 @@ Gets the public label for the menu item
 <td></td>
 </tr>
 </tbody></table>
-
-<h2 id="get_url">get_url</h2>
-
-<p><code class="prettyprint">get_url( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
 <h2 id="link">link</h2>
 
@@ -2173,11 +2180,13 @@ Gets the public label for the menu item
 </tr>
 </tbody></table>
 
-<h2 id="url">url</h2>
+<h2 id="url"><strike>url</strike></h2>
 
 <p><code class="prettyprint">url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.21.9</p>
 
 <h3 id="class-timberterm">Class: TimberTerm</h3>
 
@@ -2393,11 +2402,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_permalink">get_permalink</h2>
+<h2 id="get_permalink"><strike>get_permalink</strike></h2>
 
 <p><code class="prettyprint">get_permalink( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> 0.21.8</p>
 
 <h2 id="import_custom">import_custom</h2>
 
@@ -2443,11 +2454,13 @@ $default | bool |
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<h2 id="permalink">permalink</h2>
+<h2 id="permalink"><strike>permalink</strike></h2>
 
 <p><code class="prettyprint">permalink( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> 0.21.8</p>
 
 <h2 id="slug">slug</h2>
 
@@ -2542,11 +2555,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="download_url">download_url</h2>
+<h2 id="download_url"><strike>download_url</strike></h2>
 
 <p><code class="prettyprint">download_url( mixed $url, mixed $timeout=300 )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2617,11 +2632,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_comment_form">get_comment_form</h2>
+<h2 id="get_comment_form"><strike>get_comment_form</strike></h2>
 
 <p><code class="prettyprint">get_comment_form( mixed $post_id=null, array $args=array() )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.21.8</p>
 
 <p>Gets the comment form for use on a single article page</p>
 
@@ -2644,17 +2661,21 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_current_url">get_current_url</h2>
+<h2 id="get_current_url"><strike>get_current_url</strike></h2>
 
 <p><code class="prettyprint">get_current_url( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
-<h2 id="get_full_path">get_full_path</h2>
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
+
+<h2 id="get_full_path"><strike>get_full_path</strike></h2>
 
 <p><code class="prettyprint">get_full_path( mixed $src )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2670,11 +2691,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_image_path">get_image_path</h2>
+<h2 id="get_image_path"><strike>get_image_path</strike></h2>
 
 <p><code class="prettyprint">get_image_path( mixed $iid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2750,11 +2773,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_params">get_params</h2>
+<h2 id="get_params"><strike>get_params</strike></h2>
 
 <p><code class="prettyprint">get_params( mixed $i=-1 )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2770,18 +2795,22 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_path_base">get_path_base</h2>
+<h2 id="get_path_base"><strike>get_path_base</strike></h2>
 
 <p><code class="prettyprint">get_path_base( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
 
-<h2 id="get_post_by_meta">get_post_by_meta</h2>
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
+
+<h2 id="get_post_by_meta"><strike>get_post_by_meta</strike></h2>
 
 <p><code class="prettyprint">get_post_by_meta( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">int</code></p>
 
+<p><strong>DEPRECATED</strong> since 0.20.0</p>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2801,12 +2830,14 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_posts_by_meta">get_posts_by_meta</h2>
+<h2 id="get_posts_by_meta"><strike>get_posts_by_meta</strike></h2>
 
 <p><code class="prettyprint">get_posts_by_meta( mixed $key, mixed $value )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">array/int</code></p>
 
+<p><strong>DEPRECATED</strong> since 0.20.0</p>
+
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2826,11 +2857,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_rel_path">get_rel_path</h2>
+<h2 id="get_rel_path"><strike>get_rel_path</strike></h2>
 
 <p><code class="prettyprint">get_rel_path( mixed $src )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2846,11 +2879,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_rel_url">get_rel_url</h2>
+<h2 id="get_rel_url"><strike>get_rel_url</strike></h2>
 
 <p><code class="prettyprint">get_rel_url( mixed $url, bool $force=false )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2871,11 +2906,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="get_term_id_by_term_taxonomy_id">get_term_id_by_term_taxonomy_id</h2>
+<h2 id="get_term_id_by_term_taxonomy_id"><strike>get_term_id_by_term_taxonomy_id</strike></h2>
 
 <p><code class="prettyprint">get_term_id_by_term_taxonomy_id( mixed $ttid )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">mixed</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.21.8</p>
 
 <table><thead>
 <tr>
@@ -2936,11 +2973,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="is_external">is_external</h2>
+<h2 id="is_external"><strike>is_external</strike></h2>
 
 <p><code class="prettyprint">is_external( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2956,11 +2995,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="is_local">is_local</h2>
+<h2 id="is_local"><strike>is_local</strike></h2>
 
 <p><code class="prettyprint">is_local( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -2996,11 +3037,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="is_url">is_url</h2>
+<h2 id="is_url"><strike>is_url</strike></h2>
 
 <p><code class="prettyprint">is_url( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">bool</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -3126,11 +3169,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="prepend_to_url">prepend_to_url</h2>
+<h2 id="prepend_to_url"><strike>prepend_to_url</strike></h2>
 
 <p><code class="prettyprint">prepend_to_url( mixed $url, mixed $path )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -3151,11 +3196,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="preslashit">preslashit</h2>
+<h2 id="preslashit"><strike>preslashit</strike></h2>
 
 <p><code class="prettyprint">preslashit( mixed $path )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -3171,11 +3218,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="remove_double_slashes">remove_double_slashes</h2>
+<h2 id="remove_double_slashes"><strike>remove_double_slashes</strike></h2>
 
 <p><code class="prettyprint">remove_double_slashes( mixed $url )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.18.0</p>
 
 <table><thead>
 <tr>
@@ -3301,11 +3350,13 @@ $default | bool |
 </tr>
 </tbody></table>
 
-<h2 id="twitterify">twitterify</h2>
+<h2 id="twitterify"><strike>twitterify</strike></h2>
 
 <p><code class="prettyprint">twitterify( mixed $ret )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
+
+<p><strong>DEPRECATED</strong> since 0.20.0</p>
 
 <table><thead>
 <tr>
