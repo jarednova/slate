@@ -57,97 +57,31 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#author">author</a></td>
-<td>\TimberUser/bool A TimberUser object if found, false if not</td>
-<td>Return the author of a post</td>
-</tr>
-<tr>
-<td><a href="#categories">categories</a></td>
-<td>array of TimberTerms</td>
-<td>Get the categoires on a particular post</td>
-</tr>
-<tr>
-<td><a href="#category">category</a></td>
-<td>\TimberTerm/null</td>
-<td>Returns a category attached to a post</td>
-</tr>
-<tr>
-<td><a href="#children">children</a></td>
-<td>array</td>
-<td>Returns an array of children on the post as TimberPosts (or other claass as you define).</td>
-</tr>
-<tr>
-<td><a href="#comments">comments</a></td>
-<td>bool/array</td>
-<td>Gets the comments on a TimberPost and returns them as an array of <a href="#TimberComment">TimberComments</a> (or whatever comment class you set).</td>
-</tr>
-<tr>
-<td><a href="#content">content</a></td>
-<td>string</td>
-<td>Gets the actual content of a WP Post, as opposed to post_content this will run the hooks/filters attached to the_content. \This guy will return your posts content with WordPress filters run on it (like for shortcodes and wpautop).</td>
-</tr>
-<tr>
-<td><a href="#date">date</a></td>
-<td>string</td>
-<td>Get the date to use in your template!</td>
-</tr>
-<tr>
-<td><a href="#format">format</a></td>
-<td>mixed</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#get_preview">get_preview</a></td>
-<td>string of the post preview</td>
-<td>get a preview of your post, if you have an excerpt it will use that, otherwise it will pull from the post_content. If there&rsquo;s a &lt;!&ndash; more &ndash;&gt; tag it will use that to mark where to pull through.</td>
-</tr>
-<tr>
-<td><a href="#link">link</a></td>
-<td>string ex: http://example.org/2015/07/my-awesome-post</td>
-<td>get the permalink for a post object</td>
-</tr>
-<tr>
-<td><a href="#next">next</a></td>
-<td>mixed</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#parent">parent</a></td>
-<td>bool/<a href="#class-timberpost">\TimberPost</a></td>
-<td>Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)</td>
-</tr>
-<tr>
-<td><a href="#path">path</a></td>
-<td>string</td>
-<td>Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post</td>
-</tr>
-<tr>
-<td><a href="#prev">prev</a></td>
-<td>mixed</td>
-<td>Get the previous post in a set</td>
-</tr>
-<tr>
-<td><a href="#tags">tags</a></td>
-<td>array</td>
-<td>Gets the tags on a post, uses WP&rsquo;s post_tag taxonomy</td>
-</tr>
-<tr>
-<td><a href="#terms">terms</a></td>
-<td>array</td>
-<td>Get the terms associated with the post This goes across all taxonomies by default</td>
-</tr>
-<tr>
-<td><a href="#thumbnail">thumbnail</a></td>
-<td>\TimberImage/null of your thumbnail</td>
-<td>get the featured image as a TimberImage</td>
-</tr>
-<tr>
-<td><a href="#title">title</a></td>
-<td>string</td>
-<td>Returns the processed title to be used in templates. This returns the title of the post after WP&rsquo;s filters have run. This is analogous to <code class="prettyprint">the_title()</code> in standard WP template tags.</td>
-</tr>
 </tbody></table>
+
+<p><a href="#author">author</a> | \TimberUser/bool A TimberUser object if found, false if not | Return the author of a post
+<a href="#categories">categories</a> | array of TimberTerms | Get the categoires on a particular post
+<a href="#category">category</a> | \TimberTerm/null | Returns a category attached to a post
+<a href="#children">children</a> | array | Returns an array of children on the post as TimberPosts (or other claass as you define).
+class | string | $class stores the CSS classes for the post (ex: &ldquo;post post-type-book post-123&rdquo;)
+<a href="#comments">comments</a> | bool/array | Gets the comments on a TimberPost and returns them as an array of <a href="#TimberComment">TimberComments</a> (or whatever comment class you set).
+<a href="#content">content</a> | string | Gets the actual content of a WP Post, as opposed to post_content this will run the hooks/filters attached to the_content. \This guy will return your posts content with WordPress filters run on it (like for shortcodes and wpautop).
+<a href="#date">date</a> | string | Get the date to use in your template!
+<a href="#format">format</a> | mixed | 
+<a href="#get_preview">get_preview</a> | string of the post preview | get a preview of your post, if you have an excerpt it will use that, otherwise it will pull from the post_content. If there&rsquo;s a &lt;!&ndash; more &ndash;&gt; tag it will use that to mark where to pull through.
+id | string | $id the numeric WordPress id of a post
+<a href="#link">link</a> | string ex: http://example.org/2015/07/my-awesome-post | get the permalink for a post object
+<a href="#next">next</a> | mixed | 
+<a href="#parent">parent</a> | bool/<a href="#class-timberpost">\TimberPost</a> | Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
+<a href="#path">path</a> | string | Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
+post_status | string |      $post_status    the status of a post (&ldquo;draft&rdquo;, &ldquo;publish&rdquo;, etc.)
+post_type | string |    $post_type      the name of the post type, this is the machine name (so &ldquo;my_custom_post_type&rdquo; as opposed to &ldquo;My Custom Post Type&rdquo;)
+<a href="#prev">prev</a> | mixed | Get the previous post in a set
+slug | string |     $slug       the URL-safe slug, this corresponds to the poorly-named &ldquo;post_name&rdquo; in the WP database, ex: &ldquo;hello-world&rdquo;
+<a href="#tags">tags</a> | array | Gets the tags on a post, uses WP&rsquo;s post_tag taxonomy
+<a href="#terms">terms</a> | array | Get the terms associated with the post This goes across all taxonomies by default
+<a href="#thumbnail">thumbnail</a> | \TimberImage/null of your thumbnail | get the featured image as a TimberImage
+<a href="#title">title</a> | string | Returns the processed title to be used in templates. This returns the title of the post after WP&rsquo;s filters have run. This is analogous to <code class="prettyprint">the_title()</code> in standard WP template tags.</p>
 
 <h2 id="__construct">__construct</h2>
 

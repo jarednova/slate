@@ -61,12 +61,10 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#get_items">get_items</a></td>
-<td>array/string</td>
-<td></td>
-</tr>
 </tbody></table>
+
+<p><a href="#get_items">get_items</a> | array/string | 
+items | array | the items of the archives to iterate through and markup for your page</p>
 
 <h2 id="__construct">__construct</h2>
 
@@ -384,6 +382,20 @@
 </thead><tbody>
 </tbody></table>
 
+<p><a href="#alt">alt</a> | string alt text stored in WordPress | 
+<a href="#aspect">aspect</a> | \float | 
+class | string | $class stores the CSS classes for the post (ex: &ldquo;post post-type-book post-123&rdquo;)
+file_loc | string | $file_loc the location of the image file in the filesystem (ex: <code class="prettyprint">/var/www/htdocs/wp-content/uploads/2015/08/my-pic.jpg</code>)
+<a href="#height">height</a> | int | 
+id | string | $id the numeric WordPress id of a post
+<a href="#parent">parent</a> | bool/\TimberPost | 
+<a href="#path">path</a> | string the /relative/path/to/the/file | 
+post_status | string |      $post_status    the status of a post (&ldquo;draft&rdquo;, &ldquo;publish&rdquo;, etc.)
+post_type | string |    $post_type      the name of the post type, this is the machine name (so &ldquo;my_custom_post_type&rdquo; as opposed to &ldquo;My Custom Post Type&rdquo;)
+slug | string |     $slug       the URL-safe slug, this corresponds to the poorly-named &ldquo;post_name&rdquo; in the WP database, ex: &ldquo;hello-world&rdquo;
+<a href="#src">src</a> | bool/string | 
+<a href="#width">width</a> | int | </p>
+
 <h2 id="__construct">__construct</h2>
 
 <p><code class="prettyprint">__construct( int $iid )</code></p>
@@ -448,43 +460,11 @@
 </tr>
 </tbody></table>
 
-<h2 id="get_height">get_height</h2>
-
-<p><code class="prettyprint">get_height( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
-
 <h2 id="get_parent">get_parent</h2>
 
 <p><code class="prettyprint">get_parent( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">bool/[\TimberImage](#class-timberimage)</code></p>
-
-<h2 id="get_path">get_path</h2>
-
-<p><code class="prettyprint">get_path( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">string</code></p>
-
-<h2 id="get_src">get_src</h2>
-
-<p><code class="prettyprint">get_src( string $size=</code>&ldquo;&rdquo;<code class="prettyprint">)</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">bool/string</code></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$size</td>
-<td>string</td>
-<td></td>
-</tr>
-</tbody></table>
+<p><strong>returns:</strong> <code class="prettyprint">bool/\TimberPost</code></p>
 
 <h2 id="get_url">get_url</h2>
 
@@ -492,37 +472,23 @@
 
 <p><strong>returns:</strong> <code class="prettyprint">string</code></p>
 
-<h2 id="get_width">get_width</h2>
-
-<p><code class="prettyprint">get_width( )</code></p>
-
-<p><strong>returns:</strong> <code class="prettyprint">int</code></p>
-
 <h2 id="height">height</h2>
 
 <p><code class="prettyprint">height( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">int</code></p>
 
-<h2 id="init">init</h2>
+<h2 id="parent">parent</h2>
 
-<p><code class="prettyprint">init( bool/int $iid=false )</code></p>
+<p><code class="prettyprint">parent( )</code></p>
 
-<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+<p><strong>returns:</strong> <code class="prettyprint">bool/\TimberPost</code></p>
 
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>$iid</td>
-<td>bool/int</td>
-<td></td>
-</tr>
-</tbody></table>
+<h2 id="path">path</h2>
+
+<p><code class="prettyprint">path( )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">string the /relative/path/to/the/file</code></p>
 
 <h2 id="src">src</h2>
 
@@ -561,6 +527,26 @@
 <p><code class="prettyprint">wp_upload_dir( )</code></p>
 
 <p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<h2 id="init_with_url">init_with_url</h2>
+
+<p><code class="prettyprint">init_with_url( string $url )</code></p>
+
+<p><strong>returns:</strong> <code class="prettyprint">void</code></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>$url</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
 
 <h3 id="class-timberimage">Class: TimberImage</h3>
 
@@ -613,6 +599,11 @@
 </tr>
 </thead><tbody>
 </tbody></table>
+
+<p>id | integer | $id the ID# of the menu, corresponding to the wp_terms table
+items | TimberMenuItem[]|null | $items you need to iterate through
+name | string | $name of the menu (ex: <code class="prettyprint">Main Navigation</code>)
+title | string | $name of the menu (ex: <code class="prettyprint">Main Navigation</code>)</p>
 
 <h2 id="__construct">__construct</h2>
 
@@ -717,32 +708,13 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#children">children</a></td>
-<td>array/bool</td>
-<td>Get the child <a href="#TimberMenuItem">TimberMenuItems</a>s of a <a href="#TimberMenuItem">TimberMenuItem</a></td>
-</tr>
-<tr>
-<td><a href="#is_external">is_external</a></td>
-<td>bool</td>
-<td>Checks to see if the menu item is an external link so if my site is <code class="prettyprint">example.org</code>, <code class="prettyprint">google.com/whatever</code> is an external link. Helpful when creating rules for the target of a link</td>
-</tr>
-<tr>
-<td><a href="#link">link</a></td>
-<td>string a full URL like http://mysite.com/thing/</td>
-<td>Get the full link to a Menu Item</td>
-</tr>
-<tr>
-<td><a href="#name">name</a></td>
-<td>string</td>
-<td>The label for the menu item</td>
-</tr>
-<tr>
-<td><a href="#slug">slug</a></td>
-<td>string the slug of the menu item kinda-like-this</td>
-<td>The slug for the menu item</td>
-</tr>
 </tbody></table>
+
+<p><a href="#children">children</a> | array/bool | Get the child <a href="#TimberMenuItem">TimberMenuItems</a>s of a <a href="#TimberMenuItem">TimberMenuItem</a>
+<a href="#is_external">is_external</a> | bool | Checks to see if the menu item is an external link so if my site is <code class="prettyprint">example.org</code>, <code class="prettyprint">google.com/whatever</code> is an external link. Helpful when creating rules for the target of a link
+<a href="#link">link</a> | string a full URL like http://mysite.com/thing/ | Get the full link to a Menu Item
+<a href="#name">name</a> | string | The label for the menu item
+<a href="#slug">slug</a> | string the slug of the menu item kinda-like-this | The slug for the menu item</p>
 
 <h2 id="__construct">__construct</h2>
 
@@ -949,97 +921,31 @@ Gets the public label for the menu item
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#author">author</a></td>
-<td>\TimberUser/bool A TimberUser object if found, false if not</td>
-<td>Return the author of a post</td>
-</tr>
-<tr>
-<td><a href="#categories">categories</a></td>
-<td>array of TimberTerms</td>
-<td>Get the categoires on a particular post</td>
-</tr>
-<tr>
-<td><a href="#category">category</a></td>
-<td>\TimberTerm/null</td>
-<td>Returns a category attached to a post</td>
-</tr>
-<tr>
-<td><a href="#children">children</a></td>
-<td>array</td>
-<td>Returns an array of children on the post as TimberPosts (or other claass as you define).</td>
-</tr>
-<tr>
-<td><a href="#comments">comments</a></td>
-<td>bool/array</td>
-<td>Gets the comments on a TimberPost and returns them as an array of <a href="#TimberComment">TimberComments</a> (or whatever comment class you set).</td>
-</tr>
-<tr>
-<td><a href="#content">content</a></td>
-<td>string</td>
-<td>Gets the actual content of a WP Post, as opposed to post_content this will run the hooks/filters attached to the_content. \This guy will return your posts content with WordPress filters run on it (like for shortcodes and wpautop).</td>
-</tr>
-<tr>
-<td><a href="#date">date</a></td>
-<td>string</td>
-<td>Get the date to use in your template!</td>
-</tr>
-<tr>
-<td><a href="#format">format</a></td>
-<td>mixed</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#get_preview">get_preview</a></td>
-<td>string of the post preview</td>
-<td>get a preview of your post, if you have an excerpt it will use that, otherwise it will pull from the post_content. If there&rsquo;s a &lt;!&ndash; more &ndash;&gt; tag it will use that to mark where to pull through.</td>
-</tr>
-<tr>
-<td><a href="#link">link</a></td>
-<td>string ex: http://example.org/2015/07/my-awesome-post</td>
-<td>get the permalink for a post object</td>
-</tr>
-<tr>
-<td><a href="#next">next</a></td>
-<td>mixed</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#parent">parent</a></td>
-<td>bool/<a href="#class-timberpost">\TimberPost</a></td>
-<td>Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)</td>
-</tr>
-<tr>
-<td><a href="#path">path</a></td>
-<td>string</td>
-<td>Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post</td>
-</tr>
-<tr>
-<td><a href="#prev">prev</a></td>
-<td>mixed</td>
-<td>Get the previous post in a set</td>
-</tr>
-<tr>
-<td><a href="#tags">tags</a></td>
-<td>array</td>
-<td>Gets the tags on a post, uses WP&rsquo;s post_tag taxonomy</td>
-</tr>
-<tr>
-<td><a href="#terms">terms</a></td>
-<td>array</td>
-<td>Get the terms associated with the post This goes across all taxonomies by default</td>
-</tr>
-<tr>
-<td><a href="#thumbnail">thumbnail</a></td>
-<td>\TimberImage/null of your thumbnail</td>
-<td>get the featured image as a TimberImage</td>
-</tr>
-<tr>
-<td><a href="#title">title</a></td>
-<td>string</td>
-<td>Returns the processed title to be used in templates. This returns the title of the post after WP&rsquo;s filters have run. This is analogous to <code class="prettyprint">the_title()</code> in standard WP template tags.</td>
-</tr>
 </tbody></table>
+
+<p><a href="#author">author</a> | \TimberUser/bool A TimberUser object if found, false if not | Return the author of a post
+<a href="#categories">categories</a> | array of TimberTerms | Get the categoires on a particular post
+<a href="#category">category</a> | \TimberTerm/null | Returns a category attached to a post
+<a href="#children">children</a> | array | Returns an array of children on the post as TimberPosts (or other claass as you define).
+class | string | $class stores the CSS classes for the post (ex: &ldquo;post post-type-book post-123&rdquo;)
+<a href="#comments">comments</a> | bool/array | Gets the comments on a TimberPost and returns them as an array of <a href="#TimberComment">TimberComments</a> (or whatever comment class you set).
+<a href="#content">content</a> | string | Gets the actual content of a WP Post, as opposed to post_content this will run the hooks/filters attached to the_content. \This guy will return your posts content with WordPress filters run on it (like for shortcodes and wpautop).
+<a href="#date">date</a> | string | Get the date to use in your template!
+<a href="#format">format</a> | mixed | 
+<a href="#get_preview">get_preview</a> | string of the post preview | get a preview of your post, if you have an excerpt it will use that, otherwise it will pull from the post_content. If there&rsquo;s a &lt;!&ndash; more &ndash;&gt; tag it will use that to mark where to pull through.
+id | string | $id the numeric WordPress id of a post
+<a href="#link">link</a> | string ex: http://example.org/2015/07/my-awesome-post | get the permalink for a post object
+<a href="#next">next</a> | mixed | 
+<a href="#parent">parent</a> | bool/<a href="#class-timberpost">\TimberPost</a> | Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
+<a href="#path">path</a> | string | Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
+post_status | string |      $post_status    the status of a post (&ldquo;draft&rdquo;, &ldquo;publish&rdquo;, etc.)
+post_type | string |    $post_type      the name of the post type, this is the machine name (so &ldquo;my_custom_post_type&rdquo; as opposed to &ldquo;My Custom Post Type&rdquo;)
+<a href="#prev">prev</a> | mixed | Get the previous post in a set
+slug | string |     $slug       the URL-safe slug, this corresponds to the poorly-named &ldquo;post_name&rdquo; in the WP database, ex: &ldquo;hello-world&rdquo;
+<a href="#tags">tags</a> | array | Gets the tags on a post, uses WP&rsquo;s post_tag taxonomy
+<a href="#terms">terms</a> | array | Get the terms associated with the post This goes across all taxonomies by default
+<a href="#thumbnail">thumbnail</a> | \TimberImage/null of your thumbnail | get the featured image as a TimberImage
+<a href="#title">title</a> | string | Returns the processed title to be used in templates. This returns the title of the post after WP&rsquo;s filters have run. This is analogous to <code class="prettyprint">the_title()</code> in standard WP template tags.</p>
 
 <h2 id="__construct">__construct</h2>
 
@@ -1782,17 +1688,14 @@ Gets the public label for the menu item
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#link">link</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#url">url</a></td>
-<td>string</td>
-<td></td>
-</tr>
 </tbody></table>
+
+<p>charset | string | 
+<a href="#link">link</a> | string | 
+multisite | bool | 
+theme | <a href="#TimberTheme">TimberTheme</a> | 
+title | string | 
+<a href="#url">url</a> | string | </p>
 
 <h2 id="__construct">__construct</h2>
 
@@ -1906,37 +1809,16 @@ Gets the public label for the menu item
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#children">children</a></td>
-<td>array</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#edit_link">edit_link</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#link">link</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#meta">meta</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#path">path</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#posts">posts</a></td>
-<td>array/bool/null</td>
-<td></td>
-</tr>
 </tbody></table>
+
+<p><a href="#children">children</a> | array | 
+<a href="#edit_link">edit_link</a> | string | 
+<a href="#link">link</a> | string | 
+<a href="#meta">meta</a> | string | 
+name | string | the human-friendly name of the term (ex: French Cuisine)
+<a href="#path">path</a> | string | 
+<a href="#posts">posts</a> | array/bool/null | 
+taxonomy | strng | the WordPress taxonomy slug (ex: <code class="prettyprint">post_tag</code> or <code class="prettyprint">actors</code>)</p>
 
 <h2 id="__construct">__construct</h2>
 
@@ -2171,6 +2053,13 @@ Gets the public label for the menu item
 </thead><tbody>
 </tbody></table>
 
+<p>link | string | the absolute path to the theme (ex: <code class="prettyprint">http://example.org/wp-content/themes/my-timber-theme</code>)
+name | string | the human-friendly name of the theme (ex: <code class="prettyprint">My Timber Starter Theme</code>)
+parent | TimberTheme|bool | the TimberTheme object for the parent theme (if it exists), false otherwise
+parent_slug | string | the slug of the parent theme (ex: <code class="prettyprint">_s</code>)
+path | string | the relative path to the theme (ex: <code class="prettyprint">/wp-content/themes/my-timber-theme</code>)
+slug | string | the slug of the theme (ex: <code class="prettyprint">my-super-theme</code>)</p>
+
 <h2 id="__construct">__construct</h2>
 
 <p><code class="prettyprint">__construct( mixed/string $slug=null )</code></p>
@@ -2253,27 +2142,12 @@ $default | bool |
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#link">link</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#name">name</a></td>
-<td>string the human-friendly name of the user (ex: &ldquo;Buster Bluth&rdquo;)</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#path">path</a></td>
-<td>string</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="#slug">slug</a></td>
-<td>string</td>
-<td></td>
-</tr>
 </tbody></table>
+
+<p><a href="#link">link</a> | string | 
+<a href="#name">name</a> | string the human-friendly name of the user (ex: &ldquo;Buster Bluth&rdquo;) | 
+<a href="#path">path</a> | string | 
+<a href="#slug">slug</a> | string | </p>
 
 <h2 id="__construct">__construct</h2>
 
@@ -2404,12 +2278,9 @@ $default | bool |
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><a href="#transient">transient</a></td>
-<td>mixed</td>
-<td>A utility for a one-stop shop for Transients</td>
-</tr>
 </tbody></table>
+
+<p><a href="#transient">transient</a> | mixed | A utility for a one-stop shop for Transients</p>
 
 <h2 id="array_to_object">array_to_object</h2>
 
