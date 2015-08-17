@@ -51,10 +51,12 @@ Name | Type | Description
 $field_name | string | 
 
 
-## get_permalink
+## <strike>get_permalink</strike>
 `get_permalink( )`
 
 **returns:** `string`
+
+**DEPRECATED** 0.21.8
 
 
 
@@ -103,10 +105,12 @@ $field_name | string |
 
 
 
-## permalink
+## <strike>permalink</strike>
 `permalink( )`
 
 **returns:** `string`
+
+**DEPRECATED** 0.21.8
 
 
 

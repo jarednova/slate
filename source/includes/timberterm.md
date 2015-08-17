@@ -14,6 +14,7 @@ name | string | the human-friendly name of the term (ex: French Cuisine)
 [path](#path) | string | 
 [posts](#posts) | array/bool/null | 
 taxonomy | strng | the WordPress taxonomy slug (ex: `post_tag` or `actors`)
+[title](#title) | string | 
 
 ## __construct
 `__construct( mixed/int $tid=null, string $tax=`""` )`
@@ -76,14 +77,6 @@ Name | Type | Description
 $numberposts | mixed/int | 
 $post_type | string | 
 $PostClass | string | 
-
-
-## get_url
-`get_url( )`
-
-**returns:** `string`
-
-
 
 
 ## link
@@ -156,10 +149,12 @@ $key | mixed |
 $value | mixed | 
 
 
-## url
+## <strike>url</strike>
 `url( )`
 
 **returns:** `string`
+
+**DEPRECATED** since 0.21.9
 
 
 

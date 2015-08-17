@@ -68,10 +68,12 @@ Name | Type | Description
 $dim | mixed/string | 
 
 
-## get_url
+## <strike>get_url</strike>
 `get_url( )`
 
 **returns:** `string`
+
+**DEPRECATED** use src() instead
 
 
 
@@ -112,10 +114,12 @@ Name | Type | Description
 $size | string | 
 
 
-## url
+## <strike>url</strike>
 `url( )`
 
 **returns:** `string`
+
+**DEPRECATED** use src() instead
 
 
 

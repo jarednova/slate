@@ -45,10 +45,12 @@ Name | Type | Description
 $html | mixed | 
 
 
-## download_url
+## <strike>download_url</strike>
 `download_url( mixed $url, mixed $timeout=300 )`
 
 **returns:** `void`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -84,10 +86,12 @@ $defaults | array |
 $return_output_buffer | bool | 
 
 
-## get_comment_form
+## <strike>get_comment_form</strike>
 `get_comment_form( mixed $post_id=null, array $args=array() )`
 
 **returns:** `string`
+
+**DEPRECATED** since 0.21.8
 
 Gets the comment form for use on a single article page
 
@@ -97,18 +101,22 @@ $post_id | mixed |
 $args | array | 
 
 
-## get_current_url
+## <strike>get_current_url</strike>
 `get_current_url( )`
 
 **returns:** `mixed`
 
+**DEPRECATED** since 0.18.0
 
 
 
-## get_full_path
+
+## <strike>get_full_path</strike>
 `get_full_path( mixed $src )`
 
 **returns:** `mixed`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -117,10 +125,12 @@ Name | Type | Description
 $src | mixed | 
 
 
-## get_image_path
+## <strike>get_image_path</strike>
 `get_image_path( mixed $iid )`
 
 **returns:** `mixed`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -157,10 +167,12 @@ $key | mixed |
 $value | mixed | 
 
 
-## get_params
+## <strike>get_params</strike>
 `get_params( mixed $i=-1 )`
 
 **returns:** `mixed`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -169,19 +181,23 @@ Name | Type | Description
 $i | mixed | 
 
 
-## get_path_base
+## <strike>get_path_base</strike>
 `get_path_base( )`
 
 **returns:** `mixed`
 
+**DEPRECATED** since 0.18.0
 
 
 
-## get_post_by_meta
+
+## <strike>get_post_by_meta</strike>
 `get_post_by_meta( mixed $key, mixed $value )`
 
 **returns:** `int`
 
+**DEPRECATED** since 0.20.0
+
 
 
 Name | Type | Description
@@ -190,11 +206,13 @@ $key | mixed |
 $value | mixed | 
 
 
-## get_posts_by_meta
+## <strike>get_posts_by_meta</strike>
 `get_posts_by_meta( mixed $key, mixed $value )`
 
 **returns:** `array/int`
 
+**DEPRECATED** since 0.20.0
+
 
 
 Name | Type | Description
@@ -203,10 +221,12 @@ $key | mixed |
 $value | mixed | 
 
 
-## get_rel_path
+## <strike>get_rel_path</strike>
 `get_rel_path( mixed $src )`
 
 **returns:** `mixed`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -215,10 +235,12 @@ Name | Type | Description
 $src | mixed | 
 
 
-## get_rel_url
+## <strike>get_rel_url</strike>
 `get_rel_url( mixed $url, bool $force=false )`
 
 **returns:** `mixed`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -228,10 +250,12 @@ $url | mixed |
 $force | bool | 
 
 
-## get_term_id_by_term_taxonomy_id
+## <strike>get_term_id_by_term_taxonomy_id</strike>
 `get_term_id_by_term_taxonomy_id( mixed $ttid )`
 
 **returns:** `mixed`
+
+**DEPRECATED** since 0.21.8
 
 
 
@@ -265,10 +289,12 @@ Name | Type | Description
 $arr | mixed | 
 
 
-## is_external
+## <strike>is_external</strike>
 `is_external( mixed $url )`
 
 **returns:** `bool`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -277,10 +303,12 @@ Name | Type | Description
 $url | mixed | 
 
 
-## is_local
+## <strike>is_local</strike>
 `is_local( mixed $url )`
 
 **returns:** `bool`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -301,10 +329,12 @@ Name | Type | Description
 $value | mixed | 
 
 
-## is_url
+## <strike>is_url</strike>
 `is_url( mixed $url )`
 
 **returns:** `bool`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -375,10 +405,12 @@ Name | Type | Description
 $args | string | 
 
 
-## prepend_to_url
+## <strike>prepend_to_url</strike>
 `prepend_to_url( mixed $url, mixed $path )`
 
 **returns:** `void`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -388,10 +420,12 @@ $url | mixed |
 $path | mixed | 
 
 
-## preslashit
+## <strike>preslashit</strike>
 `preslashit( mixed $path )`
 
 **returns:** `void`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -400,10 +434,12 @@ Name | Type | Description
 $path | mixed | 
 
 
-## remove_double_slashes
+## <strike>remove_double_slashes</strike>
 `remove_double_slashes( mixed $url )`
 
 **returns:** `void`
+
+**DEPRECATED** since 0.18.0
 
 
 
@@ -470,10 +506,12 @@ $more | mixed |
 $allowed_tags | string | 
 
 
-## twitterify
+## <strike>twitterify</strike>
 `twitterify( mixed $ret )`
 
 **returns:** `string`
+
+**DEPRECATED** since 0.20.0
 
 
 

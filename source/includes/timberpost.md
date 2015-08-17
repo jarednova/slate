@@ -223,10 +223,12 @@ $page | int |
 ```html
 	<div class="article-text"><p>Blah blah blah</p><p>More blah blah blah.</p></div>
 ```
-## get_display_date
+## <strike>get_display_date</strike>
 `get_display_date( string $use=`"post_date"` )`
 
 **returns:** `string`
+
+**DEPRECATED** since 0.20.0
 
 Get the human-friendly date that should actually display in a .twig template
 
@@ -453,10 +455,12 @@ Gets the relative path of a WP Post, so while link() will return http://example.
 ```handlebars
 	<a href="{{post.path}}">{{post.title}}</a>
 ```
-## permalink
+## <strike>permalink</strike>
 `permalink( )`
 
 **returns:** `string`
+
+**DEPRECATED** use link() instead
 
 
 
