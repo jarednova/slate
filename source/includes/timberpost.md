@@ -1,8 +1,24 @@
 
 # TimberPost
+This is the object you use to access or extend WordPress posts. Think of it as Timber's (more accessible) version of WP_Post. This is used throughout Timber to represent posts retrieved from WordPress making them available to Twig templates. See the PHP and Twig examples for an example of what it's like to work with this object in your code.
 
-
-
+```php
+<?php
+// single.php, see connected twig example
+$context = Timber::get_context();
+$context['post'] = new TimberPost(); // It's a new TimberPost object, but an existing post from WordPress.
+Timber::render('single.twig', $context);
+?>
+```
+```twig
+{# single.twig #}
+<article>
+    <h1 class="headline">{{post.post_title}}</h1>
+    <div class="body">
+        {{post.content}}
+    </div>
+</article>
+```
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -10,21 +26,16 @@ Name | Type | Description
 [categories](#categories) | array of TimberTerms | Get the categoires on a particular post
 [category](#category) | \TimberTerm/null | Returns a category attached to a post
 [children](#children) | array | Returns an array of children on the post as TimberPosts (or other claass as you define).
-class | string | $class stores the CSS classes for the post (ex: "post post-type-book post-123")
 [comments](#comments) | bool/array | Gets the comments on a TimberPost and returns them as an array of [TimberComments](#TimberComment) (or whatever comment class you set).
 [content](#content) | string | Gets the actual content of a WP Post, as opposed to post_content this will run the hooks/filters attached to the_content. \This guy will return your posts content with WordPress filters run on it (like for shortcodes and wpautop).
 [date](#date) | string | Get the date to use in your template!
 [format](#format) | mixed | 
 [get_preview](#get_preview) | string of the post preview | get a preview of your post, if you have an excerpt it will use that, otherwise it will pull from the post_content. If there's a <!-- more --> tag it will use that to mark where to pull through.
-id | string | $id the numeric WordPress id of a post
 [link](#link) | string ex: http://example.org/2015/07/my-awesome-post | get the permalink for a post object
 [next](#next) | mixed | 
-[parent](#parent) | bool/\TimberPost | Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
+[parent](#parent) | bool/[\TimberPost](#class-timberpost) | Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
 [path](#path) | string | Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
-post_status | string | 		$post_status 	the status of a post ("draft", "publish", etc.)
-post_type | string | 	$post_type 		the name of the post type, this is the machine name (so "my_custom_post_type" as opposed to "My Custom Post Type")
 [prev](#prev) | mixed | Get the previous post in a set
-slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named "post_name" in the WP database, ex: "hello-world"
 [tags](#tags) | array | Gets the tags on a post, uses WP's post_tag taxonomy
 [terms](#terms) | array | Get the terms associated with the post This goes across all taxonomies by default
 [thumbnail](#thumbnail) | \TimberImage/null of your thumbnail | get the featured image as a TimberImage
@@ -59,7 +70,7 @@ Outputs the title of the post if you do something like `<h1>{{post}}</h1>`
 
 Return the author of a post
 
-```handlebars
+```twig
 	<h1>{{post.title}}</h1>
 	<p class="byline">
 	    <a href="{{post.author.link}}">{{post.author.name}}</a>
@@ -93,7 +104,7 @@ Name | Type | Description
 $post_type | string | _optional_ use to find children of a particular post type (attachment vs. page for example). You might want to restrict to certain types of children in case other stuff gets all mucked in there. You can use 'parent' to use the parent's post type
 $childPostClass | bool/string/bool | _optional_ a custom post class (ex: 'MyTimberPost') to return the objects as. By default (false) it will use TimberPost::$post_class value.
 
-```handlebars
+```twig
 	{% if post.children %}
 	    Here are the child pages:
 	    {% for child in page.children %}
@@ -116,7 +127,7 @@ $type | string | For when other plugins use the comments table for their own spe
 $status | string | Could be 'pending', etc.
 $CommentClass | string | What class to use when returning Comment objects. As you become a Timber pro, you might find yourself extending TimberComment for your site or app (obviously, totally optional)
 
-```handlebars
+```twig
 	{# single.twig #}
 	<h4>Comments:</h4>
 	{% for comment in post.comments %}
@@ -137,7 +148,7 @@ Name | Type | Description
 ---- | ---- | -----------
 $page | int | 
 
-```handlebars
+```twig
 	<div class="article">
 	    <h2>{{post.title}}</h2>
 	    <div class="content">{{ post.content }}</div>
@@ -154,7 +165,7 @@ Name | Type | Description
 ---- | ---- | -----------
 $date_format | string | 
 
-```handlebars
+```twig
 	Published on {{ post.date }} // Uses WP's formatting set in Admin
 	OR
 	Published on {{ post.date | date('F jS') }} // Jan 12th
@@ -200,7 +211,7 @@ Name | Type | Description
 $len | int | 
 $page | int | 
 
-```handlebars
+```twig
 	<div class="article-text">{{post.get_content}}</div>
 ```
 ```html
@@ -273,7 +284,7 @@ Get a data array of pagination so you can navigate to the previous/next for a pa
 
 Here is my summary
 
-```handlebars
+```twig
 	This post is from <span>{{ post.get_post_type.labels.plural }}</span>
 ```
 ```html
@@ -293,7 +304,7 @@ $force | bool | What happens if your custom post excerpt is longer then the leng
 $readmore | string | The text you want to use on the 'readmore' link
 $strip | bool | Strip tags? yes or no. tell me!
 
-```handlebars
+```twig
 	<p>{{post.get_preview(50)}}</p>
 ```
 ## has_term
@@ -328,7 +339,7 @@ $field_name | string |
 
 get the permalink for a post object
 
-```handlebars
+```twig
 	<a href="{{post.link}}">Read my post</a>
 ```
 ## meta
@@ -350,7 +361,7 @@ $field_name | mixed/string |
 
 Get the author (WordPress user) who last modified the post
 
-```handlebars
+```twig
 	Last updated by {{ post.modified_author.name }}
 ```
 ```html
@@ -419,11 +430,11 @@ $in_same_cat | bool |
 ## parent
 `parent( )`
 
-**returns:** `bool/\TimberPost`
+**returns:** `bool/[\TimberPost](#class-timberpost)`
 
 Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
 
-```handlebars
+```twig
 	Parent page: <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
 ```
 ## path
@@ -433,7 +444,7 @@ Gets the parent (if one exists) from a post as a TimberPost object (or whatever 
 
 Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
 
-```handlebars
+```twig
 	<a href="{{post.path}}">{{post.title}}</a>
 ```
 ## permalink
@@ -455,7 +466,7 @@ Name | Type | Description
 ---- | ---- | -----------
 $in_same_cat | bool | 
 
-```handlebars
+```twig
 	<h4>Prior Entry:</h4>
 	<h3>{{post.prev.title}}</h3>
 	<p>{{post.prev.get_preview(25)}}</p>
@@ -488,7 +499,7 @@ $merge | bool | Should the resulting array be one big one (true)? Or should it b
 
 get the featured image as a TimberImage
 
-```handlebars
+```twig
 	<img src="{{post.thumbnail.src}}" />
 ```
 ## title
@@ -498,7 +509,7 @@ get the featured image as a TimberImage
 
 Returns the processed title to be used in templates. This returns the title of the post after WP's filters have run. This is analogous to `the_title()` in standard WP template tags.
 
-```handlebars
+```twig
 	<h1>{{ post.title }}</h1>
 ```
 ## update
@@ -527,9 +538,28 @@ $i | int |
 
 
 
-### <strike>Class: slug</strike>
+### Class: TimberPost
 
-> **DEPRECATED** since 0.21.7
+> This is the object you use to access or extend WordPress posts. Think of it as Timber's (more accessible) version of WP_Post. This is used throughout Timber to represent posts retrieved from WordPress making them available to Twig templates. See the PHP and Twig examples for an example of what it's like to work with this object in your code.
+
+###### Example
+```php
+<?php
+// single.php, see connected twig example
+$context = Timber::get_context();
+$context['post'] = new TimberPost(); // It's a new TimberPost object, but an existing post from WordPress.
+Timber::render('single.twig', $context);
+?>
+```
+```twig
+{# single.twig #}
+<article>
+    <h1 class="headline">{{post.post_title}}</h1>
+    <div class="body">
+        {{post.content}}
+    </div>
+</article>
+```
 
 
 

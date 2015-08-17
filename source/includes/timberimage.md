@@ -6,11 +6,6 @@
 
 Name | Type | Description
 ---- | ---- | -----------
-class | string | $class stores the CSS classes for the post (ex: "post post-type-book post-123")
-id | string | $id the numeric WordPress id of a post
-post_status | string | 		$post_status 	the status of a post ("draft", "publish", etc.)
-post_type | string | 	$post_type 		the name of the post type, this is the machine name (so "my_custom_post_type" as opposed to "My Custom Post Type")
-slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named "post_name" in the WP database, ex: "hello-world"
 ## __construct
 `__construct( int $iid )`
 
@@ -78,7 +73,7 @@ $dim | mixed/string |
 ## get_parent
 `get_parent( )`
 
-**returns:** `bool/\TimberImage`
+**returns:** `bool/[\TimberImage](#class-timberimage)`
 
 
 
@@ -176,9 +171,7 @@ $size | string |
 
 
 
-### <strike>Class: slug</strike>
-
-> **DEPRECATED** since 0.21.7
+### Class: TimberImage
 
 
 

@@ -1,13 +1,47 @@
 
 # TimberMenu
+In Timber, you can use TimberMenu() to make a standard Wordpress menu available to the Twig template as an object you can loop through. And once the menu becomes available to the context, you can get items from it in a way that is a little smoother and more versatile than Wordpress's wp_nav_menu. (You need never again rely on a crazy "Walker Function!"). The first thing to do is to initialize the menu using TimberMenu(). This will make the menu available as an object to work with in the context. (TimberMenu can include a Wordpress menu slug or ID, or it can be sent with no parameter--and guess the right menu.)
 
-
-
+```php
+<?php
+# functions.php
+add_filter('timber/context', 'add_to_context');
+function add_to_context($data){
+	// So here you are adding data to Timber's context object, i.e...
+ 	$data['foo'] = 'I am some other typical value set in your functions.php file, unrelated to the menu';
+  	// Now, in similar fashion, you add a Timber menu and send it along to the context. 
+	  	$data['menu'] = new TimberMenu(); // This is where you can also send a WordPress menu slug or ID
+    return $data;
+}
+# index.php (or any PHP file)
+// Since you want a menu object available on every page, I added it to the universal Timber context via the functions.php file. You could also this in each PHP file if you find that too confusing.
+$context = Timber::get_context();
+$context['posts'] = Timber::get_posts();
+Timber::render('index.twig', $context);
+?>
+```
+```twig
+<nav>
+	<ul class="main-nav">
+	{% for item in menu.get_items %}
+     	<li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+        	{% if item.get_children %}
+          	<ul class="nav-drop">
+              {% for child in item.get_children %}
+              	<li class="nav-drop-item"><a href="{{child.get_link}}">{{child.title}}</a></li>
+              {% endfor %}
+             </ul>
+          {% endif %}
+          </li>
+   {% endfor %}
+   </ul>
+</nav>
+```
 
 Name | Type | Description
 ---- | ---- | -----------
 ## __construct
-`__construct( int $slug )`
+`__construct( int/string $slug )`
 
 **returns:** `void`
 
@@ -15,7 +49,7 @@ Name | Type | Description
 
 Name | Type | Description
 ---- | ---- | -----------
-$slug | int | 
+$slug | int/string | 
 
 
 ## find_parent_item_in_menu
@@ -39,65 +73,47 @@ $parent_id | int |
 
 
 
-## order_children
-`order_children( array $items )`
 
-**returns:** `array`
+### Class: TimberMenu
 
+> In Timber, you can use TimberMenu() to make a standard Wordpress menu available to the Twig template as an object you can loop through. And once the menu becomes available to the context, you can get items from it in a way that is a little smoother and more versatile than Wordpress's wp_nav_menu. (You need never again rely on a crazy "Walker Function!"). The first thing to do is to initialize the menu using TimberMenu(). This will make the menu available as an object to work with in the context. (TimberMenu can include a Wordpress menu slug or ID, or it can be sent with no parameter--and guess the right menu.)
 
-
-Name | Type | Description
----- | ---- | -----------
-$items | array | 
-
-
-## get_menu_id_from_locations
-`get_menu_id_from_locations( string $slug, array $locations )`
-
-**returns:** `\integer`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$slug | string | 
-$locations | array | 
-
-
-## get_menu_id_from_terms
-`get_menu_id_from_terms( int $slug )`
-
-**returns:** `int`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$slug | int | 
-
-
-## init
-`init( int $menu_id )`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$menu_id | int | 
-
-
-## init_as_page_menu
-`init_as_page_menu( )`
-
-**returns:** `void`
-
-
-
-
-
-### Class: object_type
+###### Example
+```php
+<?php
+# functions.php
+add_filter('timber/context', 'add_to_context');
+function add_to_context($data){
+	// So here you are adding data to Timber's context object, i.e...
+ 	$data['foo'] = 'I am some other typical value set in your functions.php file, unrelated to the menu';
+  	// Now, in similar fashion, you add a Timber menu and send it along to the context. 
+	  	$data['menu'] = new TimberMenu(); // This is where you can also send a WordPress menu slug or ID
+    return $data;
+}
+# index.php (or any PHP file)
+// Since you want a menu object available on every page, I added it to the universal Timber context via the functions.php file. You could also this in each PHP file if you find that too confusing.
+$context = Timber::get_context();
+$context['posts'] = Timber::get_posts();
+Timber::render('index.twig', $context);
+?>
+```
+```twig
+<nav>
+	<ul class="main-nav">
+	{% for item in menu.get_items %}
+     	<li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+        	{% if item.get_children %}
+          	<ul class="nav-drop">
+              {% for child in item.get_children %}
+              	<li class="nav-drop-item"><a href="{{child.get_link}}">{{child.title}}</a></li>
+              {% endfor %}
+             </ul>
+          {% endif %}
+          </li>
+   {% endfor %}
+   </ul>
+</nav>
+```
 
 
 

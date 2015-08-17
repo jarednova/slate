@@ -6,6 +6,12 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+[children](#children) | array | 
+[edit_link](#edit_link) | string | 
+[link](#link) | string | 
+[meta](#meta) | string | 
+[path](#path) | string | 
+[posts](#posts) | array/bool/null | 
 ## __construct
 `__construct( mixed/int $tid=null, string $tax=`""` )`
 
@@ -41,26 +47,6 @@ $tax | string |
 **returns:** `string`
 
 
-
-
-## get_edit_url
-`get_edit_url( )`
-
-**returns:** `string`
-
-
-
-
-## get_meta_field
-`get_meta_field( string $field_name )`
-
-**returns:** `string`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$field_name | string | 
 
 
 ## get_page
@@ -138,7 +124,14 @@ $numberposts_or_args | mixed/int |
 $post_type_or_class | string | 
 $post_class | string | 
 
-
+```twig
+	<h4>Recent posts in {{term.name}}</h4>
+	<ul>
+	{% for post in term.posts(3, 'post') %}
+	    <li><a href="{{post.link}}">{{post.title}}</a></li>
+	{% endfor %}
+	</ul>
+```
 ## title
 `title( )`
 
@@ -168,40 +161,8 @@ $value | mixed |
 
 
 
-## get_term_from_query
-`get_term_from_query( )`
 
-**returns:** `\integer`
-
-
-
-
-## get_tid
-`get_tid( int $tid )`
-
-**returns:** `int`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$tid | int | 
-
-
-## init
-`init( int $tid )`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$tid | int | 
-
-
-
-### Class: ID
+### Class: TimberTerm
 
 
 

@@ -6,6 +6,10 @@
 
 Name | Type | Description
 ---- | ---- | -----------
+[link](#link) | string | 
+[name](#name) | string the human-friendly name of the user (ex: "Buster Bluth") | 
+[path](#path) | string | 
+[slug](#slug) | string | 
 ## __construct
 `__construct( bool/int/bool $uid=false )`
 
@@ -16,19 +20,6 @@ Name | Type | Description
 Name | Type | Description
 ---- | ---- | -----------
 $uid | bool/int/bool | 
-
-
-## __set
-`__set( string $field, mixed $value )`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$field | string | 
-$value | mixed | 
 
 
 ## __toString
@@ -47,26 +38,6 @@ $value | mixed |
 
 
 
-## get_link
-`get_link( )`
-
-**returns:** `string`
-
-
-
-
-## get_meta
-`get_meta( string $field_name )`
-
-**returns:** `null`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$field_name | string | 
-
-
 ## get_meta_field
 `get_meta_field( string $field_name )`
 
@@ -77,14 +48,6 @@ $field_name | string |
 Name | Type | Description
 ---- | ---- | -----------
 $field_name | string | 
-
-
-## get_path
-`get_path( )`
-
-**returns:** `string ex: /author/lincoln`
-
-
 
 
 ## get_permalink
@@ -101,18 +64,6 @@ $field_name | string |
 **returns:** `void`
 
 
-
-
-## init
-`init( bool/int/bool $uid=false )`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$uid | bool/int/bool | 
 
 
 ## link
@@ -138,7 +89,7 @@ $field_name | string |
 ## name
 `name( )`
 
-**returns:** `string`
+**returns:** `string the human-friendly name of the user (ex: "Buster Bluth")`
 
 
 
@@ -168,7 +119,7 @@ $field_name | string |
 
 
 
-### Class: ID
+### Class: TimberUser
 
 
 

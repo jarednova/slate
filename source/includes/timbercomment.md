@@ -39,7 +39,7 @@ $cid | int |
 
 **returns:** `bool/mixed/string`
 
-Fetches the Gravatar ```handlebars {{comment.avatar(36,template_uri~"/img/dude.jpg")}} ```
+Fetches the Gravatar ```twig {{comment.avatar(36,template_uri~"/img/dude.jpg")}} ```
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -178,7 +178,7 @@ $comment_id | mixed/int |
 
 
 
-### Class: children
+### Class: TimberComment
 
 
 
