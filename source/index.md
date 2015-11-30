@@ -8,6 +8,7 @@ language_tabs:
 
 toc_headers:
   - <a href='http://upstatement.com/timber'>Timber Homepage</a>
+  - <a href='http://twig.sensiolabs.org/doc/templates.html'>Twig Documentation</a>
 
 toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
@@ -25,6 +26,10 @@ includes:
   - TimberUser
 
   - TimberHelper
+
+  - ACF-Cookbook
+  - Pagination
+  - Sidebars
 
 
 search: true

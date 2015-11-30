@@ -1,19 +1,53 @@
 
 # TimberImage
+If TimberPost is the class you're going to spend the most time, TimberImage is the class you're going to have the most fun with.
 
-
-
+###### PHP
+```php
+<?php
+$context = Timber::get_context();
+$post = new TimberPost();
+$context['post'] = $post;
+// lets say you have an alternate large 'cover image' for your post stored in a custom field which returns an image ID
+$cover_image_id = $post->cover_image;
+$context['cover_image'] = new TimberImage($cover_image_id);
+Timber::render('single.twig', $context);
+```
+###### Twig
+```handlebars
+<article>
+	<img src="{{cover_image.src}}" class="cover-image" />
+	<h1 class="headline">{{post.title}}</h1>
+	<div class="body">
+		{{post.content}}
+	</div>
+	<img src="{{ Image(post.custom_field_with_image_id).src }}" alt="Another way to initialize images as TimberImages, but within Twig" />
+</article>
+```
+###### HTML
+```html
+<article>
+	<img src="http://example.org/wp-content/uploads/2015/06/nevermind.jpg" class="cover-image" />
+	<h1 class="headline">Now you've done it!</h1>
+	<div class="body">
+		Whatever whatever
+	</div>
+	<img src="http://example.org/wp-content/uploads/2015/06/kurt.jpg" alt="Another way to initialize images as TimberImages, but within Twig" />
+</article>
+```
 
 Name | Type | Description
 ---- | ---- | -----------
-[alt](#alt) | string alt text stored in WordPress | 
+[alt](#alt) | string | alt text stored in WordPress
 [aspect](#aspect) | \float | 
+caption | string | $caption the string stored in the WordPress database
 class | string | $class stores the CSS classes for the post (ex: "post post-type-book post-123")
 file_loc | string | $file_loc the location of the image file in the filesystem (ex: `/var/www/htdocs/wp-content/uploads/2015/08/my-pic.jpg`)
 [height](#height) | int | 
 id | string | $id the numeric WordPress id of a post
+[link](#link) | void | 
 [parent](#parent) | bool/\TimberPost | 
-[path](#path) | string the /relative/path/to/the/file | 
+[path](#path) | string | the /relative/path/to/the/file
 post_status | string | 		$post_status 	the status of a post ("draft", "publish", etc.)
 post_type | string | 	$post_type 		the name of the post type, this is the machine name (so "my_custom_post_type" as opposed to "My Custom Post Type")
 slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named "post_name" in the WP database, ex: "hello-world"
@@ -21,139 +55,218 @@ slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named
 [width](#width) | int | 
 
 ## __construct
-`__construct( int $iid )`
+`__construct( int/string $iid )`
 
-**returns:** `void`
+**returns:** `void` 
 
-
+Creates a new TimberImage object
 
 Name | Type | Description
 ---- | ---- | -----------
-$iid | int | 
+$iid | int/string | 
 
+###### PHP
+```php
+<?php
+	// You can pass it an ID number
+	$myImage = new TimberImage(552);
+		//Or send it a URL to an image
+	$myImage = new TimberImage('http://google.com/logo.jpg');
+```
 
 ## __toString
 `__toString( )`
 
-**returns:** `string`
-
+**returns:** `string` the src of the file
 
 
 
 ## alt
 `alt( )`
 
-**returns:** `string alt text stored in WordPress`
+**returns:** `string` alt text stored in WordPress
 
-
-
+###### Twig
+```handlebars
+	<img src="{{ image.src }}" alt="{{ image.alt }}" />
+```
+###### HTML
+```html
+	<img src="http://example.org/wp-content/uploads/2015/08/pic.jpg" alt="W3 Checker told me to add alt text, so I am" />
+```
 
 ## aspect
 `aspect( )`
 
-**returns:** `\float`
+**returns:** `\float` 
 
+###### Twig
+```handlebars
+	{% if post.thumbnail.aspect < 1 %}
+	    {# handle vertical image #}
+	    <img src="{{ post.thumbnail.src|resize(300, 500) }}" alt="A basketball player" />
+	{% else %}
+		   <img src="{{ post.thumbnail.src|resize(500) }}" alt="A sumo wrestler" />
+	{% endif %}
+```
 
+## get_pathinfo
+`get_pathinfo( )`
 
+**returns:** `array` 
 
-## get_dimensions
-`get_dimensions( mixed/string $dim=null )`
+Get a PHP array with pathinfo() info from the file
 
-**returns:** `array/int`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$dim | mixed/string | 
 
 
 ## <strike>get_url</strike>
+_**DEPRECATED** use src() instead_
+
 `get_url( )`
 
-**returns:** `string`
-
-**DEPRECATED** use src() instead
-
+**returns:** `string` 
 
 
 
 ## height
 `height( )`
 
-**returns:** `int`
+**returns:** `int` 
 
+###### Twig
+```handlebars
+	<img src="{{ image.src }}" height="{{ image.height }}" />
+```
+###### HTML
+```html
+	<img src="http://example.org/wp-content/uploads/2015/08/pic.jpg" height="900" />
+```
 
+## link
+`link( )`
 
+**returns:** `void` 
+
+Returns the link to an image attachment's Permalink page (NOT the link for the image itself!!)
+
+###### Twig
+```handlebars
+	<a href="{{ image.link }}"><img src="{{ image.src }} "/></a>
+```
+###### HTML
+```html
+	<a href="http://example.org/my-cool-picture"><img src="http://example.org/wp-content/uploads/2015/whatever.jpg"/></a>
+```
 
 ## parent
 `parent( )`
 
-**returns:** `bool/\TimberPost`
-
+**returns:** `bool/\TimberPost` 
 
 
 
 ## path
 `path( )`
 
-**returns:** `string the /relative/path/to/the/file`
+**returns:** `string` the /relative/path/to/the/file
 
-
-
+###### Twig
+```handlebars
+	<img src="{{ image.path }}" />
+```
+###### HTML
+```html
+	<img src="/wp-content/uploads/2015/08/pic.jpg" />
+```
 
 ## src
-`src( string $size=`""` )`
+`src( string $size="" )`
 
-**returns:** `bool/string`
-
-
+**returns:** `bool/string` 
 
 Name | Type | Description
 ---- | ---- | -----------
-$size | string | 
+$size | string | a size known to WordPress (like "medium")
 
+###### Twig
+```handlebars
+ 	<h1>{{post.title}}</h1>
+ 	<img src="{{post.thumbnail.src}}" />
+```
+###### HTML
+```html
+	<img src="http://example.org/wp-content/uploads/2015/08/pic.jpg" />
+```
 
 ## <strike>url</strike>
+_**DEPRECATED** use src() instead_
+
 `url( )`
 
-**returns:** `string`
-
-**DEPRECATED** use src() instead
-
+**returns:** `string` 
 
 
 
 ## width
 `width( )`
 
-**returns:** `int`
+**returns:** `int` 
 
-
-
+###### Twig
+```handlebars
+	<img src="{{ image.src }}" width="{{ image.width }}" />
+```
+###### HTML
+```html
+	<img src="http://example.org/wp-content/uploads/2015/08/pic.jpg" width="1600" />
+```
 
 ## wp_upload_dir
 `wp_upload_dir( )`
 
-**returns:** `void`
+**returns:** `void` 
 
-
-
-
-## init_with_url
-`init_with_url( string $url )`
-
-**returns:** `void`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$url | string | 
 
 
 
 ### Class: TimberImage
+
+> If TimberPost is the class you're going to spend the most time, TimberImage is the class you're going to have the most fun with.
+
+###### Example
+###### PHP
+```php
+<?php
+$context = Timber::get_context();
+$post = new TimberPost();
+$context['post'] = $post;
+// lets say you have an alternate large 'cover image' for your post stored in a custom field which returns an image ID
+$cover_image_id = $post->cover_image;
+$context['cover_image'] = new TimberImage($cover_image_id);
+Timber::render('single.twig', $context);
+```
+###### Twig
+```handlebars
+<article>
+	<img src="{{cover_image.src}}" class="cover-image" />
+	<h1 class="headline">{{post.title}}</h1>
+	<div class="body">
+		{{post.content}}
+	</div>
+	<img src="{{ Image(post.custom_field_with_image_id).src }}" alt="Another way to initialize images as TimberImages, but within Twig" />
+</article>
+```
+###### HTML
+```html
+<article>
+	<img src="http://example.org/wp-content/uploads/2015/06/nevermind.jpg" class="cover-image" />
+	<h1 class="headline">Now you've done it!</h1>
+	<div class="body">
+		Whatever whatever
+	</div>
+	<img src="http://example.org/wp-content/uploads/2015/06/kurt.jpg" alt="Another way to initialize images as TimberImages, but within Twig" />
+</article>
+```
 
 
 

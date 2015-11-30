@@ -147,7 +147,7 @@ html, body {
   }
 
 
-  .tocify-item>a, .toc-footer li {
+  .tocify-item>a, .toc-footer li, .toc-header li {
     padding: 0 $nav-padding 0 $nav-padding;
     display: block;
     overflow-x: hidden;
@@ -197,7 +197,7 @@ html, body {
     }
   }
 
-  .toc-footer {
+  .toc-footer, .toc-header {
     padding: 1em 0;
     margin-top: 1em;
     border-top: 1px dashed $nav-footer-border-color;
@@ -212,12 +212,16 @@ html, body {
     }
 
     li {
-      font-size: 0.8em;
       line-height: 1.7;
       text-decoration: none;
     }
   }
-
+  .toc-footer {
+    li {
+      font-size: 0.8em;
+     
+    }
+  }
 }
 
 // button to show navigation on mobile devices
@@ -336,7 +340,6 @@ html, body {
   }
 
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
-    margin-right: $examples-width;
     padding: 0 $main-padding;
     box-sizing: border-box;
     display: block;
@@ -622,4 +625,34 @@ html, body {
   %right-col + %left-col {
     margin-top: $main-padding;
   }
+}
+
+//overrides
+.content pre {
+  margin-left: 28px;
+  margin-right: 28px;
+  width:auto;
+  float:none;
+  clear:none;
+}
+
+.content blockquote {
+  margin-left: 28px;
+  margin-right: 28px;
+  width:auto;
+  float:none;
+  clear:none;
+  background-color:transparent;
+  border-left:3px solid rgba(#444, .3);
+  >p {
+    background-color:transparent;
+    color:#444;
+    text-shadow: none;
+    padding:0;
+    border:0;
+  }
+}
+
+.page-wrapper .dark-box {
+  display:none;
 }

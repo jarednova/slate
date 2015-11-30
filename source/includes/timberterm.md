@@ -1,12 +1,43 @@
 
 # TimberTerm
+Terms: WordPress has got 'em, you want 'em. Categories. Tags. Custom Taxonomies. You don't care, you're a fiend. Well let's get this under control
 
-
-
+###### PHP
+```php
+<?php
+//Get a term by its ID
+$context['term'] = new TimberTerm(6);
+//Get a term when on a term archive page
+$context['term_page'] = new TimberTerm();
+//Get a term with a slug
+$context['team'] = new TimberTerm('patriots');
+//Get a team with a slug from a specific taxonomy
+$context['st_louis'] = new TimberTerm('cardinals', 'baseball');
+Timber::render('index.twig', $context);
+```
+###### Twig
+```handlebars
+<h2>{{term_page.name}} Archives</h2>
+<h3>Teams</h3>
+<ul>
+    <li>{{st_louis.name}} - {{st_louis.description}}</li>
+    <li>{{team.name}} - {{team.description}}</li>
+</ul>
+```
+###### HTML
+```html
+<h2>Team Archives</h2>
+<h3>Teams</h3>
+<ul>
+    <li>St. Louis Cardinals - Winner of 11 World Series</li>
+    <li>New England Patriots - Winner of 4 Super Bowls</li>
+</ul>
+```
 
 Name | Type | Description
 ---- | ---- | -----------
 [children](#children) | array | 
+[description](#description) | string | 
 [edit_link](#edit_link) | string | 
 [link](#link) | string | 
 [meta](#meta) | string | 
@@ -17,11 +48,9 @@ taxonomy | strng | the WordPress taxonomy slug (ex: `post_tag` or `actors`)
 [title](#title) | string | 
 
 ## __construct
-`__construct( mixed/int $tid=null, string $tax=`""` )`
+`__construct( mixed/int $tid=null, string $tax="" )`
 
-**returns:** `void`
-
-
+**returns:** `void` 
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -29,90 +58,77 @@ $tid | mixed/int |
 $tax | string | 
 
 
+
 ## __toString
 `__toString( )`
 
-**returns:** `string`
-
+**returns:** `string` 
 
 
 
 ## children
 `children( )`
 
-**returns:** `array`
+**returns:** `array` 
 
+
+
+## description
+`description( )`
+
+**returns:** `string` 
 
 
 
 ## edit_link
 `edit_link( )`
 
-**returns:** `string`
+**returns:** `string` 
 
 
 
+## <strike>get_page</strike>
+_**DEPRECATED** 0.20.0 this was a dumb idea_
 
-## get_page
 `get_page( int $i )`
 
-**returns:** `string`
-
-
+**returns:** `string` 
 
 Name | Type | Description
 ---- | ---- | -----------
 $i | int | 
 
 
-## get_posts
-`get_posts( mixed/int $numberposts=10, string $post_type=`"any"`, string $PostClass=`""` )`
-
-**returns:** `array/bool/null`
-
-
-
-Name | Type | Description
----- | ---- | -----------
-$numberposts | mixed/int | 
-$post_type | string | 
-$PostClass | string | 
-
 
 ## link
 `link( )`
 
-**returns:** `string`
-
+**returns:** `string` 
 
 
 
 ## meta
 `meta( string $field_name )`
 
-**returns:** `string`
-
-
+**returns:** `string` 
 
 Name | Type | Description
 ---- | ---- | -----------
 $field_name | string | 
 
 
+
 ## path
 `path( )`
 
-**returns:** `string`
-
+**returns:** `string` 
 
 
 
 ## posts
-`posts( mixed/int $numberposts_or_args=10, string $post_type_or_class=`"any"`, string $post_class=`""` )`
+`posts( mixed/int $numberposts_or_args=10, string $post_type_or_class="any", string $post_class="" )`
 
-**returns:** `array/bool/null`
-
-
+**returns:** `array/bool/null` 
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -120,6 +136,7 @@ $numberposts_or_args | mixed/int |
 $post_type_or_class | string | 
 $post_class | string | 
 
+###### Twig
 ```handlebars
 	<h4>Recent posts in {{term.name}}</h4>
 	<ul>
@@ -128,20 +145,18 @@ $post_class | string |
 	{% endfor %}
 	</ul>
 ```
+
 ## title
 `title( )`
 
-**returns:** `string`
-
+**returns:** `string` 
 
 
 
 ## update
 `update( mixed $key, mixed $value )`
 
-**returns:** `void`
-
-
+**returns:** `void` 
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -149,18 +164,53 @@ $key | mixed |
 $value | mixed | 
 
 
+
 ## <strike>url</strike>
+_**DEPRECATED** 0.21.9 use TimberTerm::link() instead_
+
 `url( )`
 
-**returns:** `string`
-
-**DEPRECATED** since 0.21.9
-
+**returns:** `string` 
 
 
 
 
 ### Class: TimberTerm
+
+> Terms: WordPress has got 'em, you want 'em. Categories. Tags. Custom Taxonomies. You don't care, you're a fiend. Well let's get this under control
+
+###### Example
+###### PHP
+```php
+<?php
+//Get a term by its ID
+$context['term'] = new TimberTerm(6);
+//Get a term when on a term archive page
+$context['term_page'] = new TimberTerm();
+//Get a term with a slug
+$context['team'] = new TimberTerm('patriots');
+//Get a team with a slug from a specific taxonomy
+$context['st_louis'] = new TimberTerm('cardinals', 'baseball');
+Timber::render('index.twig', $context);
+```
+###### Twig
+```handlebars
+<h2>{{term_page.name}} Archives</h2>
+<h3>Teams</h3>
+<ul>
+    <li>{{st_louis.name}} - {{st_louis.description}}</li>
+    <li>{{team.name}} - {{team.description}}</li>
+</ul>
+```
+###### HTML
+```html
+<h2>Team Archives</h2>
+<h3>Teams</h3>
+<ul>
+    <li>St. Louis Cardinals - Winner of 11 World Series</li>
+    <li>New England Patriots - Winner of 4 Super Bowls</li>
+</ul>
+```
 
 
 
