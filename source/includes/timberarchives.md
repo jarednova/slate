@@ -8,11 +8,11 @@ The TimberArchives class is used to generate a menu based on the date archives o
 $context['archives'] = new TimberArchives( $args );
 ```
 ###### Twig
-```handlebars
+```twig
 <ul>
 {% for item in archives.items %}
     <li><a href="{{item.link}}">{{item.name}}</a></li>
-    {% for child item.children %}
+    {% for child in item.children %}
         <li class="child"><a href="{{child.link}}">{{child.name}}</a></li>
     {% endfor %}
 {% endfor %}
@@ -75,11 +75,11 @@ $args | mixed/array/string |
 $context['archives'] = new TimberArchives( $args );
 ```
 ###### Twig
-```handlebars
+```twig
 <ul>
 {% for item in archives.items %}
     <li><a href="{{item.link}}">{{item.name}}</a></li>
-    {% for child item.children %}
+    {% for child in item.children %}
         <li class="child"><a href="{{child.link}}">{{child.name}}</a></li>
     {% endfor %}
 {% endfor %}

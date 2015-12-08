@@ -10,7 +10,7 @@ $context['comment_of_the_day'] = $comment;
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <p class="comment">{{comment_of_the_day.content}}</p>
 <p class="comment-attribution">- {{comment.author.name}}</p>
 ```
@@ -28,6 +28,8 @@ Name | Type | Description
 [content](#content) | string | 
 [date](#date) | string | 
 [is_child](#is_child) | bool | 
+[reply_link](#reply_link) | string | 
+[time](#time) | string | 
 
 ## __construct
 `__construct( int $cid )`
@@ -53,7 +55,7 @@ $cid | int |
 **returns:** `boolean` 
 
 ###### Twig
-```handlebars
+```twig
 	{% if comment.approved %}
 		Your comment is good
 	{% else %}
@@ -67,7 +69,7 @@ $cid | int |
 **returns:** `\TimberUser` 
 
 ###### Twig
-```handlebars
+```twig
 	<h3>Comments by...</h3>
 	<ol>
 	{% for comment in post.comments %}
@@ -98,7 +100,7 @@ $size | mixed/int |
 $default | string | 
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{comment.avatar(36,template_uri~"/img/dude.jpg")}}" alt="Image of {{comment.author.name}}" />
 ```
 ###### HTML
@@ -123,7 +125,7 @@ Name | Type | Description
 $date_format | string | 
 
 ###### Twig
-```handlebars
+```twig
 	{% for comment in post.comments %}
 	<article class="comment">
 	  <p class="date">Posted on {{ comment.date }}:</p>
@@ -157,6 +159,45 @@ $field_name | string |
 
 
 
+## reply_link
+`reply_link( string $reply_text="Reply" )`
+
+**returns:** `string` 
+
+Enqueue the WP threaded comments javascript, and fetch the reply link for various comments.
+
+Name | Type | Description
+---- | ---- | -----------
+$reply_text | string | 
+
+
+
+## time
+`time( string $time_format="" )`
+
+**returns:** `string` 
+
+Name | Type | Description
+---- | ---- | -----------
+$time_format | string | 
+
+###### Twig
+```twig
+	{% for comment in post.comments %}
+	<article class="comment">
+	  <p class="date">Posted on {{ comment.date }} at {{comment.time}}:</p>
+	  <p class="comment">{{ comment.content }}</p>
+	</article>
+	{% endfor %}
+```
+###### HTML
+```html
+	<article class="comment">
+	  <p class="date">Posted on September 28, 2015 at 12:45 am:</p>
+	  <p class="comment">Happy Birthday!</p>
+	</article>
+```
+
 
 ### Class: TimberComment
 
@@ -171,7 +212,7 @@ $context['comment_of_the_day'] = $comment;
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <p class="comment">{{comment_of_the_day.content}}</p>
 <p class="comment-attribution">- {{comment.author.name}}</p>
 ```

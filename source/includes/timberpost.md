@@ -13,7 +13,7 @@ Timber::render('single.twig', $context);
 ?>
 ```
 ###### Twig
-```handlebars
+```twig
 {# single.twig #}
 <article>
     <h1 class="headline">{{post.title}}</h1>
@@ -56,6 +56,7 @@ slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named
 [tags](#tags) | array | 
 [terms](#terms) | array | 
 [thumbnail](#thumbnail) | \TimberImage/null | of your thumbnail
+[time](#time) | string | 
 [title](#title) | string | 
 
 ## __construct
@@ -93,7 +94,7 @@ Outputs the title of the post if you do something like `<h1>{{post}}</h1>`
 Return the author of a post
 
 ###### Twig
-```handlebars
+```twig
 	<h1>{{post.title}}</h1>
 	<p class="byline">
 	    <a href="{{post.author.link}}">{{post.author.name}}</a>
@@ -131,7 +132,7 @@ $post_type | string | _optional_ use to find children of a particular post type 
 $childPostClass | bool/string/bool | _optional_ a custom post class (ex: 'MyTimberPost') to return the objects as. By default (false) it will use TimberPost::$post_class value.
 
 ###### Twig
-```handlebars
+```twig
 	{% if post.children %}
 	    Here are the child pages:
 	    {% for child in page.children %}
@@ -156,7 +157,7 @@ $status | string | Could be 'pending', etc.
 $CommentClass | string | What class to use when returning Comment objects. As you become a Timber pro, you might find yourself extending TimberComment for your site or app (obviously, totally optional)
 
 ###### Twig
-```handlebars
+```twig
 	{# single.twig #}
 	<h4>Comments:</h4>
 	{% for comment in post.comments %}
@@ -179,7 +180,7 @@ Name | Type | Description
 $page | int | 
 
 ###### Twig
-```handlebars
+```twig
 	<div class="article">
 	    <h2>{{post.title}}</h2>
 	    <div class="content">{{ post.content }}</div>
@@ -198,7 +199,7 @@ Name | Type | Description
 $date_format | string | 
 
 ###### Twig
-```handlebars
+```twig
 	Published on {{ post.date }} // Uses WP's formatting set in Admin
 	OR
 	Published on {{ post.date | date('F jS') }} // Jan 12th
@@ -244,7 +245,7 @@ $len | int |
 $page | int | 
 
 ###### Twig
-```handlebars
+```twig
 	<div class="article-text">{{post.get_content}}</div>
 ```
 ###### HTML
@@ -320,7 +321,7 @@ Get a data array of pagination so you can navigate to the previous/next for a pa
 Here is my summary
 
 ###### Twig
-```handlebars
+```twig
 	This post is from <span>{{ post.get_post_type.labels.plural }}</span>
 ```
 ###### HTML
@@ -343,7 +344,7 @@ $readmore | string | The text you want to use on the 'readmore' link
 $strip | bool | Strip tags? yes or no. tell me!
 
 ###### Twig
-```handlebars
+```twig
 	<p>{{post.get_preview(50)}}</p>
 ```
 
@@ -378,7 +379,7 @@ $field_name | string |
 get the permalink for a post object
 
 ###### Twig
-```handlebars
+```twig
 	<a href="{{post.link}}">Read my post</a>
 ```
 
@@ -401,7 +402,7 @@ $field_name | mixed/string |
 Get the author (WordPress user) who last modified the post
 
 ###### Twig
-```handlebars
+```twig
 	Last updated by {{ post.modified_author.name }}
 ```
 ###### HTML
@@ -471,7 +472,7 @@ $in_same_cat | bool |
 Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
 
 ###### Twig
-```handlebars
+```twig
 	Parent page: <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
 ```
 
@@ -483,7 +484,7 @@ Gets the parent (if one exists) from a post as a TimberPost object (or whatever 
 Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
 
 ###### Twig
-```handlebars
+```twig
 	<a href="{{post.path}}">{{post.title}}</a>
 ```
 
@@ -508,7 +509,7 @@ Name | Type | Description
 $in_same_cat | bool | 
 
 ###### Twig
-```handlebars
+```twig
 	<h4>Prior Entry:</h4>
 	<h3>{{post.prev.title}}</h3>
 	<p>{{post.prev.get_preview(25)}}</p>
@@ -524,7 +525,7 @@ Gets the tags on a post, uses WP's post_tag taxonomy
 
 
 ## terms
-`terms( string $tax="", bool $merge=true )`
+`terms( string/string/array $tax="", bool $merge=true )`
 
 **returns:** `array` 
 
@@ -532,7 +533,7 @@ Get the terms associated with the post This goes across all taxonomies by defaul
 
 Name | Type | Description
 ---- | ---- | -----------
-$tax | string | What taxonomy to pull from, defaults to all of them. You can use custom ones, or built-in WordPress taxonomies (category, tag). Timber plays nice and figures out that tag/tags/post_tag are all the same (and categories/category), for custom taxonomies you're on your own.
+$tax | string/string/array | What taxonom(y|ies) to pull from. Defaults to all registered taxonomies for the post type. You can use custom ones, or built-in WordPress taxonomies (category, tag). Timber plays nice and figures out that tag/tags/post_tag are all the same (and categories/category), for custom taxonomies you're on your own.
 $merge | bool | Should the resulting array be one big one (true)? Or should it be an array of sub-arrays for each taxonomy (false)?
 
 
@@ -545,8 +546,32 @@ $merge | bool | Should the resulting array be one big one (true)? Or should it b
 get the featured image as a TimberImage
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{post.thumbnail.src}}" />
+```
+
+## time
+`time( string $time_format="" )`
+
+**returns:** `string` 
+
+Get the time to use in your template
+
+Name | Type | Description
+---- | ---- | -----------
+$time_format | string | 
+
+###### Twig
+```twig
+	Published at {{ post.time }} // Uses WP's formatting set in Admin
+	OR
+	Published at {{ post.time | time('G:i') }} // 13:25
+```
+###### HTML
+```html
+	Published at 1:25 pm
+	OR
+	Published at 13:25
 ```
 
 ## title
@@ -557,7 +582,7 @@ get the featured image as a TimberImage
 Returns the processed title to be used in templates. This returns the title of the post after WP's filters have run. This is analogous to `the_title()` in standard WP template tags.
 
 ###### Twig
-```handlebars
+```twig
 	<h1>{{ post.title }}</h1>
 ```
 
@@ -603,7 +628,7 @@ Timber::render('single.twig', $context);
 ?>
 ```
 ###### Twig
-```handlebars
+```twig
 {# single.twig #}
 <article>
     <h1 class="headline">{{post.title}}</h1>

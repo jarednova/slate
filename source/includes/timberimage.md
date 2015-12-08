@@ -14,7 +14,7 @@ $context['cover_image'] = new TimberImage($cover_image_id);
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <article>
 	<img src="{{cover_image.src}}" class="cover-image" />
 	<h1 class="headline">{{post.title}}</h1>
@@ -87,7 +87,7 @@ $iid | int/string |
 **returns:** `string` alt text stored in WordPress
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.src }}" alt="{{ image.alt }}" />
 ```
 ###### HTML
@@ -101,7 +101,7 @@ $iid | int/string |
 **returns:** `\float` 
 
 ###### Twig
-```handlebars
+```twig
 	{% if post.thumbnail.aspect < 1 %}
 	    {# handle vertical image #}
 	    <img src="{{ post.thumbnail.src|resize(300, 500) }}" alt="A basketball player" />
@@ -134,7 +134,7 @@ _**DEPRECATED** use src() instead_
 **returns:** `int` 
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.src }}" height="{{ image.height }}" />
 ```
 ###### HTML
@@ -150,7 +150,7 @@ _**DEPRECATED** use src() instead_
 Returns the link to an image attachment's Permalink page (NOT the link for the image itself!!)
 
 ###### Twig
-```handlebars
+```twig
 	<a href="{{ image.link }}"><img src="{{ image.src }} "/></a>
 ```
 ###### HTML
@@ -171,7 +171,7 @@ Returns the link to an image attachment's Permalink page (NOT the link for the i
 **returns:** `string` the /relative/path/to/the/file
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.path }}" />
 ```
 ###### HTML
@@ -189,7 +189,7 @@ Name | Type | Description
 $size | string | a size known to WordPress (like "medium")
 
 ###### Twig
-```handlebars
+```twig
  	<h1>{{post.title}}</h1>
  	<img src="{{post.thumbnail.src}}" />
 ```
@@ -213,7 +213,7 @@ _**DEPRECATED** use src() instead_
 **returns:** `int` 
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.src }}" width="{{ image.width }}" />
 ```
 ###### HTML
@@ -246,7 +246,7 @@ $context['cover_image'] = new TimberImage($cover_image_id);
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <article>
 	<img src="{{cover_image.src}}" class="cover-image" />
 	<h1 class="headline">{{post.title}}</h1>

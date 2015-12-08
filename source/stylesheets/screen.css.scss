@@ -224,6 +224,15 @@ html, body {
   }
 }
 
+// Headings 
+
+[data-unique="guides"], [data-unique="object-reference"], [data-unique="getting-started"] {
+  font-size:1.2em;
+}
+.tocify-item:not([data-unique="guides"]):not([data-unique="object-reference"]):not([data-unique="getting-started"]) {
+  padding-left:10px;
+}
+
 // button to show navigation on mobile devices
 #nav-button {
   span {
@@ -367,6 +376,12 @@ html, body {
     margin-top: 2em;
     border-top: 1px solid #ddd;
     background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+  }
+
+  #getting-started, #guides, #object-reference {
+    font-size:40px;
+    background-image:none;
+    border:none;
   }
 
   h1:first-child, div:first-child + h1 {

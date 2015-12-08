@@ -11,7 +11,7 @@ Timber::render('index.twig', $context);
 ?>
 ```
 ###### Twig
-```handlebars
+```twig
 <script src="{{theme.link}}/static/js/all.js"></script>
 ```
 ###### HTML
@@ -21,11 +21,11 @@ Timber::render('index.twig', $context);
 
 Name | Type | Description
 ---- | ---- | -----------
-link | string | the absolute path to the theme (ex: `http://example.org/wp-content/themes/my-timber-theme`)
+[link](#link) | string | the absolute path to the theme (ex: `http://example.org/wp-content/themes/my-timber-theme`)
 name | string | the human-friendly name of the theme (ex: `My Timber Starter Theme`)
 parent | TimberTheme|bool | the TimberTheme object for the parent theme (if it exists), false otherwise
 parent_slug | string | the slug of the parent theme (ex: `_s`)
-path | string | the relative path to the theme (ex: `/wp-content/themes/my-timber-theme`)
+[path](#path) | string | the relative path to the theme (ex: `/wp-content/themes/my-timber-theme`)
 slug | string | the slug of the theme (ex: `my-super-theme`)
 
 ## __construct
@@ -49,13 +49,27 @@ $slug | mixed/string |
 	?>
 ```
 ###### Twig
-```handlebars
+```twig
 	We are currently using the {{ theme_stuff.name }} theme.
 ```
 ###### HTML
 ```html
 	We are currently using the My Theme theme.
 ```
+
+## link
+`link( )`
+
+**returns:** `string` the absolute path to the theme (ex: `http://example.org/wp-content/themes/my-timber-theme`)
+
+
+
+## path
+`path( )`
+
+**returns:** `string` the relative path to the theme (ex: `/wp-content/themes/my-timber-theme`)
+
+
 
 ## theme_mod
 `theme_mod( string $name, bool $default=false )`
@@ -91,7 +105,7 @@ Timber::render('index.twig', $context);
 ?>
 ```
 ###### Twig
-```handlebars
+```twig
 <script src="{{theme.link}}/static/js/all.js"></script>
 ```
 ###### HTML
