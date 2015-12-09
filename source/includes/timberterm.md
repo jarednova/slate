@@ -87,6 +87,18 @@ $tax | string |
 
 
 
+## from
+`from( mixed $tid, mixed $taxonomy )`
+
+**returns:** `\static` 
+
+Name | Type | Description
+---- | ---- | -----------
+$tid | mixed | 
+$taxonomy | mixed | 
+
+
+
 ## <strike>get_page</strike>
 _**DEPRECATED** 0.20.0 this was a dumb idea_
 

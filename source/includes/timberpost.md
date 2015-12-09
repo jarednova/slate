@@ -56,6 +56,7 @@ slug | string | 	$slug 		the URL-safe slug, this corresponds to the poorly-named
 [tags](#tags) | array | 
 [terms](#terms) | array | 
 [thumbnail](#thumbnail) | \TimberImage/null | of your thumbnail
+[time](#time) | string | 
 [title](#title) | string | 
 
 ## __construct
@@ -524,7 +525,7 @@ Gets the tags on a post, uses WP's post_tag taxonomy
 
 
 ## terms
-`terms( string $tax="", bool $merge=true )`
+`terms( string/string/array $tax="", bool $merge=true )`
 
 **returns:** `array` 
 
@@ -532,7 +533,7 @@ Get the terms associated with the post This goes across all taxonomies by defaul
 
 Name | Type | Description
 ---- | ---- | -----------
-$tax | string | What taxonomy to pull from, defaults to all of them. You can use custom ones, or built-in WordPress taxonomies (category, tag). Timber plays nice and figures out that tag/tags/post_tag are all the same (and categories/category), for custom taxonomies you're on your own.
+$tax | string/string/array | What taxonom(y|ies) to pull from. Defaults to all registered taxonomies for the post type. You can use custom ones, or built-in WordPress taxonomies (category, tag). Timber plays nice and figures out that tag/tags/post_tag are all the same (and categories/category), for custom taxonomies you're on your own.
 $merge | bool | Should the resulting array be one big one (true)? Or should it be an array of sub-arrays for each taxonomy (false)?
 
 
@@ -547,6 +548,30 @@ get the featured image as a TimberImage
 ###### Twig
 ```handlebars
 	<img src="{{post.thumbnail.src}}" />
+```
+
+## time
+`time( string $time_format="" )`
+
+**returns:** `string` 
+
+Get the time to use in your template
+
+Name | Type | Description
+---- | ---- | -----------
+$time_format | string | 
+
+###### Twig
+```handlebars
+	Published at {{ post.time }} // Uses WP's formatting set in Admin
+	OR
+	Published at {{ post.time | time('G:i') }} // 13:25
+```
+###### HTML
+```html
+	Published at 1:25 pm
+	OR
+	Published at 13:25
 ```
 
 ## title

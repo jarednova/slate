@@ -31,6 +31,7 @@ language_attributes | string | of language attributes for usage in the <html> ta
 multisite | bool | true if multisite, false if plain ole' WordPress
 name | string | 
 pingback_url | string | for people who like trackback spam
+rdf | string | 
 theme | [TimberTheme](#TimberTheme) | 
 title | string | 
 [url](#url) | string | 
@@ -49,12 +50,12 @@ $site_name_or_id | mixed/string/int |
 ###### PHP
 ```php
 <?php
-    //multisite setup
-    $site = new TimberSite(1);
-    $site_two = new TimberSite("My Cool Site");
-    //non-multisite
-    $site = new TimberSite();
-    ```
+	//multisite setup
+	$site = new TimberSite(1);
+	$site_two = new TimberSite("My Cool Site");
+	//non-multisite
+	$site = new TimberSite();
+```
 
 ## __get
 `__get( mixed $field )`
@@ -76,16 +77,16 @@ Returns the link to the site's home.
 
 ###### Twig
 ```handlebars
-    <a href="{{ site.link }}" title="Home">
-    	  <img src="/wp-content/uploads/logo.png" alt="Logo for some stupid thing" />
-    </a>
-    ```
-    ###### HTML
+	<a href="{{ site.link }}" title="Home">
+		  <img src="/wp-content/uploads/logo.png" alt="Logo for some stupid thing" />
+	</a>
+```
+###### HTML
 ```html
-    <a href="http://example.org" title="Home">
-    	  <img src="/wp-content/uploads/logo.png" alt="Logo for some stupid thing" />
-    </a>
-    ```
+	<a href="http://example.org" title="Home">
+		  <img src="/wp-content/uploads/logo.png" alt="Logo for some stupid thing" />
+	</a>
+```
 
 ## url
 `url( )`

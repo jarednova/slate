@@ -12,7 +12,7 @@ $context['archives'] = new TimberArchives( $args );
 <ul>
 {% for item in archives.items %}
     <li><a href="{{item.link}}">{{item.name}}</a></li>
-    {% for child item.children %}
+    {% for child in item.children %}
         <li class="child"><a href="{{child.link}}">{{child.name}}</a></li>
     {% endfor %}
 {% endfor %}
@@ -79,7 +79,7 @@ $context['archives'] = new TimberArchives( $args );
 <ul>
 {% for item in archives.items %}
     <li><a href="{{item.link}}">{{item.name}}</a></li>
-    {% for child item.children %}
+    {% for child in item.children %}
         <li class="child"><a href="{{child.link}}">{{child.name}}</a></li>
     {% endfor %}
 {% endfor %}
