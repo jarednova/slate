@@ -16,7 +16,7 @@ $context['st_louis'] = new TimberTerm('cardinals', 'baseball');
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```twig
+```handlebars
 <h2>{{term_page.name}} Archives</h2>
 <h3>Teams</h3>
 <ul>
@@ -149,7 +149,7 @@ $post_type_or_class | string |
 $post_class | string | 
 
 ###### Twig
-```twig
+```handlebars
 	<h4>Recent posts in {{term.name}}</h4>
 	<ul>
 	{% for post in term.posts(3, 'post') %}
@@ -206,7 +206,7 @@ $context['st_louis'] = new TimberTerm('cardinals', 'baseball');
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```twig
+```handlebars
 <h2>{{term_page.name}} Archives</h2>
 <h3>Teams</h3>
 <ul>

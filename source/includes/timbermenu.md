@@ -23,7 +23,7 @@ Timber::render('index.twig', $context);
 ?>
 ```
 ###### Twig
-```twig
+```handlebars
 <nav>
 	<ul class="main-nav">
 	{% for item in menu.get_items %}
@@ -105,7 +105,7 @@ Timber::render('index.twig', $context);
 ?>
 ```
 ###### Twig
-```twig
+```handlebars
 <nav>
 	<ul class="main-nav">
 	{% for item in menu.get_items %}

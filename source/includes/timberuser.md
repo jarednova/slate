@@ -10,7 +10,7 @@ $context['post'] = new TimberPost();
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```twig
+```handlebars
 <p class="current-user-info">Your name is {{ current_user.name }}</p>
 <p class="article-info">This article is called "{{ post.title }}" and it's by {{ post.author.name }}
 ```
@@ -48,7 +48,7 @@ $uid | bool/int/bool |
 **returns:** `string` a fallback for TimberUser::name()
 
 ###### Twig
-```twig
+```handlebars
 	This post is by {{ post.author }}
 ```
 ###### HTML
@@ -163,7 +163,7 @@ $context['post'] = new TimberPost();
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```twig
+```handlebars
 <p class="current-user-info">Your name is {{ current_user.name }}</p>
 <p class="article-info">This article is called "{{ post.title }}" and it's by {{ post.author.name }}
 ```

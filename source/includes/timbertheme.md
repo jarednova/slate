@@ -11,7 +11,7 @@ Timber::render('index.twig', $context);
 ?>
 ```
 ###### Twig
-```twig
+```handlebars
 <script src="{{theme.link}}/static/js/all.js"></script>
 ```
 ###### HTML
@@ -49,7 +49,7 @@ $slug | mixed/string |
 	?>
 ```
 ###### Twig
-```twig
+```handlebars
 	We are currently using the {{ theme_stuff.name }} theme.
 ```
 ###### HTML
@@ -105,7 +105,7 @@ Timber::render('index.twig', $context);
 ?>
 ```
 ###### Twig
-```twig
+```handlebars
 <script src="{{theme.link}}/static/js/all.js"></script>
 ```
 ###### HTML

@@ -64,7 +64,7 @@ Filters are executed from left to right. You'll probably want to convert to JPG 
 #### Generating Retina Sizes
 You can use Timber to generat @2x image sizes for retina devices. For example, using `srcset`:
 
-```twig
+```handlebars
 <img src="{{ post.thumbnail.src }}" srcset="{{ post.thumbnail.src | retina(1) }} 1x,
     {{ post.thumbnail.src | retina(2) }}  2x,
     {{ post.thumbnail.src | retina(3) }}  3x,
@@ -73,7 +73,7 @@ You can use Timber to generat @2x image sizes for retina devices. For example, u
 
 This can be used in conjunction with other filters, so for example:
 
-```twig
+```handlebars
 <img src="{{ post.thumbnail.src|resize(400, 300) }}" srcset="{{ post.thumbnail.src |resize(400, 300) | retina(1) }} 1x,
     {{ post.thumbnail.src | resize(400, 300) | retina(2) }}  2x,
     {{ post.thumbnail.src | resize(400, 300) | retina(3) }}  3x,

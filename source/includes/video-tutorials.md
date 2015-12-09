@@ -48,7 +48,7 @@ $context['headline'] = 'Welcome to my new Timber Blog!';
 Timber::render('welcome.twig', $context);
 ```
 
-```twig
+```handlebars
 {# welcome.twig #}
 <section class="welcome-block">
 	<div class="inner">
@@ -67,7 +67,7 @@ $context['welcome'] = Timber::get_post(56);
 Timber::render('welcome.twig', $context);
 ```
 
-```twig
+```handlebars
 <section class="welcome-block">
 	<div class="inner">
 		<h3>{{welcome.post_title}}</h3>
@@ -85,7 +85,7 @@ $context['posts'] = Timber::get_posts();
 Timber::render('home-main.twig', $context);
 ```
 
-```twig
+```handlebars
 {# home-main.twig #}
 {% for post in posts %}
     {% include "tz-post.twig" %}
@@ -98,7 +98,7 @@ Timber::render('home-main.twig', $context);
 
 [![Using Custom Post Types with Timber](http://img.youtube.com/vi/19T0MStDLSQ/0.jpg)](http://www.youtube.com/watch?v=19T0MStDLSQ)
 
-```twig
+```handlebars
 {# home-main.twig #}
 {% for post in posts %}
 	{# you can send includes an array, in order of precedence #}
@@ -106,7 +106,7 @@ Timber::render('home-main.twig', $context);
 {% endfor %}
 ```
 
-```twig
+```handlebars
 {# tz-recipe.twig #}
 <article id="post-{{post.ID}}" class="post-{{post.ID}} {{post.post_type}} type-{{post.post_type}} status-publish hentry">
 	{% if post.get_thumbnail %}
@@ -126,7 +126,7 @@ This is a **really** important concept for DRY. I'll show how to create a base t
 
 ##### Create a `base.twig` file:
 
-```twig
+```handlebars
 {# base.twig #}
 {% include "html-header.twig" %}
 {% block head %}
@@ -145,7 +145,7 @@ This is a **really** important concept for DRY. I'll show how to create a base t
 
 ##### You can use this in a custom `single.twig` file:
 
-```twig
+```handlebars
 {# single.twig #}
 {% extends "base.twig" %}
 {% block head %}

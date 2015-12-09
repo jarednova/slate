@@ -355,7 +355,7 @@ $args | array |
 	Timber::render('single-form.twig', $context);
 ```
 ###### Twig
-```twig
+```handlebars
 	<h1>{{ post.title }}</h1>
 	{{ my_form }}
 ```

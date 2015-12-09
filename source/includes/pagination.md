@@ -13,7 +13,7 @@ This will only work in a php file with an active query (like `archive.php` or `h
 
 You can then markup the output like so  (of course, the exact markup is up to YOU):
 
-```twig
+```handlebars
 <div class="tool-pagination">
 	{% if pagination.prev %}
 		<a href="{{pagination.prev.link}}" class="prev {{pagination.prev.link|length ? '' : 'invisible'}}">Prev</a>

@@ -10,7 +10,7 @@ $context['comment_of_the_day'] = $comment;
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```twig
+```handlebars
 <p class="comment">{{comment_of_the_day.content}}</p>
 <p class="comment-attribution">- {{comment.author.name}}</p>
 ```
@@ -55,7 +55,7 @@ $cid | int |
 **returns:** `boolean` 
 
 ###### Twig
-```twig
+```handlebars
 	{% if comment.approved %}
 		Your comment is good
 	{% else %}
@@ -69,7 +69,7 @@ $cid | int |
 **returns:** `\TimberUser` 
 
 ###### Twig
-```twig
+```handlebars
 	<h3>Comments by...</h3>
 	<ol>
 	{% for comment in post.comments %}
@@ -100,7 +100,7 @@ $size | mixed/int |
 $default | string | 
 
 ###### Twig
-```twig
+```handlebars
 	<img src="{{comment.avatar(36,template_uri~"/img/dude.jpg")}}" alt="Image of {{comment.author.name}}" />
 ```
 ###### HTML
@@ -125,7 +125,7 @@ Name | Type | Description
 $date_format | string | 
 
 ###### Twig
-```twig
+```handlebars
 	{% for comment in post.comments %}
 	<article class="comment">
 	  <p class="date">Posted on {{ comment.date }}:</p>
@@ -182,7 +182,7 @@ Name | Type | Description
 $time_format | string | 
 
 ###### Twig
-```twig
+```handlebars
 	{% for comment in post.comments %}
 	<article class="comment">
 	  <p class="date">Posted on {{ comment.date }} at {{comment.time}}:</p>
@@ -212,7 +212,7 @@ $context['comment_of_the_day'] = $comment;
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```twig
+```handlebars
 <p class="comment">{{comment_of_the_day.content}}</p>
 <p class="comment-attribution">- {{comment.author.name}}</p>
 ```
