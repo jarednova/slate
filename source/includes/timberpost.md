@@ -228,7 +228,7 @@ $date_format | string |
 ## get_comment_count
 `get_comment_count( )`
 
-**returns:** `int` 
+**returns:** `int` the number of comments on a post
 
 
 
