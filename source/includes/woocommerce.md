@@ -1,4 +1,4 @@
-## WooCommerce
+# WooCommerce
 
 ### Point of entry - main WooCommerce PHP file
 The first step to get your WooCommerce project integrated with Timber is creating a file named `woocommerce.php` in the root of your theme. That will establish the context and data to be passed to your twig files:
@@ -40,7 +40,7 @@ if (is_singular('product')) {
 
 You will now need the two twig files loaded from `woocommerce.php`:
 
-### Archives
+## Archives
 Create a Twig file accordingly to the location asked by the above file, in this example that would be `views/woo/archive.twig`:
 
 ```handlebars
@@ -71,7 +71,7 @@ You'll notice the inclusion of several woocommerce's default hooks, which you'll
 
 Next, we'll take care of the single product view.
 
-### Single Product
+## Single Product
 Create a Twig file accordingly to the location asked by the above file, in this example that would be `views/woo/single-product.twig`:
 
 ```handlebars
@@ -108,7 +108,7 @@ If you need to override the output of any of those hooks, my advice would be to 
 
 Finally, we'll need to create a teaser file for product in the loops. Considering the code above that  would be `views/partials/tease-product.twig`:
 
-### Tease Product
+## Tease Product
 ```handlebars
 
 <article {{ fn('post_class', ['$classes', 'entry'] ) }}>

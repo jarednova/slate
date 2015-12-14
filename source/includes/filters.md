@@ -1,6 +1,8 @@
 # Filters
 
-Twig offers a variety of [filters](http://twig.sensiolabs.org/doc/filters/index.html) to transform text and other information into the desired output. In addition, Timber has some valuable for your WP theme:
+Twig offers a variety of [filters](http://twig.sensiolabs.org/doc/filters/index.html) to transform text and other information into the desired output. If you wish to create your own custom filters visit [Extending Timber](https://jarednova.github.io/timber/#extending-timber).
+
+Timber includes following filters out-of-the box for your WP theme:
 
 ### excerpt
 When you need to trim text to a desired length (in words)
@@ -155,24 +157,4 @@ Adds paragraph breaks to new lines
 	<p>"No, no, he's not," another young man quickly yelled from across the table. "He wrote The Oscar."</p>
 	<p>"Oh, yeah," Sinatra said, "well I've seen it, and it's a piece of crap."</p>
 </div>
-```
-
-* * *
-
-### list
-Converts an array of strings into a comma-separated list.
-
-###### PHP:
-```php
-$context['contributors'] = array('Blake Allen','Rachel White','Maddy May');
-```
-
-###### Twig:
-```handlebars
-Contributions made by {{contributors|list(',','&')}}
-```
-
-###### Output:
-```html
-Contributions made by Blake Allen, Rachel White & Maddy May
 ```
