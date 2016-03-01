@@ -54,7 +54,7 @@ Runs a function where you need. Really valuable for integrating plugins or exist
 ### relative
 Converts an absolute URL into a relative one, for example:
 
-```handlebars
+```twig
 My custom link is <a href="{{ 'http://example.org/2015/08/my-blog-post' | relative }}">here!</a>
 ```
 ```html
@@ -126,13 +126,13 @@ Displays a date in timeago format:
 
 ###### Twig:
 
-```handlebars
+```twig
 <p class="entry-meta">{{ post.character.origin_story | truncate(8) }} ...</p>
 ```
 
 ###### Output:
 
-```handlebars
+```twig
 <p class="entry-meta">Bruce Wayne's parents were shot outside the opera ...</p>
 ```
 
@@ -143,7 +143,7 @@ Displays a date in timeago format:
 Adds paragraph breaks to new lines
 
 ###### Twig:
-```handlebars
+```twig
 <div class="body">
 	{{post.custom_text_area|wpautop}}
 </div>

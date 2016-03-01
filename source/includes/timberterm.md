@@ -16,7 +16,7 @@ $context['st_louis'] = new TimberTerm('cardinals', 'baseball');
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <h2>{{term_page.name}} Archives</h2>
 <h3>Teams</h3>
 <ul>
@@ -100,7 +100,7 @@ $taxonomy | mixed |
 
 
 ## <strike>get_page</strike>
-_**DEPRECATED** 0.20.0 this was a dumb idea_
+**DEPRECATED** 0.20.0 this was a dumb idea
 
 `get_page( int $i )`
 
@@ -149,7 +149,7 @@ $post_type_or_class | string |
 $post_class | string | 
 
 ###### Twig
-```handlebars
+```twig
 	<h4>Recent posts in {{term.name}}</h4>
 	<ul>
 	{% for post in term.posts(3, 'post') %}
@@ -178,7 +178,7 @@ $value | mixed |
 
 
 ## <strike>url</strike>
-_**DEPRECATED** 0.21.9 use TimberTerm::link() instead_
+**DEPRECATED** 0.21.9 use TimberTerm::link() instead
 
 `url( )`
 
@@ -206,7 +206,7 @@ $context['st_louis'] = new TimberTerm('cardinals', 'baseball');
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <h2>{{term_page.name}} Archives</h2>
 <h3>Teams</h3>
 <ul>

@@ -5,7 +5,7 @@ Timber is designed to play nicely with (the amazing) [Advanced Custom Fields](ht
 While data saved by ACF is available via `{{post.my_acf_field}}` you will often need to do some additional work to get back the _kind_ of data you want. For example, images are stored as image ID#s which you might want to translate into a specific image object. Read on to learn more about those specific exceptions.
 
 ### WYSIWYG field (and other requiring text):
-```handlebars
+```twig
 <h3>{{post.title}}</h3>
 <div class="intro-text">
      {{post.get_field('my_wysiwyg_field')}}
@@ -19,7 +19,7 @@ You can retrieve an image from a custom field, then use it in a Twig template. T
 
 ##### The quick way (for most situations)
 
-```handlebars
+```twig
 <img src="{{TimberImage(post.get_field('hero_image')).src}}" />
 ```
 
@@ -42,7 +42,7 @@ Timber::render('single.twig', $data);
 
 You can now use all the above functions to transform your custom images in the same way, the format will be:
 
-```handlebars
+```twig
 <img src="{{post.hero_image.src|resize(500, 300)}}" />
 ```
 
@@ -51,7 +51,7 @@ You can now use all the above functions to transform your custom images in the s
 ### Repeater field
 
 You can access repeater fields within in twig files:
-```handlebars
+```twig
 {# single.twig #}
 <h2>{{post.title}}</h2>
 <div class="my-list">
@@ -69,7 +69,7 @@ You can access repeater fields within in twig files:
 
 When you run `get_field` on an outer ACF field, everything inside is ready to be traversed. You can refer to nested fields via outer_item.inner_repeater
 
-```handlebars
+```twig
 {% for item_outer in post.get_field('outer') %}
      {{item_outer.title}}
 
@@ -86,7 +86,7 @@ A common problem in working with repeaters is that you should only call the `get
 
 ###### DON'T DO THIS (Bad)
 
-```handlebars
+```twig
 {% for gear in post.get_field('gear_items') %}
     <h3> {{ gear.brand_name }} </h3>
     {% for gear_feature in gear.get_field('features') %}
@@ -97,7 +97,7 @@ A common problem in working with repeaters is that you should only call the `get
 
 ###### Do THIS: (Good)
 
-```handlebars
+```twig
 {% for gear in post.get_field('gear_items') %}
     <h3> {{ gear.brand_name }} </h3>
     {% for gear_feature in gear.features %}
@@ -112,7 +112,7 @@ A common problem in working with repeaters is that you should only call the `get
 
 Similar to repeaters, get the field by the name of the flexible content field:
 
-```handlebars
+```twig
 {% for media_item in post.get_field('media_set') %}
 	{% if media_item.acf_fc_layout == 'image_set' %}
 		<img src="{{TimberImage(media_item.image).src}}" />
@@ -134,7 +134,7 @@ Similar to repeaters, get the field by the name of the flexible content field:
 	Timber::render('index.twig', $context);
 ```
 
-```handlebars
+```twig
 	<footer>{{site_copyright_info}}</footer>
 ```
 
@@ -147,7 +147,7 @@ Similar to repeaters, get the field by the name of the flexible content field:
 
 ACF Pro has a built in options page, and changes the `get_fields('options')` to `get_fields('option')`.
 
-```handlebars
+```twig
 	<footer>{{options.copyright_info}}</footer>
 ```
 
@@ -167,7 +167,7 @@ function mytheme_timber_context( $context ) {
 
 Now, you can use any of the option fields across the site instead of per template.
 
-```handlebars
+```twig
 /* footer.twig */
 <footer>{{options.copyright_info}}</footer>
 ```
@@ -182,7 +182,7 @@ You can grab specific field label data like so:
 $context["acf"] = get_field_objects($data["post"]->ID);
 ```
 
-```handlebars
+```twig
 {{ acf.your_field_name_here.label }}
 ```
 

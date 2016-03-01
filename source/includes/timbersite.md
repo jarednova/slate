@@ -11,7 +11,7 @@ $context['other_site'] = new TimberSite($other_site_id);
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 My site is called {{site.name}}, another site on my network is {{other_site.name}}
 ```
 ###### HTML
@@ -76,7 +76,7 @@ $field | mixed |
 Returns the link to the site's home.
 
 ###### Twig
-```handlebars
+```twig
 	<a href="{{ site.link }}" title="Home">
 		  <img src="/wp-content/uploads/logo.png" alt="Logo for some stupid thing" />
 	</a>
@@ -110,7 +110,7 @@ $context['other_site'] = new TimberSite($other_site_id);
 Timber::render('index.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 My site is called {{site.name}}, another site on my network is {{other_site.name}}
 ```
 ###### HTML

@@ -43,7 +43,7 @@ You will now need the two twig files loaded from `woocommerce.php`:
 ## Archives
 Create a Twig file accordingly to the location asked by the above file, in this example that would be `views/woo/archive.twig`:
 
-```handlebars
+```twig
 {% extends "base.twig" %}
 
 {% block content %}
@@ -74,7 +74,7 @@ Next, we'll take care of the single product view.
 ## Single Product
 Create a Twig file accordingly to the location asked by the above file, in this example that would be `views/woo/single-product.twig`:
 
-```handlebars
+```twig
 {% extends "base.twig" %}
 
 {% block content %}
@@ -109,7 +109,7 @@ If you need to override the output of any of those hooks, my advice would be to 
 Finally, we'll need to create a teaser file for product in the loops. Considering the code above that  would be `views/partials/tease-product.twig`:
 
 ## Tease Product
-```handlebars
+```twig
 
 <article {{ fn('post_class', ['$classes', 'entry'] ) }}>
 
@@ -168,7 +168,7 @@ Without this, some elements of the listed products would show the same informati
 
 One way to get around this is by building your own image calls, that means removing WooCommerce's default hooks and declare on your template the html to show the image:
 
-```handlebars
+```twig
 {% if post.thumbnail %}
    <img src="{{ post.thumbnail.src|resize(shop_thumbnail_image_size) }}" />
 {% endif %}

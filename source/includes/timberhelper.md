@@ -45,7 +45,7 @@ $html | mixed |
 
 
 ## <strike>download_url</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `download_url( mixed $url, mixed $timeout=300 )`
 
@@ -83,7 +83,7 @@ $return_output_buffer | bool |
 
 
 ## <strike>get_comment_form</strike>
-_**DEPRECATED** 0.21.8 use `{{ function('comment_form') }}` instead_
+**DEPRECATED** 0.21.8 use `{{ function('comment_form') }}` instead
 
 `get_comment_form( mixed $post_id=null, array $args=array() )`
 
@@ -99,7 +99,7 @@ $args | array |
 
 
 ## <strike>get_current_url</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `get_current_url( )`
 
@@ -108,7 +108,7 @@ _**DEPRECATED** 0.18.0_
 
 
 ## <strike>get_full_path</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `get_full_path( mixed $src )`
 
@@ -147,7 +147,7 @@ $value | mixed |
 
 
 ## <strike>get_params</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `get_params( mixed $i=-1 )`
 
@@ -160,7 +160,7 @@ $i | mixed |
 
 
 ## <strike>get_path_base</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `get_path_base( )`
 
@@ -169,7 +169,7 @@ _**DEPRECATED** 0.18.0_
 
 
 ## <strike>get_post_by_meta</strike>
-_**DEPRECATED** 0.20.0_
+**DEPRECATED** 0.20.0
 
 `get_post_by_meta( mixed $key, mixed $value )`
 
@@ -183,7 +183,7 @@ $value | mixed |
 
 
 ## <strike>get_posts_by_meta</strike>
-_**DEPRECATED** 0.20.0_
+**DEPRECATED** 0.20.0
 
 `get_posts_by_meta( mixed $key, mixed $value )`
 
@@ -197,7 +197,7 @@ $value | mixed |
 
 
 ## <strike>get_rel_path</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `get_rel_path( mixed $src )`
 
@@ -210,7 +210,7 @@ $src | mixed |
 
 
 ## <strike>get_rel_url</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `get_rel_url( mixed $url, bool $force=false )`
 
@@ -224,7 +224,7 @@ $force | bool |
 
 
 ## <strike>get_term_id_by_term_taxonomy_id</strike>
-_**DEPRECATED** 0.21.8_
+**DEPRECATED** 0.21.8
 
 `get_term_id_by_term_taxonomy_id( mixed $ttid )`
 
@@ -260,7 +260,7 @@ $arr | mixed |
 
 
 ## <strike>is_external</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `is_external( mixed $url )`
 
@@ -273,7 +273,7 @@ $url | mixed |
 
 
 ## <strike>is_local</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `is_local( mixed $url )`
 
@@ -297,7 +297,7 @@ $value | mixed |
 
 
 ## <strike>is_url</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `is_url( mixed $url )`
 
@@ -355,7 +355,7 @@ $args | array |
 	Timber::render('single-form.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 	<h1>{{ post.title }}</h1>
 	{{ my_form }}
 ```
@@ -389,7 +389,7 @@ $args | string |
 
 
 ## <strike>prepend_to_url</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `prepend_to_url( mixed $url, mixed $path )`
 
@@ -403,7 +403,7 @@ $path | mixed |
 
 
 ## <strike>preslashit</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `preslashit( mixed $path )`
 
@@ -416,7 +416,7 @@ $path | mixed |
 
 
 ## <strike>remove_double_slashes</strike>
-_**DEPRECATED** 0.18.0_
+**DEPRECATED** 0.18.0
 
 `remove_double_slashes( mixed $url )`
 

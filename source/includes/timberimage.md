@@ -14,7 +14,7 @@ $context['cover_image'] = new TimberImage($cover_image_id);
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <article>
 	<img src="{{cover_image.src}}" class="cover-image" />
 	<h1 class="headline">{{post.title}}</h1>
@@ -44,7 +44,7 @@ caption | string | $caption the string stored in the WordPress database
 class | string | $class stores the CSS classes for the post (ex: "post post-type-book post-123")
 file_loc | string | $file_loc the location of the image file in the filesystem (ex: `/var/www/htdocs/wp-content/uploads/2015/08/my-pic.jpg`)
 [height](#height) | int | 
-id | string | $id the numeric WordPress id of a post
+id | integer | the ID of the image (which is a WP_Post)
 [link](#link) | void | 
 [parent](#parent) | bool/\TimberPost | 
 [path](#path) | string | the /relative/path/to/the/file
@@ -87,7 +87,7 @@ $iid | int/string |
 **returns:** `string` alt text stored in WordPress
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.src }}" alt="{{ image.alt }}" />
 ```
 ###### HTML
@@ -101,7 +101,7 @@ $iid | int/string |
 **returns:** `\float` 
 
 ###### Twig
-```handlebars
+```twig
 	{% if post.thumbnail.aspect < 1 %}
 	    {# handle vertical image #}
 	    <img src="{{ post.thumbnail.src|resize(300, 500) }}" alt="A basketball player" />
@@ -120,7 +120,7 @@ Get a PHP array with pathinfo() info from the file
 
 
 ## <strike>get_url</strike>
-_**DEPRECATED** use src() instead_
+**DEPRECATED** use src() instead
 
 `get_url( )`
 
@@ -134,7 +134,7 @@ _**DEPRECATED** use src() instead_
 **returns:** `int` 
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.src }}" height="{{ image.height }}" />
 ```
 ###### HTML
@@ -150,7 +150,7 @@ _**DEPRECATED** use src() instead_
 Returns the link to an image attachment's Permalink page (NOT the link for the image itself!!)
 
 ###### Twig
-```handlebars
+```twig
 	<a href="{{ image.link }}"><img src="{{ image.src }} "/></a>
 ```
 ###### HTML
@@ -171,7 +171,7 @@ Returns the link to an image attachment's Permalink page (NOT the link for the i
 **returns:** `string` the /relative/path/to/the/file
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.path }}" />
 ```
 ###### HTML
@@ -189,9 +189,9 @@ Name | Type | Description
 $size | string | a size known to WordPress (like "medium")
 
 ###### Twig
-```handlebars
- 	<h1>{{post.title}}</h1>
- 	<img src="{{post.thumbnail.src}}" />
+```twig
+	<h1>{{post.title}}</h1>
+	<img src="{{post.thumbnail.src}}" />
 ```
 ###### HTML
 ```html
@@ -199,7 +199,7 @@ $size | string | a size known to WordPress (like "medium")
 ```
 
 ## <strike>url</strike>
-_**DEPRECATED** use src() instead_
+**DEPRECATED** use src() instead
 
 `url( )`
 
@@ -213,7 +213,7 @@ _**DEPRECATED** use src() instead_
 **returns:** `int` 
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{ image.src }}" width="{{ image.width }}" />
 ```
 ###### HTML
@@ -246,7 +246,7 @@ $context['cover_image'] = new TimberImage($cover_image_id);
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <article>
 	<img src="{{cover_image.src}}" class="cover-image" />
 	<h1 class="headline">{{post.title}}</h1>

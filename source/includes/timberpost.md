@@ -13,7 +13,7 @@ Timber::render('single.twig', $context);
 ?>
 ```
 ###### Twig
-```handlebars
+```twig
 {# single.twig #}
 <article>
     <h1 class="headline">{{post.title}}</h1>
@@ -94,7 +94,7 @@ Outputs the title of the post if you do something like `<h1>{{post}}</h1>`
 Return the author of a post
 
 ###### Twig
-```handlebars
+```twig
 	<h1>{{post.title}}</h1>
 	<p class="byline">
 	    <a href="{{post.author.link}}">{{post.author.name}}</a>
@@ -132,7 +132,7 @@ $post_type | string | _optional_ use to find children of a particular post type 
 $childPostClass | bool/string/bool | _optional_ a custom post class (ex: 'MyTimberPost') to return the objects as. By default (false) it will use TimberPost::$post_class value.
 
 ###### Twig
-```handlebars
+```twig
 	{% if post.children %}
 	    Here are the child pages:
 	    {% for child in page.children %}
@@ -157,7 +157,7 @@ $status | string | Could be 'pending', etc.
 $CommentClass | string | What class to use when returning Comment objects. As you become a Timber pro, you might find yourself extending TimberComment for your site or app (obviously, totally optional)
 
 ###### Twig
-```handlebars
+```twig
 	{# single.twig #}
 	<h4>Comments:</h4>
 	{% for comment in post.comments %}
@@ -180,7 +180,7 @@ Name | Type | Description
 $page | int | 
 
 ###### Twig
-```handlebars
+```twig
 	<div class="article">
 	    <h2>{{post.title}}</h2>
 	    <div class="content">{{ post.content }}</div>
@@ -199,7 +199,7 @@ Name | Type | Description
 $date_format | string | 
 
 ###### Twig
-```handlebars
+```twig
 	Published on {{ post.date }} // Uses WP's formatting set in Admin
 	OR
 	Published on {{ post.date | date('F jS') }} // Jan 12th
@@ -245,28 +245,13 @@ $len | int |
 $page | int | 
 
 ###### Twig
-```handlebars
+```twig
 	<div class="article-text">{{post.get_content}}</div>
 ```
 ###### HTML
 ```html
 	<div class="article-text"><p>Blah blah blah</p><p>More blah blah blah.</p></div>
 ```
-
-## <strike>get_display_date</strike>
-_**DEPRECATED** since 0.20.0_
-
-`get_display_date( string $use="post_date" )`
-
-**returns:** `string` 
-
-Get the human-friendly date that should actually display in a .twig template
-
-Name | Type | Description
----- | ---- | -----------
-$use | string | 
-
-
 
 ## get_field
 `get_field( string $field_name )`
@@ -321,7 +306,7 @@ Get a data array of pagination so you can navigate to the previous/next for a pa
 Here is my summary
 
 ###### Twig
-```handlebars
+```twig
 	This post is from <span>{{ post.get_post_type.labels.plural }}</span>
 ```
 ###### HTML
@@ -330,7 +315,7 @@ Here is my summary
 ```
 
 ## get_preview
-`get_preview( mixed/int $len=50, bool $force=false, string $readmore="Read More", bool $strip=true )`
+`get_preview( mixed/int $len=50, bool $force=false, string $readmore="Read More", bool $strip=true, string $end="&hellip;" )`
 
 **returns:** `string` of the post preview
 
@@ -342,9 +327,10 @@ $len | mixed/int | The number of words that WP should use to make the tease. (Is
 $force | bool | What happens if your custom post excerpt is longer then the length requested? By default (`$force = false`) it will use the full `post_excerpt`. However, you can set this to true to *force* your excerpt to be of the desired length
 $readmore | string | The text you want to use on the 'readmore' link
 $strip | bool | Strip tags? yes or no. tell me!
+$end | string | The text to end the preview with (defaults to ...)
 
 ###### Twig
-```handlebars
+```twig
 	<p>{{post.get_preview(50)}}</p>
 ```
 
@@ -379,7 +365,7 @@ $field_name | string |
 get the permalink for a post object
 
 ###### Twig
-```handlebars
+```twig
 	<a href="{{post.link}}">Read my post</a>
 ```
 
@@ -402,7 +388,7 @@ $field_name | mixed/string |
 Get the author (WordPress user) who last modified the post
 
 ###### Twig
-```handlebars
+```twig
 	Last updated by {{ post.modified_author.name }}
 ```
 ###### HTML
@@ -472,7 +458,7 @@ $in_same_cat | bool |
 Gets the parent (if one exists) from a post as a TimberPost object (or whatever is set in TimberPost::$PostClass)
 
 ###### Twig
-```handlebars
+```twig
 	Parent page: <a href="{{ post.parent.link }}">{{ post.parent.title }}</a>
 ```
 
@@ -484,12 +470,12 @@ Gets the parent (if one exists) from a post as a TimberPost object (or whatever 
 Gets the relative path of a WP Post, so while link() will return http://example.org/2015/07/my-cool-post this will return just /2015/07/my-cool-post
 
 ###### Twig
-```handlebars
+```twig
 	<a href="{{post.path}}">{{post.title}}</a>
 ```
 
 ## <strike>permalink</strike>
-_**DEPRECATED** 0.20.0 use link() instead_
+**DEPRECATED** 0.20.0 use link() instead
 
 `permalink( )`
 
@@ -509,7 +495,7 @@ Name | Type | Description
 $in_same_cat | bool | 
 
 ###### Twig
-```handlebars
+```twig
 	<h4>Prior Entry:</h4>
 	<h3>{{post.prev.title}}</h3>
 	<p>{{post.prev.get_preview(25)}}</p>
@@ -546,7 +532,7 @@ $merge | bool | Should the resulting array be one big one (true)? Or should it b
 get the featured image as a TimberImage
 
 ###### Twig
-```handlebars
+```twig
 	<img src="{{post.thumbnail.src}}" />
 ```
 
@@ -562,7 +548,7 @@ Name | Type | Description
 $time_format | string | 
 
 ###### Twig
-```handlebars
+```twig
 	Published at {{ post.time }} // Uses WP's formatting set in Admin
 	OR
 	Published at {{ post.time | time('G:i') }} // 13:25
@@ -582,7 +568,7 @@ $time_format | string |
 Returns the processed title to be used in templates. This returns the title of the post after WP's filters have run. This is analogous to `the_title()` in standard WP template tags.
 
 ###### Twig
-```handlebars
+```twig
 	<h1>{{ post.title }}</h1>
 ```
 
@@ -628,7 +614,7 @@ Timber::render('single.twig', $context);
 ?>
 ```
 ###### Twig
-```handlebars
+```twig
 {# single.twig #}
 <article>
     <h1 class="headline">{{post.title}}</h1>

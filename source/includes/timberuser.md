@@ -10,7 +10,7 @@ $context['post'] = new TimberPost();
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <p class="current-user-info">Your name is {{ current_user.name }}</p>
 <p class="article-info">This article is called "{{ post.title }}" and it's by {{ post.author.name }}
 ```
@@ -48,7 +48,7 @@ $uid | bool/int/bool |
 **returns:** `string` a fallback for TimberUser::name()
 
 ###### Twig
-```handlebars
+```twig
 	This post is by {{ post.author }}
 ```
 ###### HTML
@@ -64,7 +64,7 @@ $uid | bool/int/bool |
 
 
 ## <strike>get_link</strike>
-_**DEPRECATED** 0.21.9_
+**DEPRECATED** 0.21.9
 
 `get_link( )`
 
@@ -84,7 +84,7 @@ $field_name | string |
 
 
 ## <strike>get_path</strike>
-_**DEPRECATED** 0.21.8_
+**DEPRECATED** 0.21.8
 
 `get_path( )`
 
@@ -93,7 +93,7 @@ _**DEPRECATED** 0.21.8_
 
 
 ## <strike>get_permalink</strike>
-_**DEPRECATED** 0.21.8_
+**DEPRECATED** 0.21.8
 
 `get_permalink( )`
 
@@ -134,7 +134,7 @@ $field_name | string |
 
 
 ## <strike>permalink</strike>
-_**DEPRECATED** 0.21.8_
+**DEPRECATED** 0.21.8
 
 `permalink( )`
 
@@ -163,7 +163,7 @@ $context['post'] = new TimberPost();
 Timber::render('single.twig', $context);
 ```
 ###### Twig
-```handlebars
+```twig
 <p class="current-user-info">Your name is {{ current_user.name }}</p>
 <p class="article-info">This article is called "{{ post.title }}" and it's by {{ post.author.name }}
 ```
